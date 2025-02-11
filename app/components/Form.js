@@ -45,41 +45,45 @@ const RightForm = () => {
     }
   };
 
-const handleSubmit = async () => {
-  if (!validateForm()) return;
-
-  setLoading(true);
-  setSuccessMessage("");
-  setErrorMessage("");
-
-  try {
-    const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", {
-      name: formData.name,
-      number: formData.phoneNumber, // Match API schema
-      type: "Construction", // Default type, modify as needed
-      area: formData.area || "", // Get from form if added
-      budget: formData.budget || "", // Get from form if added
-      city: formData.plotLocation, // Assuming 'plotLocation' is the city
-      country: "India", // Default country
-    }, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.status === 200 || response.status === 201) {
-      setSuccessMessage("Your estimate request has been submitted successfully!");
-      setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" }); // Reset form
+  const handleSubmit = async () => {
+    if (!validateForm()) return;
+  
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+  
+    try {
+      const payload = {
+        name: formData.name || "Unknown",  // Default name
+        number: formData.phoneNumber || "",  // 10-digit number
+        type: "Construction",  // Default value
+        area: formData.area || "unknown",
+        budget: formData.budget || "Not specified",
+        city: formData.plotLocation || "Not provided",
+        country: "India",
+        state: "",   // Add if required
+        priority: "Medium",
+        status: "Active",
+      };
+  
+      console.log("📤 Sending Payload:", payload); // Debug before sending
+  
+      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", payload, {
+        headers: { "Content-Type": "application/json" },
+      });
+  
+      if (response.status === 200 || response.status === 201) {
+        setSuccessMessage("Your estimate request has been submitted successfully!");
+        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" }); // Reset form
+      }
+    } catch (error) {
+      console.error("🔥 API Error:", error.response?.data || error.message); // Log full error
+      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    setErrorMessage(
-      error.response?.data?.error || "Something went wrong. Please try again."
-    );
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
+  
   
 
   return (
