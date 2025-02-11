@@ -25,7 +25,7 @@ const GetInTouch = () => {
           <div>
             <SectionSubHeading className="font-bold">Still have questions?</SectionSubHeading>
             <SectionSubHeading className="text-slate-400">
-              Can not find the answer you are looking for? Please chat with our friendly team.
+              Can not find the answer you are looking for? Please connect with our friendly team.
             </SectionSubHeading>
           </div>
         </div>
