@@ -55,7 +55,11 @@ const RightForm = () => {
     try {
       const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", {
         name: formData.name,
-        number: formData.phoneNumber, // Ensure this matches the API schema
+        number: formData.phoneNumber, // Match API schema
+        type: "Construction", // Default type, modify as needed
+        area: formData.area || "NA", // Get from form if added
+        city: formData.plotLocation, // Assuming 'plotLocation' is the city
+        country: "India", // Default country
       }, {
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +68,7 @@ const RightForm = () => {
   
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage("Your estimate request has been submitted successfully!");
-        setFormData({ name: "", phoneNumber: "" }); // Reset form
+        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" }); // Reset form
       }
     } catch (error) {
       setErrorMessage(
@@ -74,6 +78,7 @@ const RightForm = () => {
       setLoading(false);
     }
   };
+  
   
 
   return (
