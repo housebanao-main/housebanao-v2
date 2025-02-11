@@ -53,7 +53,7 @@ const RightForm = () => {
     setErrorMessage("");
   
     try {
-      const response = await axios.post("https://crm.gomaterial.in/api/queries", {
+      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", {
         name: formData.name,
         number: formData.phoneNumber, // Ensure this matches the API schema
       }, {
