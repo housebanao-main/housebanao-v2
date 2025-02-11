@@ -47,16 +47,24 @@ const RightForm = () => {
 
   const handleSubmit = async () => {
     if (!validateForm()) return;
-
+  
     setLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
-
+  
     try {
-      const response = await axios.post("/api/send-email", formData);
-      if (response.status === 200) {
+      const response = await axios.post("https://crm.gomaterial.in/api/queries", {
+        name: formData.name,
+        number: formData.phoneNumber, // Ensure this matches the API schema
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.status === 200 || response.status === 201) {
         setSuccessMessage("Your estimate request has been submitted successfully!");
-        setFormData({ name: "", phoneNumber: "", plotLocation: "" }); // Reset form
+        setFormData({ name: "", phoneNumber: "" }); // Reset form
       }
     } catch (error) {
       setErrorMessage(
@@ -66,6 +74,7 @@ const RightForm = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="basis-full md:basis-1/2 flex flex-col items-center justify-center  mb-8  ">
