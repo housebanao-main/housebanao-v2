@@ -30,7 +30,7 @@ const roomImages = {
   },
   Bedroom: {
     top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bedroom/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Bedroom/${i + 6}.png`),
+    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/bedroom/${i + 6}.png`),
   },
   Bathroom: {
     top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bathroom/${i + 1}.png`),
@@ -42,7 +42,7 @@ const roomImages = {
   },
   "Living Room": {
     top: Array.from({ length: 5 }, (_, i) => `/inspiration/Living-Room/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Living-Room/${i + 6}.png`),
+    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/living-Room/${i + 6}.png`),
   },
 };
 
@@ -69,7 +69,7 @@ function Menu({ selectedRoom, setSelectedRoom }) {
   return (
     <Wrapper className="py-10 w-full lg:w-[90%] mx-auto">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">Inspiration for Home Interior Designs</h1>
+        <h1 className="text-4xl font-bold">Inspiration for Home Interior Designs & More</h1>
         <p className="text-lg w-[70%] mx-auto text-[#767676]">
           Refresh your home with curated interior design ideas tailored to your style.
         </p>
