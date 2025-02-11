@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { IoMdContact } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md"; // Location icon
+import { AiOutlineCheckCircle } from "react-icons/ai"; // Success icon
 import axios from "axios"; // Install axios using `npm install axios`
 
 const RightForm = () => {
@@ -13,6 +14,7 @@ const RightForm = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false); // Control modal visibility
 
   const validateForm = () => {
     const nameRegex = /^[a-zA-Z\s]{3,}$/; // Only alphabets and spaces, at least 3 characters
@@ -67,7 +69,7 @@ const RightForm = () => {
       });
   
       if (response.status === 200 || response.status === 201) {
-        setSuccessMessage("Your estimate request has been submitted successfully!");
+        setShowModal(true); // Show success modal
         setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" }); // Reset form
       }
     } catch (error) {
@@ -78,26 +80,18 @@ const RightForm = () => {
       setLoading(false);
     }
   };
-  
-  
 
   return (
-    <div className="basis-full md:basis-1/2 flex flex-col items-center justify-center  mb-8  ">
+    <div className="basis-full md:basis-1/2 flex flex-col items-center justify-center mb-8">
       <div
         id="container"
-        className=" mx-auto pb-[3vw] pt-[2vw] space-y-6 backdrop-blur-none bg-transparent bg-opacity-20 rounded-b-full overflow-hidden "
-        style={{
-          // backgroundImage:
-          //   "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0))",
-          // backgroundBlendMode: "overlay",
-        }}
+        className="mx-auto pb-[3vw] pt-[2vw] space-y-6 bg-transparent bg-opacity-20 rounded-b-full overflow-hidden"
       >
         <div className="flex max-w-2xl flex-col items-center justify-center gap-6 p-2">
-          <h1 className="text-center lg:mt-24
-            text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
+          <h1 className="text-center lg:mt-24 text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
             Get your cost estimate for free
           </h1>
-          <div className=" sm:w-[80%] space-y-4">
+          <div className="sm:w-[80%] space-y-4">
             {[{
                 name: "name",
                 placeholder: "Name",
@@ -141,7 +135,7 @@ const RightForm = () => {
               </div>
             ))}
           </div>
-          <div className="w-full flex flex-col items-center gap-4 ">
+          <div className="w-full flex flex-col items-center gap-4">
             <button
               onClick={handleSubmit}
               disabled={loading}
@@ -159,13 +153,29 @@ const RightForm = () => {
               Chat with WhatsApp
             </a>
           </div>
-          {successMessage && <p className="text-green-500 text-sm">{successMessage}</p>}
           {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
-          <p className="w-[50%] sm:w-[60%] text-center mx-auto relative text-[12px] sm:text-sm text-white opacity-80">
+          <p className="w-[50%] sm:w-[60%] text-center mx-auto text-[12px] sm:text-sm text-white opacity-80">
             By submitting this form, you agree to the privacy policy and terms of use.
           </p>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center w-[80%] sm:w-[400px]">
+            <AiOutlineCheckCircle className="text-green-500 text-5xl mx-auto mb-3" />
+            <h2 className="text-xl font-semibold">Submission Successful!</h2>
+            <p className="text-gray-600">Our team will connect with you soon.</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
