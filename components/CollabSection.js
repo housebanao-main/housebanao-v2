@@ -11,7 +11,6 @@ export const CollabsSection = () => {
   const icons = [
     "/images/bosch.svg",
     "/images/asianpaints.svg",
-    "/images/siemens.svg",
     "/images/hettich.svg",
     "/images/dorset.svg",
     "/images/dewalt.svg",

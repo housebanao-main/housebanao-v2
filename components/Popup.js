@@ -1,4 +1,3 @@
-// Popup Component
 'use client';
 import React, { useEffect, useState } from "react";
 import { usePopup } from "../context/PopupContext";
@@ -7,37 +6,39 @@ import { MdLocationOn } from "react-icons/md";
 import axios from "axios";
 
 const Popup = () => {
-  
   const { isPopupVisible, closePopup } = usePopup();
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
     plotLocation: "",
+    area: "",
+    budget: "",
   });
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const validateForm = () => {
-    const nameRegex = /^[a-zA-Z\s]{3,}$/; // At least 3 characters, only alphabets and spaces
-    const phoneRegex = /^[0-9]{10}$/; // Exactly 10 digits
-    const locationRegex = /^[a-zA-Z0-9\s,.-]+$/; // Valid address characters
+    const nameRegex = /^[a-zA-Z\s]{3,}$/;
+    const phoneRegex = /^[0-9]{10}$/;
+    const locationRegex = /^[a-zA-Z0-9\s,.-]+$/;
 
     if (!nameRegex.test(formData.name)) {
-      alert("Name must contain only alphabets and spaces (at least 3 characters).");
+      setErrorMessage("Name must contain only alphabets and spaces (at least 3 characters).");
       return false;
     }
 
     if (!phoneRegex.test(formData.phoneNumber)) {
-      alert("Phone number must be exactly 10 digits.");
+      setErrorMessage("Phone number must be exactly 10 digits.");
       return false;
     }
 
     if (!locationRegex.test(formData.plotLocation)) {
-      alert("Plot location contains invalid characters.");
+      setErrorMessage("Plot location contains invalid characters.");
       return false;
     }
 
+    setErrorMessage("");
     return true;
   };
 
@@ -52,30 +53,42 @@ const Popup = () => {
     if (!validateForm()) return;
 
     setLoading(true);
-    setErrorMessage("");
     setSuccessMessage("");
+    setErrorMessage("");
+
+    const payload = {
+      name: formData.name || "Unknown",
+      number: formData.phoneNumber || "",
+      type: "Construction",
+      area: formData.area || "unknown",
+      budget: formData.budget || "Not specified",
+      city: formData.plotLocation || "Not provided",
+      country: "India",
+      state: "",
+      priority: "Medium",
+      status: "Active",
+    };
 
     try {
-      const response = await axios.post("/api/send-email", formData);
-      if (response.status === 200) {
+      console.log("📤 Sending Payload:", payload);
+      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", payload, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.status === 200 || response.status === 201) {
         setSuccessMessage("Your estimate request has been submitted successfully!");
-        setFormData({ name: "", phoneNumber: "", plotLocation: "" }); // Reset form
+        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
       }
     } catch (error) {
-      setErrorMessage(
-        error.response?.data?.error || "Something went wrong. Please try again."
-      );
+      console.error("🔥 API Error:", error.response?.data || error.message);
+      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (isPopupVisible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = isPopupVisible ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -99,45 +112,20 @@ const Popup = () => {
         </h1>
 
         <div className="w-full space-y-4">
-          {[{
-              name: "name",
-              placeholder: "Name",
-              value: formData.name,
-              type: "text",
-              icon: <IoMdContact />,
-            },
-            {
-              name: "phoneNumber",
-              placeholder: "Phone number",
-              value: formData.phoneNumber,
-              type: "tel",
-              icon: (
-                <img
-                  src="/service/flag.png"
-                  alt="India Flag"
-                  className="w-6 h-4 object-cover rounded"
-                />
-              ),
-              onChange: handlePhoneNumberChange,
-            },
-            {
-              name: "plotLocation",
-              placeholder: "Plot location",
-              value: formData.plotLocation,
-              type: "text",
-              icon: <MdLocationOn />,
-            },
+          {[
+            { name: "name", placeholder: "Name", value: formData.name, type: "text", icon: <IoMdContact /> },
+            { name: "phoneNumber", placeholder: "Phone number", value: formData.phoneNumber, type: "tel", icon: <img src="/service/flag.png" alt="India Flag" className="w-6 h-4 object-cover rounded" />, onChange: handlePhoneNumberChange },
+            { name: "plotLocation", placeholder: "Plot location", value: formData.plotLocation, type: "text", icon: <MdLocationOn /> },
           ].map((field, index) => (
             <div key={index} className="border border-gray-300 rounded-full flex items-center p-3">
               <span className="pl-3">{field.icon}</span>
               <input
-                name={field.name} // Use name to identify the field
+                name={field.name}
                 className="bg-transparent w-full placeholder-gray-500 px-4 outline-none text-gray-700"
                 placeholder={field.placeholder}
                 type={field.type}
                 value={field.value}
-                onChange={field.onChange || ((e) =>
-                  setFormData({ ...formData, [e.target.name]: e.target.value }))} // Use name to update
+                onChange={field.onChange || ((e) => setFormData({ ...formData, [e.target.name]: e.target.value }))}
               />
             </div>
           ))}
@@ -157,21 +145,13 @@ const Popup = () => {
             rel="noopener noreferrer"
             className="bg-green-500 text-white w-full py-3 flex items-center justify-center rounded-md shadow-lg hover:opacity-90 transition gap-2"
           >
-            <img
-              src="/service/whatsapp-logo.png"
-              alt="WhatsApp Logo"
-              className="w-5 h-5"
-            />
+            <img src="/service/whatsapp-logo.png" alt="WhatsApp Logo" className="w-5 h-5" />
             Chat on WhatsApp
           </a>
         </div>
 
-        {successMessage && (
-          <p className="text-green-500 text-sm text-center">{successMessage}</p>
-        )}
-        {errorMessage && (
-          <p className="text-red-500 text-sm text-center">{errorMessage}</p>
-        )}
+        {successMessage && <p className="text-green-500 text-sm text-center">{successMessage}</p>}
+        {errorMessage && <p className="text-red-500 text-sm text-center">{errorMessage}</p>}
 
         <p className="w-full text-center text-sm text-gray-600 mt-4">
           By submitting this form, you agree to the privacy policy and terms of use.

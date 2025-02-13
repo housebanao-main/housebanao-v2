@@ -5,6 +5,7 @@ import {
   faLinkedinIn,
   faYoutube,
   faPinterestP,
+  faSquareTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -105,17 +106,16 @@ const Footer = () => {
 };
 
 const siteMapMenus = [
-  { name: "Services", link: "/service" },
-  { name: "Quick Services", link: "/ourprojects" },
-  { name: "Why Us?", link: "/howitwork" },
-  { name: "Contact Us", link: "/contactus" },
+  { name: "Services", link: "/services" },
+  { name: "Projects", link: "/projects" },
+  { name: "How it works", link: "/howitworks" },
   { name: "About Us", link: "/aboutus" },
+  { name: "Blog", link: "/blog" },
 ];
 
 const informationMenus = [
   { name: "Terms & Conditions", link: "/terms" },
   { name: "Privacy Policy", link: "/privacy" },
-  { name: "FAQs", link: "/faqss" },
 ];
 
 const socialIcons = [
@@ -127,6 +127,7 @@ const socialIcons = [
   { icon: faLinkedinIn, url: "https://www.linkedin.com/company/housebanao2/" },
   { icon: faYoutube, url: "https://www.youtube.com/@HouseBanaoo" },
   { icon: faPinterestP, url: "https://in.pinterest.com/house_banao/" },
+  { icon: faSquareTwitter, url: "https://x.com/HouseBanao" },
 ];
 
 export default Footer;
