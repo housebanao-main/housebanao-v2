@@ -8,11 +8,9 @@ export default function HowItStarted() {
     <Wrapper className={"w-full lg:w-[90%] mx-auto"}>
       <SectionHeading className={"font-bold mb-8"}>How It All Started</SectionHeading>
       <ParaText className={"text-[#575757]"}>
-        Ms. Muktai Joshi envisioned an elegant, nature-themed, modern house for her remote plot near Electronic City. 
-        Team House Banao has kept the project on schedule, blending sleek design with natural elements. 
-        The landscape, covering 75% of the plot, features mature trees, native plants, and a tranquil pond, enhancing the serene atmosphere. 
-        The house uses eco-friendly materials, solar panels, and rainwater harvesting. Interior spaces are bright and airy, with earthy tones and organic textures. 
-        Outdoor areas, including a deck and fire pit, provide perfect spots for relaxation and entertainment.
+      Rajesh Verma is a business man who planned to build a house. House Banao Home Construction Company informed them about the stages of building a house in a reasonable budget and started them planning a house with a 3D design in which House Banao Home Construction Company provided the complete house right from the design, material, foundation and finishing. Got this house ready and completed it step by step. Site preparation
+Laying the foundation, Framing the walls and roof, Roofing,exterior finishing, Adding doors and windows,
+Interior finishing, etc.
       </ParaText>
 
       <SectionHeading className={"font-bold mt-12 mb-6"}>View Our Projects:- A Step Towards Ultimate Home Design and Construction With House Banao</SectionHeading>

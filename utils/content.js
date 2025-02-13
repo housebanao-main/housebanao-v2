@@ -74,7 +74,7 @@ export const steps = [
     number: 1,
     title: "Raise a request",
     description:
-      "Raise a house construction service request or call us at +91 99xxxxxxx. Our team will get in touch with you to understand your requirements in more detail.",
+      "Raise a house construction service request or call us at +91 9810432124. Our team will get in touch with you to understand your requirements in more detail.",
     additionalInfo: "They will arrange the meeting with our technical expert.",
   },
   {

@@ -79,10 +79,10 @@ export default function Home() {
               <div className=" sm:flex space-y-4 sm:space-y-0 items-center gap-4">
                 <ParaText>Popular : </ParaText>
                 <div className="flex items-center justify-center  mx-auto md:mx-0 gap-4">
-                  <BlueButton className={"!text-base !font-normal !min-w-32"}>
+                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
                     Interior Design
                   </BlueButton>
-                  <BlueButton className={"!text-base !font-normal !min-w-32"}>
+                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
                     End to End Construction
                   </BlueButton>
                 </div>

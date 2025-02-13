@@ -15,12 +15,12 @@ export default function CustomerSays() {
 </div>
 <div className='flex flex-col gap-4'>
     <ParaText className={"grow flex items-center justify-center"}>
-    Worked with Team House Banao on my home near Electronic City, and they exceeded my expectations. They stayed on schedule and beautifully integrated modern design with nature. The lush landscape, covering 75% of the plot, includes mature trees and a serene pond, creating a tranquil atmosphere.<br/>
-The house uses eco-friendly materials and sustainable technologies. The interior design, with ample natural light and earthy tones, seamlessly connects with the outdoors. Outdoor spaces like the deck and fire pit are perfect for relaxation.<br/>
-I highly recommend Team House Banao for their professionalism, craftsmanship, and dedication to creating a harmonious living space.
+    I, Priya Sharma, chose “House Banao” Home Construction Company to build my dream house. Their professional team got my house built on time and within my budget with complete transparency and quality from pre-construction to post-construction.
+    Pre-construction: Initially a clear plan was made keeping in mind all my needs and budget
+    Construction Phase: Complete transparency and quality was maintained in the work. Post-construction: Information related to all the facilities and maintenance of the house was given.
     </ParaText>
     <div>
-        <ParaText className={"text-[#3D6EA6] pb-4"}>-Mr. Sajal Gupta</ParaText>
+        <ParaText className={"text-[#3D6EA6] pb-4"}>-Mrs. Priya Sharma</ParaText>
     </div>
     </div>
 </div>
