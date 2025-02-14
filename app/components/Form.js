@@ -57,8 +57,8 @@ const RightForm = () => {
         name: formData.name || "Unknown",  // Default name
         number: formData.phoneNumber || "",  // 10-digit number
         type: "Construction",  // Default value
-        area: formData.area || "unknown",
-        budget: formData.budget || "Not specified",
+        area: formData.area || "",
+        budget: formData.budget || "",
         city: formData.plotLocation || "Not provided",
         country: "India",
         state: "",   // Add if required
@@ -102,7 +102,7 @@ const RightForm = () => {
             text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
             Get your cost estimate for free
           </h1>
-          <div className=" sm:w-[80%] space-y-4">
+          <div className=" w-full sm:w-[80%] space-y-4">
             {[{
                 name: "name",
                 placeholder: "Name",
