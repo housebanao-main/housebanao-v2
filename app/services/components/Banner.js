@@ -1,13 +1,20 @@
+"use client";
+
 import React from "react";
 import Bg from "@/public/background/serviceBannerBg.svg";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import LargeHeading from "@/components/Headings/LargeHeading";
 import Wrapper from "@/components/Wrapper";
 import BlueButton from "@/components/Buttons/BlueButton";
+import { usePopup } from '@/context/PopupContext';
 import Image from "next/image";
 import { IMG_PLACEHOLDER } from "@/utils/content";
 import HomeService from "@/public/service/ServicesHome.png";
 const ServiceBanner = () => {
+
+  const { openPopup } = usePopup(); // Get openPopup function from context
+
+
   return (
     <div
       style={{
@@ -26,7 +33,7 @@ const ServiceBanner = () => {
           >
             Construct your Dream Home with us.
           </LargeHeading>
-          <BlueButton className={"text-white translate"}>
+          <BlueButton onClick={openPopup} className={"text-white translate"}>
             Start your Home construction{" "}
           </BlueButton>
         </div>

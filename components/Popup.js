@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import { usePopup } from "../context/PopupContext";
 import { IoMdContact } from "react-icons/io";
@@ -24,7 +24,9 @@ const Popup = () => {
     const locationRegex = /^[a-zA-Z0-9\s,.-]+$/;
 
     if (!nameRegex.test(formData.name)) {
-      setErrorMessage("Name must contain only alphabets and spaces (at least 3 characters).");
+      setErrorMessage(
+        "Name must contain only alphabets and spaces (at least 3 characters)."
+      );
       return false;
     }
 
@@ -60,28 +62,40 @@ const Popup = () => {
       name: formData.name || "Unknown",
       number: formData.phoneNumber || "",
       type: "Construction",
-      area: formData.area || "unknown",
-      budget: formData.budget || "Not specified",
+      area: formData.area || "",
+      budget: formData.budget || "",
       city: formData.plotLocation || "Not provided",
       country: "India",
       state: "",
-      priority: "Medium",
-      status: "Active",
     };
 
     try {
       console.log("📤 Sending Payload:", payload);
-      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", payload, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        "https://uat-crm.gomaterial.in/api/queries",
+        payload,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       if (response.status === 200 || response.status === 201) {
-        setSuccessMessage("Your estimate request has been submitted successfully!");
-        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
+        setSuccessMessage(
+          "Your estimate request has been submitted successfully!"
+        );
+        setFormData({
+          name: "",
+          phoneNumber: "",
+          plotLocation: "",
+          area: "",
+          budget: "",
+        });
       }
     } catch (error) {
       console.error("🔥 API Error:", error.response?.data || error.message);
-      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
+      setErrorMessage(
+        error.response?.data?.error || "Something went wrong. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -113,11 +127,39 @@ const Popup = () => {
 
         <div className="w-full space-y-4">
           {[
-            { name: "name", placeholder: "Name", value: formData.name, type: "text", icon: <IoMdContact /> },
-            { name: "phoneNumber", placeholder: "Phone number", value: formData.phoneNumber, type: "tel", icon: <img src="/service/flag.png" alt="India Flag" className="w-6 h-4 object-cover rounded" />, onChange: handlePhoneNumberChange },
-            { name: "plotLocation", placeholder: "Plot location", value: formData.plotLocation, type: "text", icon: <MdLocationOn /> },
+            {
+              name: "name",
+              placeholder: "Name",
+              value: formData.name,
+              type: "text",
+              icon: <IoMdContact />,
+            },
+            {
+              name: "phoneNumber",
+              placeholder: "Phone number",
+              value: formData.phoneNumber,
+              type: "tel",
+              icon: (
+                <img
+                  src="/service/flag.png"
+                  alt="India Flag"
+                  className="w-6 h-4 object-cover rounded"
+                />
+              ),
+              onChange: handlePhoneNumberChange,
+            },
+            {
+              name: "plotLocation",
+              placeholder: "Plot location",
+              value: formData.plotLocation,
+              type: "text",
+              icon: <MdLocationOn />,
+            },
           ].map((field, index) => (
-            <div key={index} className="border border-gray-300 rounded-full flex items-center p-3">
+            <div
+              key={index}
+              className="border border-gray-300 rounded-full flex items-center p-3"
+            >
               <span className="pl-3">{field.icon}</span>
               <input
                 name={field.name}
@@ -125,7 +167,14 @@ const Popup = () => {
                 placeholder={field.placeholder}
                 type={field.type}
                 value={field.value}
-                onChange={field.onChange || ((e) => setFormData({ ...formData, [e.target.name]: e.target.value }))}
+                onChange={
+                  field.onChange ||
+                  ((e) =>
+                    setFormData({
+                      ...formData,
+                      [e.target.name]: e.target.value,
+                    }))
+                }
               />
             </div>
           ))}
@@ -145,16 +194,25 @@ const Popup = () => {
             rel="noopener noreferrer"
             className="bg-green-500 text-white w-full py-3 flex items-center justify-center rounded-md shadow-lg hover:opacity-90 transition gap-2"
           >
-            <img src="/service/whatsapp-logo.png" alt="WhatsApp Logo" className="w-5 h-5" />
+            <img
+              src="/service/whatsapp-logo.png"
+              alt="WhatsApp Logo"
+              className="w-5 h-5"
+            />
             Chat on WhatsApp
           </a>
         </div>
 
-        {successMessage && <p className="text-green-500 text-sm text-center">{successMessage}</p>}
-        {errorMessage && <p className="text-red-500 text-sm text-center">{errorMessage}</p>}
+        {successMessage && (
+          <p className="text-green-500 text-sm text-center">{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p className="text-red-500 text-sm text-center">{errorMessage}</p>
+        )}
 
         <p className="w-full text-center text-sm text-gray-600 mt-4">
-          By submitting this form, you agree to the privacy policy and terms of use.
+          By submitting this form, you agree to the privacy policy and terms of
+          use.
         </p>
       </div>
     </div>
