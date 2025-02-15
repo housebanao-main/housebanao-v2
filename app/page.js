@@ -17,9 +17,7 @@ import Inspiration from "./components/Inspiration";
 import WhyUs from "./components/WhyUs";
 import Construction from "./components/Construction";
 
-
 export default function IndexPage() {
-
   return (
     <div className="bg-gray-50 w-full overflow-x-hidden ">
       {/* Navbar for Home Page */}
@@ -27,23 +25,21 @@ export default function IndexPage() {
 
       {/* Sections */}
       {/* <section id="home"> */}
-        <Home />
+      <Home />
       {/* </section> */}
       {/* <div className="-translate-y-[9vh]"> */}
 
-      <Services/>
-      <Inspiration/>
-      <WhyUs/>
-      <Construction/>
-      <ViewProjects/>
-      <CustomerReviews/>
-      <Faqs/>
-      <GetInTouch/>
+      <Services />
+      <Inspiration />
+      <WhyUs />
+      <Construction />
+      <ViewProjects />
+      <CustomerReviews />
+      <Faqs />
+      <GetInTouch />
       <CollabsSection />
       <Footer />
       {/* </div> */}
-
-     
     </div>
   );
 }

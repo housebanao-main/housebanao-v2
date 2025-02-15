@@ -44,13 +44,11 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
           {/* Content */}
-          <Wrapper
-            className="relative z-10 w-full lg:w-[90%] m-auto space-y-8 lg:space-y-0 lg:flex justify-between items-center pt-12 sm:pt-24 md:pt-0 pb-[14vh]"
-          >
+          <Wrapper className="relative z-10 w-full lg:w-[90%] m-auto space-y-8 lg:space-y-0 lg:flex justify-between items-center pt-12 sm:pt-24 md:pt-0 pb-[14vh]">
             {/* Left Section: Hero Heading, Paragraph, and Feature Boxes */}
             <div className="flex flex-col w-full lg:w-1/2 text-left lg:pt-24 ">
               {/* Hero Heading */}
-              <div className="max-w-lg mb-8 ">
+              <div className="max-w-lg mb-8 mt-96 md:mt-0">
                 <h1 className="text-5xl font-extrabold leading-tight mb-4">
                   <span className="text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-7xl">
                     Build
@@ -79,10 +77,18 @@ export default function Home() {
               <div className=" sm:flex space-y-4 sm:space-y-0 items-center gap-4">
                 <ParaText>Popular : </ParaText>
                 <div className="flex items-center justify-center  mx-auto md:mx-0 gap-4">
-                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
+                  <BlueButton
+                    className={
+                      "!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"
+                    }
+                  >
                     Interior Design
                   </BlueButton>
-                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
+                  <BlueButton
+                    className={
+                      "!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"
+                    }
+                  >
                     End to End Construction
                   </BlueButton>
                 </div>
@@ -90,9 +96,11 @@ export default function Home() {
             </div>
 
             {/* Right Section: Form positioned above the background image */}
-            <div className="">
-              <Form />
-            </div>
+            {!isMobile && (
+              <div className="">
+                <Form />
+              </div>
+            )}
           </Wrapper>
         </section>
       </div>
@@ -116,7 +124,7 @@ function Card() {
     {
       title: "Professional Expertise",
       icon: IoShieldCheckmarkSharp,
-      desc: "At House Banao We offer professional Expertise in Home Construction service, home interior service, and office interiors. Our experienced team of highly qualified architecture, interior designers, an execution team, and a highly professional site engineers and Civil engineers team etc",
+      desc: "At House Banao We offer professional Expertise in Home Construction service, home interior service, and office interiors. Our experienced team of highly qualified architecture, interior designers</span>, an execution team, and a highly professional site engineers and Civil engineers team etc",
     },
     {
       title: "Reliable Services",
