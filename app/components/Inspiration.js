@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Wrapper from "@/components/Wrapper";
 import React, { useState } from "react";
 import { GiBathtub } from "react-icons/gi";
@@ -29,20 +29,44 @@ const roomImages = {
     ],
   },
   Bedroom: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bedroom/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/bedroom/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bedroom/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/bedroom/${i + 6}.png`
+    ),
   },
   Bathroom: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bathroom/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Bathroom/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bathroom/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bathroom/${i + 6}.png`
+    ),
   },
   Kitchen: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Kitchen/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Kitchen/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Kitchen/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Kitchen/${i + 6}.png`
+    ),
   },
   "Living Room": {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Living-Room/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/living-Room/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Living-Room/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/living-Room/${i + 6}.png`
+    ),
   },
 };
 
@@ -69,16 +93,21 @@ function Menu({ selectedRoom, setSelectedRoom }) {
   return (
     <Wrapper className="py-10 w-full lg:w-[90%] mx-auto">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">Inspiration for Home Interior Designs & More</h1>
+        <h1 className="text-4xl font-bold">
+          Inspiration for Home Interior Designs & More
+        </h1>
         <p className="text-lg w-[70%] mx-auto text-[#767676]">
-          Refresh your home with curated interior design ideas tailored to your style.
+          Refresh your home with curated interior design ideas tailored to your
+          style.
         </p>
-        <div className="flex gap-7 mt-10 justify-center">
+        <div className="flex gap-7 mt-10 justify-center overflow-x-auto lg:overflow-visible">
           {rooms.map((room, index) => (
             <div
               key={index}
               className={`py-3 px-6 border rounded-lg flex gap-3 cursor-pointer items-center transition ${
-                selectedRoom === room.name ? "bg-black text-white" : "border-black"
+                selectedRoom === room.name
+                  ? "bg-black text-white"
+                  : "border-black"
               }`}
               onClick={() => setSelectedRoom(room.name)}
             >
@@ -108,13 +137,26 @@ function Carousel({ images }) {
         <Slider {...settings}>
           {images.top.map((image, index) => (
             <div key={index} className="px-2">
-              <Image src={image} width={500} height={300} className="rounded-xl object-cover w-full" alt={`Slide ${index + 1}`} />
+              <Image
+                src={image}
+                width={500}
+                height={300}
+                className="rounded-xl object-cover w-full"
+                alt={`Slide ${index + 1}`}
+              />
             </div>
           ))}
         </Slider>
         <div className="flex justify-between mt-10">
           {images.bottom.map((image, index) => (
-            <Image key={index} className="w-[15%]" src={image} width={200} height={150} alt="service" />
+            <Image
+              key={index}
+              className="w-[15%]"
+              src={image}
+              width={200}
+              height={150}
+              alt="service"
+            />
           ))}
         </div>
       </Wrapper>
@@ -124,13 +166,19 @@ function Carousel({ images }) {
 
 // Custom Navigation Arrows
 const NextArrow = ({ onClick }) => (
-  <div className="absolute cursor-pointer lg:right-0 right-2 top-1/2 -translate-y-1/2 z-40" onClick={onClick}>
+  <div
+    className="absolute cursor-pointer lg:right-0 right-2 top-1/2 -translate-y-1/2 z-40"
+    onClick={onClick}
+  >
     <Icon icon="mi:chevron-right" className="text-4xl text-white/70" />
   </div>
 );
 
 const PrevArrow = ({ onClick }) => (
-  <div className="absolute cursor-pointer lg:left-0 left-2 top-1/2 -translate-y-1/2 z-40" onClick={onClick}>
+  <div
+    className="absolute cursor-pointer lg:left-0 left-2 top-1/2 -translate-y-1/2 z-40"
+    onClick={onClick}
+  >
     <Icon icon="mi:chevron-left" className="text-4xl text-white/70" />
   </div>
 );
