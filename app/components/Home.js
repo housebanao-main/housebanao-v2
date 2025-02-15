@@ -147,7 +147,7 @@ function Card() {
       {data.map((item, index) => (
         <div
           key={index}
-          className="bg-white/70 p-8 rounded-lg cursor-pointer text-xl flex flex-col pb-4 gap-2 w-full"
+          className="bg-white/70 p-6 rounded-lg cursor-pointer text-xl flex flex-col pb-4 gap-2 w-full"
           onClick={() => setShowText(!showText)}
         >
           <item.icon className="text-4xl" />
