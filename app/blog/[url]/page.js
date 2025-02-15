@@ -1,26 +1,32 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlogIMG1 from "@/public/blog/blog1/blog1.png";
-
 import Banner from "./components/Banner";
 import InfoSection from "./components/InfoSection";
+import Blogging1 from "./components/Blogging1";
+import Blogging2 from "./components/Blogging2";
+import Blogging3 from "./components/Blogging3";
+import { useParams } from "next/navigation";
 
 const BlogContent = () => {
-  const searchParams = useSearchParams();
-  const [blogData, setBlogData] = useState(null);
+  const { url } = useParams();
 
-  useEffect(() => {
-    const data = searchParams.get("data");
-    if (data) {
-      setBlogData(JSON.parse(data));
-      console.log(JSON.parse(data));
+  // console.log("url", url);s
+  const renderBlogContent = () => {
+    if (url === "1") {
+      return <Blogging1 />;
+    } else if (url === "2") {
+      return <Blogging2 />;
+    } else if (url === "3") {
+      return <Blogging3 />;
+    } else {
+      return <Blogging1 />;
     }
-  }, [searchParams]);
+  };
 
   return (
     <div className="relative min-h-screen flex flex-col">
@@ -36,7 +42,7 @@ const BlogContent = () => {
         <div className="absolute inset-0 bg-black opacity-25"></div>
         <Banner />
       </div>
-      <InfoSection />
+      {renderBlogContent()}
       <Footer />
     </div>
   );

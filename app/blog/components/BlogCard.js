@@ -2,9 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogCard = ({ title, image, date }) => {
+const BlogCard = ({ id, title, image, date, data }) => {
   // Generate clean slugs for URLs
-
   const generateSlug = (title) => {
     return title
       .toLowerCase()
@@ -13,7 +12,7 @@ const BlogCard = ({ title, image, date }) => {
   };
 
   return (
-    <Link href={`/blog/${generateSlug(title)}`} passHref>
+    <Link href={`/blog/${id}`} passHref>
       <div className="border rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform duration-300">
         <div className="relative w-full h-64">
           <Image src={image} alt={title} layout="fill" objectFit="cover" />
