@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { FaCouch } from "react-icons/fa6";
 
 const roomImages = {
   All: {
@@ -87,7 +88,7 @@ function Menu({ selectedRoom, setSelectedRoom }) {
     { name: "Bedroom", icon: <FaBed /> },
     { name: "Bathroom", icon: <GiBathtub /> },
     { name: "Kitchen", icon: <FaSink /> },
-    { name: "Living Room", icon: <PiArmchair /> },
+    { name: "Living Room", icon: <FaCouch style={{ fontSize: "1.5rem" }} /> }, // Added another icon for Living Room
   ];
 
   return (
@@ -100,7 +101,7 @@ function Menu({ selectedRoom, setSelectedRoom }) {
           Refresh your home with curated interior design ideas tailored to your
           style.
         </p>
-        <div className="flex gap-7 mt-10 justify-center overflow-x-auto lg:overflow-visible">
+        <div className="flex gap-7 mt-10 justify-start overflow-x-auto lg:overflow-visible">
           {rooms.map((room, index) => (
             <div
               key={index}
