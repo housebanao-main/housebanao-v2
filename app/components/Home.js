@@ -44,9 +44,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
           {/* Content */}
-          <Wrapper
-            className="relative z-10 w-full lg:w-[90%] m-auto space-y-8 lg:space-y-0 lg:flex justify-between items-center pt-12 sm:pt-24 md:pt-0 pb-[14vh]"
-          >
+          <Wrapper className="relative z-10 w-full lg:w-[90%] m-auto space-y-8 lg:space-y-0 lg:flex justify-between items-center pt-12 sm:pt-24 md:pt-0 pb-[14vh]">
             {/* Left Section: Hero Heading, Paragraph, and Feature Boxes */}
             <div className="flex flex-col w-full lg:w-1/2 text-left lg:pt-24 ">
               {/* Hero Heading */}
@@ -79,10 +77,18 @@ export default function Home() {
               <div className=" sm:flex space-y-4 sm:space-y-0 items-center gap-4">
                 <ParaText>Popular : </ParaText>
                 <div className="flex items-center justify-center  mx-auto md:mx-0 gap-4">
-                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
+                  <BlueButton
+                    className={
+                      "!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"
+                    }
+                  >
                     Interior Design
                   </BlueButton>
-                  <BlueButton className={"!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"}>
+                  <BlueButton
+                    className={
+                      "!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32"
+                    }
+                  >
                     End to End Construction
                   </BlueButton>
                 </div>
@@ -139,7 +145,7 @@ function Card() {
       {data.map((item, index) => (
         <div
           key={index}
-          className="bg-white/70 p-8 rounded-lg cursor-pointer text-xl flex flex-col pb-4 gap-2 w-full"
+          className="bg-white/70 p-6 rounded-lg cursor-pointer text-xl flex flex-col pb-4 gap-2 w-full"
           onClick={() => setShowText(!showText)}
         >
           <item.icon className="text-4xl" />
