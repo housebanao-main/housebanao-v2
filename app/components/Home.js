@@ -48,7 +48,7 @@ export default function Home() {
             {/* Left Section: Hero Heading, Paragraph, and Feature Boxes */}
             <div className="flex flex-col w-full lg:w-1/2 text-left lg:pt-24 ">
               {/* Hero Heading */}
-              <div className="max-w-lg mb-8 mt-96 md:mt-0">
+              <div className="max-w-lg mb-8 mt-48 md:mt-0">
               <h1 className="text-5xl font-extrabold leading-tight mb-4">
               <span className="text-6xl">Build</span>
               <span className="text-5xl"> Better,</span> <br className="hidden md:block" />
