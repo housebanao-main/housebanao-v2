@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import React from "react";
 import ServiceBanner from "./components/Banner";
@@ -11,15 +12,27 @@ import Footer from "@/components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
 import BookingJourney from "./components/YourJourney";
 
-export const metadata = {
-  title: "Services",
-  description:
-    "HouseBanao is a platform that connects homeowners with professionals to get their home renovation projects done. We provide a wide range of services to cater to all your home renovation needs.",
-};
-
-const Services = () => {
+export default function Services() {
   return (
     <div>
+      {/* Meta Data */}
+      <Head>
+        <title>Home Construction | Home Interior & Office Interior | House Banao</title>
+        <meta 
+          name="description" 
+          content="Check out what House Banao has for your construction & design needs in Gurgaon! Whether its for homes or businesses, our team delivers excellent craftsmanship & unique solutions. Learn how we can bring your dream to life with care and skill!" 
+        />
+        <meta name="keywords" content="home construction, interior design, office interior, renovation, Gurgaon, House Banao, home improvement, remodeling, architecture" />
+        <meta name="author" content="House Banao" />
+        <meta property="og:title" content="Home Construction | Home Interior & Office Interior | House Banao" />
+        <meta property="og:description" content="Explore House Banao's top-tier home and office construction & interior design services in Gurgaon. We bring your vision to life with expertise and dedication." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.housebanao.com/services" />
+        <meta property="og:image" content="https://www.housebanao.com/assets/services-preview.jpg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+      {/* Page Content */}
       <Navbar isWhite={true} />
       <ServiceBanner />
       <ServicesSection />
@@ -33,6 +46,4 @@ const Services = () => {
       <Footer />
     </div>
   );
-};
-
-export default Services;
+}

@@ -13,11 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "House Banao",
-  description: "HouseBanao is a platform that connects homeowners with professionals to get their home renovation projects done. We provide a wide range of services to cater to all your home renovation needs.",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -25,8 +20,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <PopupProvider>
-          <Popup/>
-        {children}
+          <Popup />
+          {children}
         </PopupProvider>
       </body>
     </html>
