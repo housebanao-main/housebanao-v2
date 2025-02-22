@@ -46,7 +46,7 @@ const roomImages = {
 };
 
 function Inspiration() {
-  const [selectedRoom, setSelectedRoom] = useState("All");
+  const [selectedRoom, setSelectedRoom] = useState("Kitchen"); // Default to Kitchen
 
   return (
     <div className="py-16">
@@ -74,7 +74,8 @@ function Menu({ selectedRoom, setSelectedRoom }) {
         <p className="text-lg w-[70%] mx-auto text-[#767676]">
           Refresh your home with curated interior design ideas tailored to your style.
         </p>
-        <div className="flex gap-7 mt-10 justify-start overflow-x-auto lg:overflow-visible">
+        <div className="flex gap-7 mt-10 justify-center overflow-x-auto lg:justify-center">
+          {/* Centered the menu on large screens */}
           {rooms.map((room, index) => (
             <div
               key={index}

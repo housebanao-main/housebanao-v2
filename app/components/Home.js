@@ -49,23 +49,12 @@ export default function Home() {
             <div className="flex flex-col w-full lg:w-1/2 text-left lg:pt-24 ">
               {/* Hero Heading */}
               <div className="max-w-lg mb-8 mt-96 md:mt-0">
-                <h1 className="text-5xl font-extrabold leading-tight mb-4">
-                  <span className="text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-7xl">
-                    Build
-                  </span>
-                  <span className="text-lg lg:text-2xl xl:text-4xl 2xl:text-5xl">
-                    {" "}
-                    Better,
-                  </span>{" "}
-                  <br className="hidden md:block" />
-                  <span className="text-lg lg:text-2xl xl:text-4xl 2xl:text-5xl">
-                    Live
-                  </span>
-                  <span className="text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-7xl">
-                    {" "}
-                    Beautifully
-                  </span>
-                </h1>
+              <h1 className="text-5xl font-extrabold leading-tight mb-4">
+              <span className="text-6xl">Build</span>
+              <span className="text-5xl"> Better,</span> <br className="hidden md:block" />
+              <span className="text-5xl">Live</span>
+              <span className="text-6xl"> Beautifully</span>
+              </h1>
                 <p className="text-sm sm:text-lg leading-relaxed ">
                   HouseBanao transforms ordinary spaces into extraordinary homes
                   with exceptional home construction and personalized cost
