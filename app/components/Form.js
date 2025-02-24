@@ -62,8 +62,8 @@ const RightForm = () => {
         city: formData.plotLocation || "Not provided",
         country: "India",
         state: "",   // Add if required
-        priority: "Medium",
-        status: "Active",
+        priority: "medium",
+        status: "active",
       };
   
       console.log("📤 Sending Payload:", payload); // Debug before sending
