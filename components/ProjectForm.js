@@ -59,13 +59,13 @@ const ProjectForm = () => {
         name: formData.name || "Unknown",
         number: formData.phoneNumber || "",
         type: "Construction",
-        area: formData.area || "unknown",
-        budget: formData.budget || "Not specified",
+        area: formData.area || "",
+        budget: formData.budget || "",
         city: formData.plotLocation || "Not provided",
         country: "India",
         state: "",
-        priority: "Medium",
-        status: "Active",
+        priority: "WARM",  // ✅ Change to a valid value (HOT, WARM, or COLD)
+        status: "NEW",     // ✅ Change to a valid value (NEW, INACTIVE, CONTACTED, etc.)
       };
 
       console.log("📤 Sending Payload:", payload);

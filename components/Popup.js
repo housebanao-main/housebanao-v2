@@ -65,8 +65,8 @@ const Popup = () => {
       city: formData.plotLocation || "Not provided",
       country: "India",
       state: "",
-      priority: "Medium",
-      status: "Active",
+      priority: "WARM",  // ✅ Change to a valid value (HOT, WARM, or COLD)
+      status: "NEW",     // ✅ Change to a valid value (NEW, INACTIVE, CONTACTED, etc.)
     };
 
     try {
