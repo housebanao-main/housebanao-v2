@@ -54,17 +54,18 @@ const RightForm = () => {
   
     try {
       const payload = {
-        name: formData.name || "Unknown",  // Default name
-        number: formData.phoneNumber || "",  // 10-digit number
-        type: "Construction",  // Default value
+        name: formData.name || "Unknown",
+        number: formData.phoneNumber || "",
+        type: "Construction",
         area: formData.area || "",
         budget: formData.budget || "",
         city: formData.plotLocation || "Not provided",
         country: "India",
-        state: "",   // Add if required
-        priority: "medium",
-        status: "active",
+        state: "",
+        priority: "WARM",  // ✅ Change to a valid value (HOT, WARM, or COLD)
+        status: "NEW",     // ✅ Change to a valid value (NEW, INACTIVE, CONTACTED, etc.)
       };
+      
   
       console.log("📤 Sending Payload:", payload); // Debug before sending
   
