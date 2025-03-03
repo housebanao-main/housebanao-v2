@@ -24,7 +24,8 @@ const Popup = () => {
     const locationRegex = /^[a-zA-Z0-9\s,.-]+$/;
 
     if (!nameRegex.test(formData.name)) {
-      setErrorMessage("Name must contain only alphabets and spaces (at least 3 characters).");
+      setErrorMessage("Name must contain only alphabets and spaces (at least 3 characters)."
+      );
       return false;
     }
 
@@ -65,15 +66,17 @@ const Popup = () => {
       city: formData.plotLocation || "Not provided",
       country: "India",
       state: "",
-      priority: "WARM",  // ✅ Change to a valid value (HOT, WARM, or COLD)
-      status: "NEW",     // ✅ Change to a valid value (NEW, INACTIVE, CONTACTED, etc.)
+      priority: "WARM",
+      status: "NEW",
     };
 
     try {
       console.log("📤 Sending Payload:", payload);
-      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", payload, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        "https://uat-crm.gomaterial.in/api/queries",
+        payload,
+        { headers: { "Content-Type": "application/json" } }
+      );
 
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage("Your estimate request has been submitted successfully!");
@@ -98,30 +101,29 @@ const Popup = () => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="max-w-2xl mx-auto py-10 px-6 space-y-8 bg-white rounded-lg relative shadow-lg">
+      <div className="max-w-lg mx-auto py-8 px-5 space-y-6 bg-white rounded-lg relative shadow-lg">
         <button
           onClick={closePopup}
-          className="absolute top-4 right-4 text-gray-700 text-xl font-bold"
+          className="absolute top-3 right-3 text-gray-700 text-lg font-bold"
           aria-label="Close popup"
         >
           X
         </button>
 
-        <h1 className="text-center text-2xl font-bold text-gray-800">
+        <h1 className="text-center text-xl font-bold text-gray-800">
           Get your cost estimate for free
         </h1>
 
-        <div className="w-full space-y-4">
-          {[
-            { name: "name", placeholder: "Name", value: formData.name, type: "text", icon: <IoMdContact /> },
-            { name: "phoneNumber", placeholder: "Phone number", value: formData.phoneNumber, type: "tel", icon: <img src="/service/flag.png" alt="India Flag" className="w-6 h-4 object-cover rounded" />, onChange: handlePhoneNumberChange },
+        <div className="w-full space-y-3">
+          {[{ name: "name", placeholder: "Name", value: formData.name, type: "text", icon: <IoMdContact /> },
+            { name: "phoneNumber", placeholder: "Phone number", value: formData.phoneNumber, type: "tel", icon: <img src="/service/flag.png" alt="India Flag" className="w-5 h-3 object-cover rounded" />, onChange: handlePhoneNumberChange },
             { name: "plotLocation", placeholder: "Plot location", value: formData.plotLocation, type: "text", icon: <MdLocationOn /> },
           ].map((field, index) => (
-            <div key={index} className="border border-gray-300 rounded-full flex items-center p-3">
-              <span className="pl-3">{field.icon}</span>
+            <div key={index} className="border border-gray-300 rounded-full flex items-center p-2">
+              <span className="pl-2">{field.icon}</span>
               <input
                 name={field.name}
-                className="bg-transparent w-full placeholder-gray-500 px-4 outline-none text-gray-700"
+                className="bg-transparent w-full placeholder-gray-500 px-3 outline-none text-gray-700"
                 placeholder={field.placeholder}
                 type={field.type}
                 value={field.value}
@@ -131,11 +133,11 @@ const Popup = () => {
           ))}
         </div>
 
-        <div className="w-full flex flex-col items-center gap-4">
+        <div className="w-full flex flex-col items-center gap-3">
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="bg-blue-600 text-white w-full py-3 rounded-md shadow-lg hover:opacity-90 transition"
+            className="bg-blue-600 text-white w-full py-2 rounded-md shadow-md hover:opacity-90 transition"
           >
             {loading ? "Submitting..." : "Get your cost estimate"}
           </button>
@@ -143,9 +145,9 @@ const Popup = () => {
             href="https://api.whatsapp.com/send?phone=9810432124"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 text-white w-full py-3 flex items-center justify-center rounded-md shadow-lg hover:opacity-90 transition gap-2"
+            className="bg-green-500 text-white w-full py-2 flex items-center justify-center rounded-md shadow-md hover:opacity-90 transition gap-2"
           >
-            <img src="/service/whatsapp-logo.png" alt="WhatsApp Logo" className="w-5 h-5" />
+            <img src="/service/whatsapp-logo.png" alt="WhatsApp Logo" className="w-4 h-4" />
             Chat on WhatsApp
           </a>
         </div>
@@ -153,7 +155,7 @@ const Popup = () => {
         {successMessage && <p className="text-green-500 text-sm text-center">{successMessage}</p>}
         {errorMessage && <p className="text-red-500 text-sm text-center">{errorMessage}</p>}
 
-        <p className="w-full text-center text-sm text-gray-600 mt-4">
+        <p className="w-full text-center text-xs text-gray-600 mt-3">
           By submitting this form, you agree to the privacy policy and terms of use.
         </p>
       </div>

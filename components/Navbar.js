@@ -131,11 +131,11 @@ const Menu = ({ closeMenu, openPopup }) => (
         About Us
       </Link>
     </li>
-    <li className="px-4 py-2">
+    {/* <li className="px-4 py-2">
       <Link href="/blog" className="hover:underline hover:underline-offset-1" onClick={closeMenu}>
         Blog
       </Link>
-    </li>
+    </li> */}
     <li className="px-4 py-2 flex md:hidden items-center space-x-2">
       <button
         onClick={() => {

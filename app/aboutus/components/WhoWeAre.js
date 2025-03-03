@@ -12,7 +12,7 @@ const WhoWeAre = () => {
                 <Image 
                     src={TeamImage} 
                     alt='Our Team' 
-                    className='w-full h-[400px] object-cover rounded-lg shadow-lg mb-4' 
+                    className='w-full h-[400px] object-contain rounded-lg mb-4' 
                 />
             </div>
             <div className='w-full md:w-1/2 p-4 flex items-center'>
