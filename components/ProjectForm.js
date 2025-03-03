@@ -70,7 +70,7 @@ const ProjectForm = () => {
 
       console.log("📤 Sending Payload:", payload);
 
-      const response = await axios.post("https://uat-crm.gomaterial.in/api/queries", payload, {
+      const response = await axios.post("https://crm.gomaterial.in/api/queries", payload, {
         headers: { "Content-Type": "application/json" },
       });
 
