@@ -16,7 +16,7 @@ export default function Construction() {
       {/* Left Section */}
       <div className="basis-full md:basis-1/2 space-y-4 md:space-y-6 ">
         <LargeHeading className="leading-snug font-bold text-start ">
-          Home Construction starts from <br className="block md:hidden" />
+          Home Construction starts from <br className="lg:block sm:hidden" />
           <span className="text-[#2A27E8] ">RS 1100/-</span>
         </LargeHeading>
         <SectionSubHeading>

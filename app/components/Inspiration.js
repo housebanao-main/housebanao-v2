@@ -28,20 +28,44 @@ const roomImages = {
     ],
   },
   Bedroom: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bedroom/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Bedroom/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bedroom/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bedroom/${i + 6}.png`
+    ),
   },
   Bathroom: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Bathroom/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Bathroom/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bathroom/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Bathroom/${i + 6}.png`
+    ),
   },
   Kitchen: {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Kitchen/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Kitchen/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Kitchen/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Kitchen/${i + 6}.png`
+    ),
   },
   "Living Room": {
-    top: Array.from({ length: 5 }, (_, i) => `/inspiration/Living-Room/${i + 1}.png`),
-    bottom: Array.from({ length: 5 }, (_, i) => `/inspiration/Living-Room/${i + 6}.png`),
+    top: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Living-Room/${i + 1}.png`
+    ),
+    bottom: Array.from(
+      { length: 5 },
+      (_, i) => `/inspiration/Living-Room/${i + 6}.png`
+    ),
   },
 };
 
@@ -72,7 +96,8 @@ function Menu({ selectedRoom, setSelectedRoom }) {
           Inspiration for Home Interior Designs & More
         </h1>
         <p className="text-lg w-[70%] mx-auto text-[#767676]">
-          Refresh your home with curated interior design ideas tailored to your style.
+          Refresh your home with curated interior design ideas tailored to your
+          style.
         </p>
         <div className="flex gap-7 mt-10 justify-center overflow-x-auto lg:justify-center">
           {/* Centered the menu on large screens */}
@@ -80,7 +105,9 @@ function Menu({ selectedRoom, setSelectedRoom }) {
             <div
               key={index}
               className={`py-3 px-6 border rounded-lg flex gap-3 cursor-pointer items-center transition ${
-                selectedRoom === room.name ? "bg-black text-white" : "border-black"
+                selectedRoom === room.name
+                  ? "bg-black text-white"
+                  : "border-black"
               }`}
               onClick={() => setSelectedRoom(room.name)}
             >
@@ -143,13 +170,19 @@ function Carousel({ images }) {
 
 // Custom Navigation Arrows
 const NextArrow = ({ onClick }) => (
-  <div className="absolute cursor-pointer lg:right-0 right-2 top-1/2 -translate-y-1/2 z-40" onClick={onClick}>
+  <div
+    className="absolute cursor-pointer lg:right-0 right-2 top-1/2 -translate-y-1/2 z-40"
+    onClick={onClick}
+  >
     <Icon icon="mi:chevron-right" className="text-4xl text-white/70" />
   </div>
 );
 
 const PrevArrow = ({ onClick }) => (
-  <div className="absolute cursor-pointer lg:left-0 left-2 top-1/2 -translate-y-1/2 z-40" onClick={onClick}>
+  <div
+    className="absolute cursor-pointer lg:left-0 left-2 top-1/2 -translate-y-1/2 z-40"
+    onClick={onClick}
+  >
     <Icon icon="mi:chevron-left" className="text-4xl text-white/70" />
   </div>
 );

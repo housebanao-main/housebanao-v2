@@ -51,14 +51,16 @@ export default function Home() {
               <div className="max-w-lg mb-8 mt-48 md:mt-0">
                 <h1 className="text-5xl font-extrabold leading-tight mb-4">
                   <span className="text-6xl">Build</span>
-                  <span className="text-5xl"> Better,</span> <br className="hidden md:block" />
-                  <span className="text-5xl">Live</span>
-                  <span className="text-6xl"> Beautifully</span>
+                  <span className="text-4xl"> Better,</span>{" "}
+                  <br className="hidden md:block" />
+                  <span className="text-4xl">Live </span>
+                  <span className="text-6xl">Beautifully</span>
                 </h1>
                 <p className="text-sm sm:text-lg leading-relaxed">
-                  HouseBanao transforms ordinary spaces into extraordinary homes
-                  with exceptional home construction and personalized cost
-                  estimation with unmatched expertise.
+                  HouseBanao transforms ordinary spaces into <br />{" "}
+                  extraordinary homes with exceptional Home <br /> construction
+                  and personalized cost estimation with <br /> unmatched
+                  expertise.
                 </p>
               </div>
 
@@ -66,8 +68,8 @@ export default function Home() {
               <div className="sm:flex space-y-4 sm:space-y-0 items-center gap-4">
                 <ParaText>Popular :</ParaText>
                 <div className="flex items-center justify-center mx-auto md:mx-0 gap-4">
-                  <BlueButton className="!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32">
-                    Interior Design
+                  <BlueButton className="bg-[#2A27E8]  !rounded-lg !cursor-default !text-base !font-normal !min-w-32">
+                    Interior Designing
                   </BlueButton>
                   <BlueButton className="!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32">
                     End to End Construction
