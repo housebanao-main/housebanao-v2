@@ -52,20 +52,14 @@ const Footer = () => {
             <span className="text-lg font-semibold">Our Address</span>
             <div className="flex items-center gap-2 mt-2">
               <FaPhone />
-              <a
-                href="mailto:support@housebanao.com"
-                className="block text-sm"
-              >
+              <a href="tel:+91 9810432124" className="block text-sm">
                 +91 981-0432-124
               </a>
             </div>
 
             <div className="flex items-center gap-2 mt-2">
               <MdEmail />
-              <a
-                href="mailto:support@housebanao.com"
-                className="block text-sm"
-              >
+              <a href="mailto:support@housebanao.com" className="block text-sm">
                 support@housebanao.com
               </a>
             </div>
@@ -98,7 +92,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="text-center text-white text-sm">
-          © 2024 Vive HouseBanao Technologies Pvt. Ltd. All rights reserved.
+          © 2025 Vive HouseBanao Technologies Pvt. Ltd. All rights reserved.
         </div>
       </Wrapper>
     </footer>

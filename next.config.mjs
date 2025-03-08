@@ -1,12 +1,20 @@
 const nextConfig = {
-    reactStrictMode: true,
-    experimental: {
-      reactRoot: "concurrent",
-    },
-    images: {
-      domains: ["img.icons8.com", "placehold.jp", "icon-library.com"],
-    },
-  };
-  
-  export default nextConfig;
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.icons8.com",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.jp",
+      },
+      {
+        protocol: "https",
+        hostname: "icon-library.com",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
