@@ -52,7 +52,10 @@ const Footer = () => {
             <span className="text-lg font-semibold">Our Address</span>
             <div className="flex items-center gap-2 mt-2">
               <FaPhone />
-              <a href="tel:+91 9810432124" className="block text-sm">
+              <a
+                href="mailto:support@housebanao.com"
+                className="block text-sm"
+              >
                 +91 981-0432-124
               </a>
             </div>
@@ -110,6 +113,7 @@ const siteMapMenus = [
 const informationMenus = [
   { name: "Terms & Conditions", link: "/terms" },
   { name: "Privacy Policy", link: "/privacy" },
+  { name: "Cancellation & Refund Policy", link: "/cancellation-policy" },
 ];
 
 const socialIcons = [

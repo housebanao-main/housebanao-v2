@@ -4,31 +4,24 @@ import Wrapper from "@/components/Wrapper";
 import React from "react";
 
 const OurStory = () => {
-  return (
-    <div className="bg-[#F5F5F7] w-full lg:w-[90%] mx-auto py-10">
-      <Wrapper>
-        {/* Our Story Section */}
-        <SectionHeading className="text-[#5D5D5D] font-bold mb-6 text-left">
-          Our Story
-        </SectionHeading>
-        <ParaText className="text-[#575757] text-lg leading-relaxed mb-4">
-          Founded in 2023, House Banao began with a mission to provide
-          exceptional construction and interior design services. Starting with
-          residential projects, we quickly expanded into commercial
-          developments, earning a reputation for quality and innovation.
-        </ParaText>
-        <ParaText className="text-[#575757] text-lg leading-relaxed mb-4">
-          Today, as a full-service firm, we handle everything from initial
-          concepts to final execution, ensuring every project exceeds client
-          expectations. Our commitment to quality, creativity, and customer
-          satisfaction drives us to deliver outstanding results in every space
-          we transform.
-        </ParaText>
-        <ParaText className="text-[#575757] text-lg leading-relaxed">
-          At House Banao, we are proud of our journey and excited about the
-          future, continuing to shape the landscape of construction and interior
-          design.
-        </ParaText>
+    return (
+        <div className='bg-[#F5F5F7] w-full lg:w-[90%] mx-auto py-10'>
+            <Wrapper>
+                {/* Our Story Section */}
+                <SectionHeading className='text-[#5D5D5D] font-bold mb-6 text-left'>
+                    Our Story
+                </SectionHeading>
+                <ParaText className='text-[#575757] text-lg leading-relaxed mb-4'>
+                    Founded in [Year], House Banao began with a mission to provide exceptional construction and interior design services. 
+                    Starting with residential projects, we quickly expanded into commercial developments, earning a reputation for quality and innovation.
+                </ParaText>
+                <ParaText className='text-[#575757] text-lg leading-relaxed mb-4'>
+                    Today, as a full-service firm, we handle everything from initial concepts to final execution, ensuring every project exceeds client expectations. 
+                    Our commitment to quality, creativity, and customer satisfaction drives us to deliver outstanding results in every space we transform.
+                </ParaText>
+                <ParaText className='text-[#575757] text-lg leading-relaxed'>
+                    At House Banao, we are proud of our journey and excited about the future, continuing to shape the landscape of construction and interior design.
+                </ParaText>
 
         {/* Our Expertise Section */}
         <SectionHeading className="text-[#5D5D5D] font-bold mt-10 mb-6 text-left">
