@@ -13,28 +13,28 @@ import { Icon } from "@iconify/react";
 const roomImages = {
   All: {
     top: [
-      "/inspiration/Bedroom/1.png",
+      "/inspiration/bedroom/1.png",
       "/inspiration/Bathroom/1.png",
       "/inspiration/Kitchen/1.png",
-      "/inspiration/Living-Room/1.png",
-      "/inspiration/Bedroom/3.png",
+      "/inspiration/living-room/1.png",
+      "/inspiration/bedroom/3.png",
     ],
     bottom: [
-      "/inspiration/Bedroom/2.png",
+      "/inspiration/bedroom/2.png",
       "/inspiration/Bathroom/2.png",
       "/inspiration/Kitchen/2.png",
-      "/inspiration/Living-Room/2.png",
+      "/inspiration/living-room/2.png",
       "/inspiration/Bathroom/3.png",
     ],
   },
   Bedroom: {
     top: Array.from(
       { length: 5 },
-      (_, i) => `/inspiration/Bedroom/${i + 1}.png`
+      (_, i) => `/inspiration/bedroom/${i + 1}.png`
     ),
     bottom: Array.from(
       { length: 5 },
-      (_, i) => `/inspiration/Bedroom/${i + 6}.png`
+      (_, i) => `/inspiration/bedroom/${i + 6}.png`
     ),
   },
   Bathroom: {
@@ -60,11 +60,11 @@ const roomImages = {
   "Living Room": {
     top: Array.from(
       { length: 5 },
-      (_, i) => `/inspiration/Living-Room/${i + 1}.png`
+      (_, i) => `/inspiration/living-room/${i + 1}.png`
     ),
     bottom: Array.from(
       { length: 5 },
-      (_, i) => `/inspiration/Living-Room/${i + 6}.png`
+      (_, i) => `/inspiration/living-room/${i + 6}.png`
     ),
   },
 };
