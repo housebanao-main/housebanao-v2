@@ -70,7 +70,7 @@ const roomImages = {
 };
 
 function Inspiration() {
-  const [selectedRoom, setSelectedRoom] = useState("Kitchen"); // Default to Kitchen
+  const [selectedRoom, setSelectedRoom] = useState("All"); // Default to Kitchen
 
   return (
     <div className="py-16">
