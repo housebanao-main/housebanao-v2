@@ -12,7 +12,7 @@ const OurStory = () => {
                     Our Story
                 </SectionHeading>
                 <ParaText className='text-[#575757] text-lg leading-relaxed mb-4'>
-                    Founded in [Year], House Banao began with a mission to provide exceptional construction and interior design services. 
+                    Founded in 2016, House Banao began with a mission to provide exceptional construction and interior design services. 
                     Starting with residential projects, we quickly expanded into commercial developments, earning a reputation for quality and innovation.
                 </ParaText>
                 <ParaText className='text-[#575757] text-lg leading-relaxed mb-4'>
