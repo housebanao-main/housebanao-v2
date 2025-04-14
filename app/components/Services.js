@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { BiSolidLike } from "react-icons/bi";
@@ -6,11 +8,22 @@ import Wrapper from "@/components/Wrapper";
 import ServicesCard1 from "@/public/images/Follow Us (5).png";
 import ServicesCard3 from "@/public/images/ServicesImg2.png";
 import ServicesCard2 from "@/public/images/ServicesImg3.png";
+import view2d from "@/public/cards/2d view.png";
+import view3d from "@/public/cards/3d view.png";
+import finalview from "@/public/cards/final view.jpg";
+import interior1 from "@/public/cards/interior-1.jpg";
+import interior2 from "@/public/cards/interior-2.jpg";
+import interior3 from "@/public/cards/interior-3.jpg";
+import offint1 from "@/public/cards/office-int-1.jpg";
+import offint2 from "@/public/cards/office-int-2.jpg";
+import offint3 from "@/public/cards/office-int-3.jpg";
 import Image from "next/image";
 import BlueBg from "@/public/images/blueBg.svg";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import SectionSubHeading from "@/components/Headings/SectionSubHeading";
 import ParaText from "@/components/Headings/ParaText";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Services() {
   return (
@@ -37,21 +50,21 @@ function ServicesCard() {
       title: "End-to-end Home construction",
       description:
         "Discover the latest in Home Construction Solutions: innovative designs and smart technology for a modern lifestyle",
-      image: ServicesCard1,
+      image: [view2d, view3d, finalview],
     },
     {
       Number: "02",
       title: "Home Interior",
       description:
         " Elevate your living space with the latest home interior solutions. Blending modern aesthetics with innovative functionality",
-      image: ServicesCard2,
+      image: [interior1, interior2, interior3],
     },
     {
       Number: "03",
       title: "Office Interior",
       description:
         "Revamp your workspace with modern office interior solutions that boost productivity and inspire creativity.",
-      image: ServicesCard3,
+      image: [offint1, offint2, offint3],
     },
   ];
   return (
@@ -74,7 +87,7 @@ function ServicesCard() {
         {data.map((item, index) => (
           <div
             key={index}
-            className={`flex flex-col justify-between gap-4  border-white border rounded-xl p-5 ${
+            className={`flex flex-col justify-between gap-4 border-white border rounded-xl p-5 ${
               index === 1 ? "md:flex-col-reverse" : ""
             }`}
           >
@@ -85,7 +98,23 @@ function ServicesCard() {
               </SectionSubHeading>
               <ParaText className=" font-thin">{item.description}</ParaText>
             </div>
-            <Image src={item.image} alt="service" className="mx-auto" />
+            <Carousel
+              showThumbs={false}
+              showArrows={false}
+              showIndicators={false}
+              showStatus={false}
+              infiniteLoop
+              autoPlay
+              className=" w-{100px} h-{100px}"
+              interval={2000}
+              transitionTime={1000}
+            >
+              {item.image.map((img, imgIndex) => (
+                <div key={imgIndex}>
+                  <Image src={img} alt="service" className="w-10 h-72" />
+                </div>
+              ))}
+            </Carousel>
           </div>
         ))}
       </div>
