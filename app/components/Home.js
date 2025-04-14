@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import FeatureBoxes from "./FeatureBoxes";
 import Form from "./Form";
 import Wrapper from "@/components/Wrapper";
-
 import BlueBg from "@/public/images/blueBg.svg";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { BiSolidLike } from "react-icons/bi";
 import { BsStars } from "react-icons/bs";
 import BlueButton from "@/components/Buttons/BlueButton";
 import ParaText from "@/components/Headings/ParaText";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,9 +36,7 @@ export default function Home() {
         <section
           className="bg-cover bg-center text-white relative min-h-screen w-full"
           style={{
-            backgroundImage: `url(${
-              isMobile ? "/MobileBanner.jpg" : "/Hero.jpg"
-            })`,
+            backgroundImage: `url(${isMobile ? "/MobileBanner.jpg" : ""})`,
           }}
         >
           {/* Overlay */}
@@ -85,6 +84,105 @@ export default function Home() {
               </div>
             )}
           </Wrapper>
+
+          {/* Carousel for non-mobile view */}
+          {!isMobile && (
+            <Carousel
+              autoPlay
+              infiniteLoop
+              showThumbs={false}
+              showStatus={false}
+              showArrows={false}
+              interval={2000}
+              transitionTime={1000}
+              stopOnHover={false}
+              swipeable={false}
+              showIndicators={false}
+              className="absolute inset-0 bg-black "
+            >
+              <div className="bg-cover bg-center">
+                <img
+                  src="/Hero.jpg"
+                  alt="Dummy Image 1"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/Hero-1.jpg"
+                  alt="Dummy Image 1"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/Hero-3.jpg"
+                  alt="Dummy Image 1"
+                  style={{ opacity: 0.4 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/Hero-2.jpg"
+                  alt="Dummy Image 1"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/Hero-4.jpg"
+                  alt="Dummy Image 1"
+                  style={{ opacity: 0.6 }}
+                />
+              </div>
+            </Carousel>
+          )}
+
+          {/* Carousel for mobile view */}
+          {isMobile && (
+            <Carousel
+              autoPlay
+              infiniteLoop
+              showThumbs={false}
+              showStatus={false}
+              interval={2000}
+              transitionTime={1000}
+              stopOnHover={false}
+              swipeable={true}
+              showIndicators={false}
+              showArrows={false}
+              className="absolute inset-0 bg-black"
+            >
+              <div className="bg-cover bg-center">
+                <img
+                  src="/MobileBanner-1.jpg"
+                  alt="Mobile Image 1"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/MobileBanner.jpg"
+                  alt="Mobile Image 2"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/MobileBanner-2.jpg"
+                  alt="Mobile Image 3"
+                  style={{ opacity: 0.4 }}
+                />
+              </div>
+              <div className="bg-cover bg-center">
+                <img
+                  src="/MobileBanner-3.jpg"
+                  alt="Mobile Image 4"
+                  style={{ opacity: 0.5 }}
+                />
+              </div>
+            </Carousel>
+          )}
         </section>
       </div>
 

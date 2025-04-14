@@ -55,7 +55,9 @@ function ServicesCard() {
     },
   ];
   return (
-    <Wrapper className={"flex flex-col gap-16 text-white w-full lg:w-[90%] mx-auto"}>
+    <Wrapper
+      className={"flex flex-col gap-16 text-white w-full lg:w-[90%] mx-auto"}
+    >
       <div className="flex flex-col justify-center items-center gap-4">
         <SectionHeading className="font-bold pt-80 sm:pt-28">
           One - Stop Solutions For Home Construction, Home Interior and Office
