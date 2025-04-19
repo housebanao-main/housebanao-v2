@@ -27,7 +27,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Services() {
   return (
-    <div className="bg-[#2A27E8] rounded-xl">
+    <div className="bg-[#2A27E8] relative z-5 rounded-xl">
       <ServicesCard />
     </div>
     // <div

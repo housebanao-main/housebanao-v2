@@ -193,7 +193,7 @@ export default function Home() {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-full -translate-y-[10vh] absolute"
+        className="w-full -translate-y-[10vh] absolute z-50"
       >
         <Card />
       </div>
