@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Craft Your Dream Home with House Banao",
   description:
-    "Change your space with House Banao! We are the best construction & interior design experts in Gurgaon. Offering easy solutions, we help with homes & businesses. Our high-quality work and personal touch make your dreams come true. Check out our services & see amazing results from beginning to end.",
+    "Change your space with House Banao! We are the best construction & interior design experts in Gurgaon...",
   keywords: [
     "House Banao",
     "construction",
@@ -52,6 +52,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* ✅ Google Site Verification Meta Tag */}
+        <meta
+          name="google-site-verification"
+          content="a_sHu10jdaVL1HqORQDjBMjlJMg8k2hD5WVEyF2IQsM"
+        />
+
         {/* ✅ Google Analytics (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-36NK7XXQZE"
