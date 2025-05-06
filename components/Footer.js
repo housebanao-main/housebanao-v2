@@ -13,14 +13,12 @@ import Wrapper from "./Wrapper";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaMapPin } from "react-icons/fa";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#222222]">
+    <footer className="w-full bg-[#222222] relative">
       <Wrapper className="w-full lg:w-[90%] m-auto flex flex-col">
-        {/* About Us */}
-        {/* <div className="font-semibold text-2xl text-white mb-4">About us</div> */}
-
         {/* Footer Links */}
         <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 mb-8">
           {/* Site Map */}
@@ -52,20 +50,23 @@ const Footer = () => {
             <span className="text-lg font-semibold">Our Address</span>
             <div className="flex items-center gap-2 mt-2">
               <FaPhone />
-              <a href="mailto:support@housebanao.com" className="block text-sm">
+              <a href="tel:+919810432124" className="block text-sm">
                 +91 981-0432-124
               </a>
             </div>
 
             <div className="flex items-center gap-2 mt-2">
               <MdEmail />
-              <a href="mailto:support@housebanao.com" className="block text-sm">
+              <a
+                href="mailto:support@housebanao.com"
+                className="block text-sm"
+              >
                 support@housebanao.com
               </a>
             </div>
 
-            <div className="flex flex-col items-center gap-2 mt-2">
-              <p className="text-sm flex items-center gap-2  flex-row">
+            <div className="flex flex-col items-start gap-2 mt-2">
+              <p className="text-sm flex items-center gap-2 flex-row">
                 <FaMapPin />
                 7th Floor, JMD MEGAPOLIS, 746A, Badshahpur Sohna Rd Hwy, Sector
                 48, Gurugram, Haryana 122018
@@ -77,7 +78,7 @@ const Footer = () => {
               </p>
               <p className="text-sm flex items-center gap-2 flex-row">
                 <FaMapPin />
-                5th floor,Iconic Chorenthum , Sector 62, Beside Noida Electronic
+                5th floor, Iconic Chorenthum, Sector 62, Beside Noida Electronic
                 City Metro Station
               </p>
             </div>
@@ -92,7 +93,7 @@ const Footer = () => {
                 >
                   <FontAwesomeIcon
                     icon={icon}
-                    className="w-5 h-5 text-white bg-[#313131]  rounded-[4px] cursor-pointer"
+                    className="w-5 h-5 text-white bg-[#313131] rounded-[4px] cursor-pointer"
                   />
                 </a>
               ))}
@@ -105,6 +106,22 @@ const Footer = () => {
           © 2025 Vive HouseBanao Technologies Pvt. Ltd. All rights reserved.
         </div>
       </Wrapper>
+
+      {/* WhatsApp Floating Icon */}
+      <a
+        href="https://wa.me/919810432124"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <Image
+          src="/whatsapp-icon.png"
+          alt="WhatsApp"
+          width={100}
+          height={100}
+          className="hover:scale-105 transition-transform"
+        />
+      </a>
     </footer>
   );
 };
