@@ -66,27 +66,26 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className=" mt-4">
-              <SectionSubHeading children={"Main Office"} />
-              <div className="flex items-center gap-2">
-                <FaMapPin />
-                <p className="text-sm">
-                  746A, 7th floor, JMD Megapolis, Sector 48, Gurgaon, Haryana
-                  122018
-                </p>
-              </div>
-            </div>
             <div className="flex items-center gap-2 mt-2">
               <FaMapPin />
               <p className="text-sm">
-                Floor 5, Iconic Tower, Corenthum Block A, Industrial Area,
-                Sector 62, Noida 201301
+                7th Floor, JMD MEGAPOLIS, 746A, Badshahpur Sohna Rd Hwy, Sector
+                48, Gurugram, Haryana 122018
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 mt-2">
+              <FaMapPin />
+              <p className="text-sm">
+                212, 2nd floor, D mall, Netaji Subhash Place, Pitampura, New
+                Delhi 110034
               </p>
             </div>
             <div className="flex items-center gap-2 mt-2">
               <FaMapPin />
               <p className="text-sm">
-                212, 2nd Floor , D Mall NetaJi Subhash Place, Delhi 110034
+                5th floor,Iconic Chorenthum , Sector 62, Beside Noida Electronic
+                City Metro Station
               </p>
             </div>
             <div className="flex gap-4 mt-4">
