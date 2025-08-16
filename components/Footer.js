@@ -13,6 +13,8 @@ import Wrapper from "./Wrapper";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaMapPin } from "react-icons/fa";
+import SectionHeading from "./Headings/SectionHeading";
+import SectionSubHeading from "./Headings/SectionSubHeading";
 
 const Footer = () => {
   return (
@@ -52,10 +54,7 @@ const Footer = () => {
             <span className="text-lg font-semibold">Our Address</span>
             <div className="flex items-center gap-2 mt-2">
               <FaPhone />
-              <a
-                href="mailto:support@housebanao.com"
-                className="block text-sm"
-              >
+              <a href="mailto:support@housebanao.com" className="block text-sm">
                 +91 981-0432-124
               </a>
             </div>
@@ -67,14 +66,29 @@ const Footer = () => {
               </a>
             </div>
 
+            <div className=" mt-4">
+              <SectionSubHeading children={"Main Office"} />
+              <div className="flex items-center gap-2">
+                <FaMapPin />
+                <p className="text-sm">
+                  746A, 7th floor, JMD Megapolis, Sector 48, Gurgaon, Haryana
+                  122018
+                </p>
+              </div>
+            </div>
             <div className="flex items-center gap-2 mt-2">
               <FaMapPin />
               <p className="text-sm">
-                746A, 7th floor, JMD Megapolis, Sector 48, Gurgaon, Haryana
-                122018
+                Floor 5, Iconic Tower, Corenthum Block A, Industrial Area,
+                Sector 62, Noida 201301
               </p>
             </div>
-
+            <div className="flex items-center gap-2 mt-2">
+              <FaMapPin />
+              <p className="text-sm">
+                212, 2nd Floor , D Mall NetaJi Subhash Place, Delhi 110034
+              </p>
+            </div>
             <div className="flex gap-4 mt-4">
               {socialIcons.map(({ icon, url }, index) => (
                 <a
