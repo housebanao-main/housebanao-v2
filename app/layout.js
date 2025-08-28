@@ -44,7 +44,11 @@ export const metadata = {
       },
     ],
   },
-  viewport: "width=device-width, initial-scale=1.0",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function RootLayout({ children }) {
@@ -62,6 +66,12 @@ export default function RootLayout({ children }) {
           }}
         />
         {/* End Google Tag Manager */}
+
+        {/* Google Site Verification */}
+        <meta
+          name="google-site-verification"
+          content="a_sHu10jdaVL1HqORQDjBMjlJMg8k2hD5WVEyF2IQsM"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
