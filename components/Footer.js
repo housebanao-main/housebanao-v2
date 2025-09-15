@@ -74,7 +74,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 mt-2">
+            {/* <div className="flex items-center gap-2 mt-2">
               <FaMapPin />
               <p className="text-sm">
                 212, 2nd floor, D mall, Netaji Subhash Place, Pitampura, New
@@ -87,7 +87,7 @@ const Footer = () => {
                 5th floor,Iconic Chorenthum , Sector 62, Beside Noida Electronic
                 City Metro Station
               </p>
-            </div>
+            </div> */}
             <div className="flex gap-4 mt-4">
               {socialIcons.map(({ icon, url }, index) => (
                 <a
