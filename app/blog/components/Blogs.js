@@ -20,6 +20,12 @@ const blogData = [
         image: '/blog/blog1/home.png',
         date: '03 June, 2024',
         link: '/blog/home-interior-design'
+    },
+    {
+        title: 'Selection of the correct construction company in Delhi NCR',
+        image: '/blog/blog1/construction.png',
+        date: '04 June, 2024',
+        link: '/blog/selection-correct-company'
     }
 ];
 
