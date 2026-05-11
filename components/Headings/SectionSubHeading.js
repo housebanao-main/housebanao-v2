@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const SectionSubHeading = ({children, className}) => {
+const SectionSubHeading = ({
+  children,
+  className = "",
+  style,
+}) => {
   return (
-    <div className={`sm:text-lg   ${className}`}>{children}</div>
-  )
-}
+    <div
+      className={`font-semibold leading-relaxed ${className}`}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default SectionSubHeading
+export default SectionSubHeading;

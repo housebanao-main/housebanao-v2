@@ -14,7 +14,7 @@ export default function BookingJourney() {
         <div className="flex flex-col lg:flex-row justify-between  gap-12">
           {/* Left Timeline */}
           <div className="w-full lg:basis-1/2 relative">
-            <div className="absolute  left-[20px] sm:left-0 top-0 bottom-0 w-1 bg-[#2A26CE]" />
+            <div className="absolute  left-[20px] sm:left-0 top-0 bottom-0 w-1 bg-[#8B4513]" />
             
             {bookingSteps.map((step, index) => (
               <div 
@@ -23,11 +23,11 @@ export default function BookingJourney() {
               >
                 {/* Blue vertical bar for first item */}
                 {index === 0 && (
-                  <div className="absolute  left-[20px] sm:left-0 top-0 bottom-0 w-1 bg-[#2A26CE]" />
+                  <div className="absolute  left-[20px] sm:left-0 top-0 bottom-0 w-1 bg-[#8B4513]" />
                 )}
                 
                 {/* Number indicator */}
-                <div className="absolute left-0 sm:left-[-17px] top-5 flex items-center justify-center w-10 h-10 rounded-full bg-[#2A26CE] text-white text-base font-medium">
+                <div className="absolute left-0 sm:left-[-17px] top-5 flex items-center justify-center w-10 h-10 rounded-full bg-[#8B4513] text-white text-base font-medium">
                   {step.number}
                 </div>
                 

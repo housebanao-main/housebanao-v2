@@ -6,7 +6,7 @@ import ParaText from "@/components/Headings/ParaText";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import SectionSubHeading from "@/components/Headings/SectionSubHeading";
 import Wrapper from "@/components/Wrapper";
-import { IMG_PLACEHOLDER, steps } from "@/utils/content";
+import { steps } from "@/utils/content";
 import Image from "next/image";
 
 const Steps = () => {
@@ -41,7 +41,7 @@ const Steps = () => {
           <div className="flex-1 order-2 md:order-1">
             <div className="relative">
               {/* Vertical Line */}
-              <div className="absolute left-6 top-0 w-0.5 h-full bg-[#2A26CE]" />
+              <div className="absolute left-6 top-0 w-0.5 h-full bg-[#8B4513]" />
               
               {/* Steps */}
               <div className="space-y-4 sm:space-y-6 md:space-y-12">
@@ -53,7 +53,7 @@ const Steps = () => {
                   >
                     {/* Circle with number */}
                     <div className="relative z-10">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#2A26CE] text-white font-bold">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#8B4513] text-white font-bold">
                         {step.number}
                       </div>
                     </div>

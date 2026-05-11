@@ -1,32 +1,20 @@
 import React from "react";
-import { IoShieldCheckmarkSharp } from "react-icons/io5";
-import { BiSolidLike } from "react-icons/bi";
-import { BsStars } from "react-icons/bs";
 import Wrapper from "@/components/Wrapper";
+
 import ServicesCard1 from "@/public/images/Follow Us (5).png";
 import ServicesCard3 from "@/public/images/ServicesImg2.png";
 import ServicesCard2 from "@/public/images/ServicesImg3.png";
+
 import Image from "next/image";
-import BlueBg from "@/public/images/blueBg.svg";
-import SectionHeading from "@/components/Headings/SectionHeading";
+
 import SectionSubHeading from "@/components/Headings/SectionSubHeading";
 import ParaText from "@/components/Headings/ParaText";
 
 function Services() {
   return (
-    <div className="bg-[#2A27E8] rounded-xl">
+    <section className="bg-[#fdf4f1] py-20">
       <ServicesCard />
-    </div>
-    // <div
-    //   style={{
-    //     backgroundImage: `url(${BlueBg.src})`,
-    //     backgroundSize: "cover",
-    //     backgroundRepeat: "no-repeat",
-    //   }}
-    //   className="relative w-full "
-    // >
-
-    // </div>
+    </section>
   );
 }
 
@@ -43,7 +31,7 @@ function ServicesCard() {
       Number: "02",
       title: "Home Interior",
       description:
-        " Elevate your living space with the latest home interior solutions. Blending modern aesthetics with innovative functionality",
+        "Elevate your living space with the latest home interior solutions. Blending modern aesthetics with innovative functionality",
       image: ServicesCard2,
     },
     {
@@ -54,38 +42,48 @@ function ServicesCard() {
       image: ServicesCard3,
     },
   ];
+
   return (
-    <Wrapper className={"flex flex-col gap-16 text-white w-full lg:w-[90%] mx-auto"}>
-      <div className="flex flex-col justify-center items-center gap-4">
-        <SectionHeading className="font-bold pt-80 sm:pt-28">
-          One - Stop Solutions For Home Construction, Home Interior and Office
-          Interior
-        </SectionHeading>
-        <SectionSubHeading className=" w-full sm:w-[70%] text-center">
-          We provide comprehensive solutions for end-to-end construction,
-          including complete home construction, home interior design and a wide
-          selection of furniture and decor. From start to finish, we make sure
-          your venue is completely covered.
-        </SectionSubHeading>
-      </div>
-      <div className={"grid grid-cols-1 md:grid-cols-3 gap-10"}>
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className={`flex flex-col justify-between gap-4  border-white border rounded-xl p-5 ${
-              index === 1 ? "md:flex-col-reverse" : ""
-            }`}
-          >
-            <div className="flex flex-col gap-2">
-              <p className="font-bold text-2xl">{item.Number}</p>
-              <SectionSubHeading className=" font-bold">
-                {item.title}
-              </SectionSubHeading>
-              <ParaText className=" font-thin">{item.description}</ParaText>
+    <Wrapper className="w-full lg:w-[96%] mx-auto">
+      <div className="bg-[#a46352] rounded-[42px] p-6 md:p-10 shadow-[0_25px_70px_rgba(164,99,82,0.35)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-[#fff7f4] rounded-[34px] p-6 md:p-7 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_65px_rgba(0,0,0,0.22)]"
+            >
+              <div className="absolute -top-4 left-8 h-8 w-24 rounded-full bg-white/70 blur-xl"></div>
+
+              <div
+                className={`flex h-full flex-col gap-5 ${
+                  index === 1 ? "md:flex-col-reverse" : ""
+                }`}
+              >
+                <div className="flex flex-col gap-3">
+                  <p className="text-3xl font-extrabold text-[#a46352] tracking-wide">
+                    {item.Number}
+                  </p>
+
+                  <SectionSubHeading className="font-bold text-black text-2xl leading-tight">
+                    {item.title}
+                  </SectionSubHeading>
+
+                  <ParaText className="text-gray-700 leading-relaxed">
+                    {item.description}
+                  </ParaText>
+                </div>
+
+                <div className="overflow-hidden rounded-[26px] shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-[300px] md:h-[340px] object-cover rounded-[26px] transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </div>
             </div>
-            <Image src={item.image} alt="service" className="mx-auto" />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Wrapper>
   );

@@ -15,7 +15,7 @@ const BlogCard = ({ title, image, date, link }) => {
                     />
                 </div>
                 <div className='p-4 space-y-2'>
-                    <p className='text-[#2A27E8] text-sm'>{date}</p>
+                    <p className='text-[#8B4513] text-sm'>{date}</p>
                     <h2 className='text-[#575757] text-xl font-semibold'>{title}</h2>
                 </div>
             </div>

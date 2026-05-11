@@ -1,41 +1,49 @@
-'use client';
-import React, { useEffect, useState } from "react";
-import { usePopup } from "../context/PopupContext";
-import { IoMdContact } from "react-icons/io";
-import { MdLocationOn } from "react-icons/md";
-import axios from "axios";
+"use client";
 
-const Popup = () => {
-  const { isPopupVisible, closePopup } = usePopup();
-  const [formData, setFormData] = useState({
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { usePopup } from "@/context/PopupContext";
+
+export default function Popup() {
+  const { isOpen, closePopup } = usePopup();
+  const [form, setForm] = useState({
     name: "",
-    phoneNumber: "",
-    plotLocation: "",
-    area: "",
-    budget: "",
+    phone: "",
+    location: "",
   });
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   const validateForm = () => {
     const nameRegex = /^[a-zA-Z\s]{3,}$/;
     const phoneRegex = /^[0-9]{10}$/;
-    const locationRegex = /^[a-zA-Z0-9\s,.-]+$/;
 
-    if (!nameRegex.test(formData.name)) {
-      setErrorMessage("Name must contain only alphabets and spaces (at least 3 characters)."
-      );
+    if (!form.name.trim()) {
+      setErrorMessage("Name is required.");
       return false;
     }
-
-    if (!phoneRegex.test(formData.phoneNumber)) {
+    if (!nameRegex.test(form.name)) {
+      setErrorMessage("Name must contain at least 3 letters.");
+      return false;
+    }
+    if (!form.phone.trim()) {
+      setErrorMessage("Phone number is required.");
+      return false;
+    }
+    if (!phoneRegex.test(form.phone)) {
       setErrorMessage("Phone number must be exactly 10 digits.");
       return false;
     }
-
-    if (!locationRegex.test(formData.plotLocation)) {
-      setErrorMessage("Plot location contains invalid characters.");
+    if (!form.location.trim()) {
+      setErrorMessage("Location is required.");
       return false;
     }
 
@@ -43,44 +51,51 @@ const Popup = () => {
     return true;
   };
 
-  const handlePhoneNumberChange = (e) => {
-    const value = e.target.value;
-    if (/^\d*$/.test(value) && value.length <= 10) {
-      setFormData({ ...formData, phoneNumber: value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    if (name === "phone") {
+      if (/^\d*$/.test(value) && value.length <= 10) {
+        setForm({ ...form, [name]: value });
+      }
+    } else {
+      setForm({ ...form, [name]: value });
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     if (!validateForm()) return;
 
     setLoading(true);
-    setSuccessMessage("");
     setErrorMessage("");
 
-    const payload = {
-      name: formData.name || "Unknown",
-      number: formData.phoneNumber || "",
-      type: "Construction",
-      area: formData.area || "",
-      budget: formData.budget || "",
-      city: formData.plotLocation || "Not provided",
-      country: "India",
-      state: "",
-      priority: "WARM",
-      status: "NEW",
-    };
-
     try {
-      console.log("📤 Sending Payload:", payload);
-      const response = await axios.post(
-        "https://crm.gomaterial.in/api/queries",
-        payload,
-        { headers: { "Content-Type": "application/json" } }
-      );
+      const payload = {
+        name: form.name,
+        number: form.phone,
+        type: "Construction",
+        city: form.location,
+        country: "India",
+        state: "",
+        priority: "WARM",
+        status: "NEW",
+      };
+
+      console.log("📤 Popup Form Submitted:", payload);
+
+      const response = await axios.post("https://crm.gomaterial.in/api/queries", payload, {
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (response.status === 200 || response.status === 201) {
-        setSuccessMessage("Your estimate request has been submitted successfully!");
-        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
+        setSuccessMessage("✅ Thank you! We'll contact you soon.");
+        setTimeout(() => {
+          setForm({ name: "", phone: "", location: "" });
+          setSuccessMessage("");
+          closePopup();
+        }, 1500);
       }
     } catch (error) {
       console.error("🔥 API Error:", error.response?.data || error.message);
@@ -90,77 +105,118 @@ const Popup = () => {
     }
   };
 
-  useEffect(() => {
-    document.body.style.overflow = isPopupVisible ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isPopupVisible]);
-
-  if (!isPopupVisible) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="max-w-lg mx-auto py-8 px-5 space-y-6 bg-white rounded-lg relative shadow-lg">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4 py-6">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md max-h-[90vh] overflow-y-auto relative">
+        {/* Close Button - Only if no loading */}
         <button
           onClick={closePopup}
-          className="absolute top-3 right-3 text-gray-700 text-lg font-bold"
-          aria-label="Close popup"
+          disabled={loading}
+          className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700 transition disabled:opacity-50"
         >
-          X
+          ✕
         </button>
 
-        <h1 className="text-center text-xl font-bold text-gray-800">
-          Get your cost estimate for free
-        </h1>
-
-        <div className="w-full space-y-3">
-          {[{ name: "name", placeholder: "Name", value: formData.name, type: "text", icon: <IoMdContact /> },
-            { name: "phoneNumber", placeholder: "Phone number", value: formData.phoneNumber, type: "tel", icon: <img src="/service/flag.png" alt="India Flag" className="w-5 h-3 object-cover rounded" />, onChange: handlePhoneNumberChange },
-            { name: "plotLocation", placeholder: "Plot location", value: formData.plotLocation, type: "text", icon: <MdLocationOn /> },
-          ].map((field, index) => (
-            <div key={index} className="border border-gray-300 rounded-full flex items-center p-2">
-              <span className="pl-2">{field.icon}</span>
-              <input
-                name={field.name}
-                className="bg-transparent w-full placeholder-gray-500 px-3 outline-none text-gray-700"
-                placeholder={field.placeholder}
-                type={field.type}
-                value={field.value}
-                onChange={field.onChange || ((e) => setFormData({ ...formData, [e.target.name]: e.target.value }))}
-              />
-            </div>
-          ))}
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            Get Your Free Estimate
+          </h2>
+          <p className="text-gray-600 text-sm">
+            Fill in your details and our team will contact you within 24 hours
+          </p>
         </div>
 
-        <div className="w-full flex flex-col items-center gap-3">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B4513] focus:border-transparent text-gray-900 placeholder-gray-400"
+            />
+          </div>
+
+          {/* Phone Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="9876543210"
+              value={form.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B4513] focus:border-transparent text-gray-900 placeholder-gray-400"
+            />
+          </div>
+
+          {/* Location Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Plot Location / City
+            </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Gurgaon, Delhi"
+              value={form.location}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B4513] focus:border-transparent text-gray-900 placeholder-gray-400"
+            />
+          </div>
+
+          {/* Error Message */}
+          {errorMessage && (
+            <div className="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg text-sm">
+              {errorMessage}
+            </div>
+          )}
+
+          {/* Success Message */}
+          {successMessage && (
+            <div className="bg-green-50 border border-green-300 text-green-700 px-4 py-3 rounded-lg text-sm text-center font-medium">
+              {successMessage}
+            </div>
+          )}
+
+          {/* Submit Button */}
           <button
-            onClick={handleSubmit}
+            type="submit"
             disabled={loading}
-            className="bg-blue-600 text-white w-full py-2 rounded-md shadow-md hover:opacity-90 transition"
+            className="w-full bg-[#8B4513] hover:bg-[#6B3410] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition transform hover:scale-105 active:scale-95"
           >
-            {loading ? "Submitting..." : "Get your cost estimate"}
+            {loading ? "Submitting..." : "Get Free Estimate"}
           </button>
+
+          {/* WhatsApp Link */}
           <a
-            href="https://api.whatsapp.com/send?phone=9810432124"
+            href={`https://wa.me/919876543210?text=${encodeURIComponent(
+              `Hi, I'm interested in home construction.\nName: ${form.name}\nPhone: ${form.phone}\nLocation: ${form.location}`
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 text-white w-full py-2 flex items-center justify-center rounded-md shadow-md hover:opacity-90 transition gap-2"
+            className="block text-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition"
           >
-            <img src="/service/whatsapp-logo.png" alt="WhatsApp Logo" className="w-4 h-4" />
-            Chat on WhatsApp
+            💬 Chat on WhatsApp
           </a>
-        </div>
+        </form>
 
-        {successMessage && <p className="text-green-500 text-sm text-center">{successMessage}</p>}
-        {errorMessage && <p className="text-red-500 text-sm text-center">{errorMessage}</p>}
-
-        <p className="w-full text-center text-xs text-gray-600 mt-3">
-          By submitting this form, you agree to the privacy policy and terms of use.
+        {/* Footer Text */}
+        <p className="text-center text-xs text-gray-500 mt-4">
+          By submitting, you agree to our privacy policy
         </p>
       </div>
     </div>
   );
-};
-
-export default Popup;
+}

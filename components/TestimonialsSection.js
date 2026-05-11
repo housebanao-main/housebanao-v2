@@ -41,9 +41,9 @@ const CustomerReviews = () => {
         
         {/* Main Heading */}
         <div className="text-center mb-16">
-          <h1 className="text-black font-extrabold text-[90px] md:text-[160px] lg:text-[220px] leading-none mb-8">
+          <SectionHeading  className="text-black font-extrabold text-[80px] md:text-[140px] leading-none mb-8">
             Client Testimonials
-          </h1>
+          </SectionHeading>
 
           <ParaText className="text-gray-700 font-bold text-2xl md:text-3xl max-w-5xl mx-auto leading-relaxed">
             Don't just take our word for it. Hear from the homeowners and
@@ -56,8 +56,7 @@ const CustomerReviews = () => {
           
           {/* Inner Heading Card */}
           <div className="bg-[#fff7f4] rounded-[34px] p-8 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 mb-10 text-center">
-            
-            <SectionHeading className="text-black text-4xl md:text-5xl leading-tight mb-4">
+            <SectionHeading className="text-black font-extrabold text-4xl md:text-5xl leading-tight mb-4">
               Real Stories from Satisfied Customers
             </SectionHeading>
 
@@ -67,7 +66,7 @@ const CustomerReviews = () => {
             </ParaText>
           </div>
 
-          {/* Cards */}
+          {/* Testimonial Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {data.map((item, index) => (
               <Card
@@ -105,7 +104,6 @@ const Card = ({ name, image, description, city }) => {
 
       {/* Bottom */}
       <div className="text-center mt-6 pt-5 border-t border-[#ead4cc]">
-        
         <SectionSubHeading className="font-bold text-black text-2xl">
           {name}
         </SectionSubHeading>
