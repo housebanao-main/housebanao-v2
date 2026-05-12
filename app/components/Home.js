@@ -58,7 +58,7 @@ export default function Home() {
                 </h1>
                 <p className="text-sm sm:text-lg leading-relaxed">
                   HouseBanao transforms ordinary spaces into <br />{" "}
-                  extraordinary homes with exceptional Home <br /> construction
+                  extraordinary homes with exceptional home <br /> construction
                   and personalized cost estimation with <br /> unmatched
                   expertise.
                 </p>
