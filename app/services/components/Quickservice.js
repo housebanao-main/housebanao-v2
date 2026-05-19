@@ -16,7 +16,7 @@ const QuickService = () => {
         <div className="text-center mb-8">
           <SectionHeading className="text-left  font-bold">
             <span className="text-black">QUICK </span>
-            <span className="text-[#2A27E8]">SERVICES</span>
+            <span className="text-[#8B4513]">SERVICES</span>
           </SectionHeading>
         </div>
         {/* Services and View All Button in Same Line */}

@@ -9,7 +9,7 @@ const Terms = () => {
       
       <p className="mb-4">Welcome to House Banao!</p>
       <p className="mb-4">
-        These terms and conditions outline the rules and regulations for the use of Vive House Banao Technologies's Website, located at <a href="https://www.housebanao.com/" className="text-blue-500">https://www.housebanao.com/</a>.
+        These terms and conditions outline the rules and regulations for the use of Vive House Banao Technologies's Website, located at <a href="https://www.housebanao.com/" className="text-[#8B4513]">https://www.housebanao.com/</a>.
       </p>
       <p className="mb-4">
         By accessing this website we assume you accept these terms and conditions. Do not continue to use House Banao if you do not agree to take all of the terms and conditions stated on this page.

@@ -4,17 +4,16 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
-import Popup from "../components/Popup";
 import "../styles/globals.css";
 import Home from "./components/Home";
 import GetInTouch from "@/components/GetInTouch";
 import Faqs from "@/components/Faqs";
-import CustomerReviews from "@/components/CustomerReviews";
 import ViewProjects from "./projects/components/ViewProjects";
 import Services from "./components/Services";
 import Inspiration from "./components/Inspiration";
 import WhyUs from "./components/WhyUs";
 import Construction from "./components/Construction";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 
@@ -60,7 +59,7 @@ export default function IndexPage() {
       <WhyUs />
       <Construction />
       <ViewProjects />
-      <CustomerReviews />
+      <TestimonialsSection />
       <Faqs />
       <GetInTouch />
       <CollabsSection />

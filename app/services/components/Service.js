@@ -13,7 +13,7 @@ const ServicesSection = () => {
       <Wrapper>
         {/* Heading */}
         <div className="mb-8">
-          <SectionHeading className="text-left font-bold text-[#2A27E8] mb-2">SERVICE,</SectionHeading>
+          <SectionHeading className="text-left font-bold text-[#8B4513] mb-2">SERVICE,</SectionHeading>
           <SectionHeading className="text-left font-bold text-black">YOU WON'T GET ANYWHERE</SectionHeading>
         </div>
 
@@ -31,7 +31,7 @@ const ServicesSection = () => {
             logo="/service/service2.png"
             heading="Renovation"
             description="Transform your outdated or worn-out interiors into vibrant and revitalized spaces with our renovation services."
-            bgColor="bg-[#E2E7F1]"
+            bgColor="bg-[#F5EDE4]"
             onBookNow={openPopup} // Pass openPopup function
             animationClass="hover:scale-105 hover:shadow-2xl transition duration-500"
           />
@@ -47,7 +47,7 @@ const ServicesSection = () => {
             logo="/service/service4.png"
             heading="Home Construction"
             description="At House Banao, we specialize in providing comprehensive home construction services aimed at bringing your dream home to life."
-            bgColor="bg-[#E2E7F1]"
+            bgColor="bg-[#F5EDE4]"
             onBookNow={openPopup} // Pass openPopup function
             animationClass="hover:scale-105 hover:shadow-2xl transition duration-500"
           />

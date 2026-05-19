@@ -178,7 +178,7 @@ const RightForm = () => {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="bg-[#2A27E8] text-white w-[80%] py-2 rounded-md shadow-lg hover:opacity-90 transition"
+              className="bg-[#8B4513] text-white w-[80%] py-2 rounded-md shadow-lg hover:opacity-90 transition"
             >
               {loading ? "Submitting..." : "Get your cost estimate"}
             </button>
