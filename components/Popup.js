@@ -85,7 +85,7 @@ export default function Popup() {
 
       console.log("📤 Popup Form Submitted:", payload);
 
-      const response = await axios.post("https://crm.gomaterial.in/api/queries", payload, {
+      const response = await axios.post("https://api.gomaterial.in/api/queries", payload, {
         headers: { "Content-Type": "application/json" },
       });
 
