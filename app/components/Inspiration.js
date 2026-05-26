@@ -139,7 +139,7 @@ function Menu({ selectedRoom, setSelectedRoom }) {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-5 mt-10 justify-center overflow-x-auto pb-2">
+      <div className="flex flex-wrap gap-3 mt-10 justify-center overflow-x-auto pb-2">
         {rooms.map((room, index) => (
           <button
             key={index}

@@ -34,7 +34,7 @@ export default function Navbar({ isWhite }) {
   return (
     <>
       <Wrapper
-        className={`absolute left-1/2 -translate-x-1/2 w-full lg:w-[90%] z-50 ${
+        className={`absolute left-0 right-0 w-full z-50 ${
           isWhite ? "text-black" : "text-white"
         } flex justify-between items-center !pt-4 !pb-4`}
       >

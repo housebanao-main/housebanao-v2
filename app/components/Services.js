@@ -36,9 +36,9 @@ function ServicesCard() {
     },
     {
       Number: "03",
-      title: "Office Interior",
+      title: "Turnkey Construction",
       description:
-        "Revamp your workspace with modern office interior solutions that boost productivity and inspire creativity.",
+        "Complete turnkey construction solutions from foundation to finishing, delivered on time and within budget.",
       image: ServicesCard3,
     },
   ];

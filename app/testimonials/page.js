@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
 import LargeHeading from '@/components/Headings/LargeHeading';
-import SectionSubHeading from '@/components/Headings/SectionSubHeading';
 import CustomerReviews from '@/components/CustomerReviews';
 import GetInTouch from '@/components/GetInTouch';
 import { CollabsSection } from '@/components/CollabSection';
@@ -32,17 +31,7 @@ const TestimonialsPage = () => {
       </div>
 
       {/* Customer Reviews Section */}
-      <Wrapper className="py-16">
-        <div className="w-full lg:w-[90%] mx-auto">
-          <div className="text-center mb-12">
-            <LargeHeading className="font-bold mb-4">What Our Clients Say</LargeHeading>
-            <SectionSubHeading className="text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it. Hear from the homeowners and businesses we've transformed across Gurgaon and Delhi.
-            </SectionSubHeading>
-          </div>
-          <CustomerReviews />
-        </div>
-      </Wrapper>
+      <CustomerReviews />
 
       {/* Trust Section */}
       <div className="bg-gradient-to-r from-amber-50 to-orange-50 py-16">

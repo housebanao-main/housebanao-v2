@@ -30,7 +30,7 @@ function WhyUs() {
 
             {/* Content Card */}
             <div className="bg-[#fff7f4] rounded-[34px] p-6 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70">
-              <LargeHeading className="font-extrabold text-black mb-8 text-5xl md:text-6xl">
+              <LargeHeading className="font-extrabold text-black mb-8">
                 Why Us?
               </LargeHeading>
 

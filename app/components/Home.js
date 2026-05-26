@@ -37,7 +37,7 @@ export default function Home() {
       >
         {/* Hero Section */}
         <section
-          className="bg-cover bg-center text-white relative h-[85vh] md:h-[90vh] w-full"
+          className="bg-cover bg-center text-white relative min-h-screen w-full flex flex-col"
           style={{
             backgroundImage: `url(${
               isMobile ? "/MobileBanner.jpg" : "/Hero.jpg"
@@ -48,18 +48,18 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50"></div>
 
           {/* Hero Content */}
-          <Wrapper className="relative z-10 w-full lg:w-[92%] m-auto space-y-8 lg:space-y-0 lg:flex justify-between items-center pt-12 sm:pt-24 md:pt-0 pb-[10vh]">
+          <Wrapper className="relative z-10 w-full lg:w-[92%] m-auto flex-1 flex flex-col lg:flex-row justify-between items-center gap-8 !pt-24 !pb-12">
             {/* Left Content */}
-            <div className="flex flex-col w-full lg:w-1/2 text-left lg:pt-24">
-              <div className="max-w-lg mb-8 mt-32 md:mt-0">
-                <h1 className="text-5xl font-extrabold leading-tight mb-4">
-                  <span className="text-6xl">Build</span>
-                  <span className="text-4xl"> Better,</span>
+            <div className="flex flex-col w-full lg:w-1/2 text-left">
+              <div className="max-w-lg mb-8 mt-16 md:mt-0">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                  <span className="text-4xl sm:text-5xl md:text-6xl">Build</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl"> Better,</span>
 
                   <br className="hidden md:block" />
 
-                  <span className="text-4xl">Live </span>
-                  <span className="text-6xl">Beautifully</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl">Live </span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl">Beautifully</span>
                 </h1>
 
                 <p className="text-sm sm:text-lg leading-relaxed text-white/90">
@@ -80,11 +80,11 @@ export default function Home() {
                 </ParaText>
 
                 <div className="flex items-center justify-center mx-auto md:mx-0 gap-4">
-                  <BlueButton className="bg-[#a46352] hover:bg-[#8a4f40] !rounded-lg !cursor-default !text-base !font-normal !min-w-32 transition-all duration-300 border border-white/30">
+                  <BlueButton className="bg-[#a46352] hover:bg-[#8a4f40] rounded-lg cursor-default font-normal min-w-32 transition-all duration-300 border border-white/30">
                     Interior Designing
                   </BlueButton>
 
-                  <BlueButton className="!bg-transparent !border !border-white !rounded-lg !cursor-default !text-base !font-normal !min-w-32 hover:!bg-white hover:!text-black transition-all duration-300">
+                  <BlueButton className="bg-transparent border border-white rounded-lg cursor-default font-normal min-w-32 hover:bg-white hover:text-black transition-all duration-300">
                     End to End Construction
                   </BlueButton>
                 </div>

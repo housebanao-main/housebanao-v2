@@ -630,16 +630,27 @@ export default function ServiceDetailPage() {
   return (
     <>
       {/* HEADER AREA */}
-      <div className="bg-transparent">
+      <div
+        className="relative min-h-[60vh] flex flex-col"
+        style={{
+          backgroundImage: 'url("/Hero.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
         <Navbar isWhite={false} />
-
-        <section className="pt-10 pb-12 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-black text-[20px] font-bold uppercase tracking-widest pt-10">
+        <div className="relative z-10 flex-1 flex items-center justify-center text-center px-4 py-16">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-white text-2xl md:text-4xl font-bold uppercase tracking-widest">
               {serviceName}
             </p>
+            <p className="text-gray-300 text-base md:text-lg mt-4 max-w-xl mx-auto">
+              Professional services tailored to bring your dream space to life.
+            </p>
           </div>
-        </section>
+        </div>
       </div>
 
       {/* MAIN SECTION */}

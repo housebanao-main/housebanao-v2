@@ -1,51 +1,40 @@
 "use client";
 
 import React from "react";
-import Bg from "@/public/background/serviceBannerBg.svg";
-import SectionHeading from "@/components/Headings/SectionHeading";
 import LargeHeading from "@/components/Headings/LargeHeading";
 import Wrapper from "@/components/Wrapper";
 import BlueButton from "@/components/Buttons/BlueButton";
 import { usePopup } from '@/context/PopupContext';
-import Image from "next/image";
-import { IMG_PLACEHOLDER } from "@/utils/content";
-import HomeService from "@/public/service/ServicesHome.png";
+
 const ServiceBanner = () => {
-
-  const { openPopup } = usePopup(); // Get openPopup function from context
-
+  const { openPopup } = usePopup();
 
   return (
     <div
+      className="relative min-h-[60vh] w-full flex items-center justify-center"
       style={{
-        backgroundImage: `url(${Bg})`,
+        backgroundImage: 'url("/Hero.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
-      className="min-h-[50svh] w-full lg:w-[90%] m-auto text-black pt-16  "
     >
-      <Wrapper
-        className={
-          "flex flex-wrap-reverse sm:flex-nowrap items-center justify-between min-h-[50svh]  gap-4"
-        }
-      >
-        <div className="basis-full sm:basis-3/5 flex sm:block flex-col items-center justify-center">
-          <LargeHeading
-            className={"font-bold mb-2 sm:mb-8 text-center sm:text-start"}
-          >
-            Construct your Dream Home with us.
-          </LargeHeading>
-          <BlueButton onClick={openPopup} className={"text-white translate"}>
-            Start your Home construction{" "}
-          </BlueButton>
-        </div>
-        <div className="flex sm:block items-center justify-center basis-full ">
-          <Image
-            src={HomeService}
-            alt=""
-            width={500}
-            height={500}
-            className="rounded-3xl  mx-auto sm:mx-0 sm:ml-auto "
-          />
-        </div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <Wrapper className="relative z-10 w-full text-center text-white !pt-32 !pb-16">
+        <LargeHeading className="font-bold text-white mb-4">
+          Construct your Dream Home with us.
+        </LargeHeading>
+        <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          End-to-end construction and interior design services tailored to your vision.
+        </p>
+        <BlueButton
+          onClick={openPopup}
+          className="bg-[#a46352] hover:bg-[#8a4f40] text-white rounded-xl px-8 py-3 font-bold shadow-lg"
+        >
+          Start your Home Construction
+        </BlueButton>
       </Wrapper>
     </div>
   );

@@ -71,7 +71,7 @@ const RightForm = () => {
       console.log("📤 Sending Payload:", payload); // Debug before sending
 
       const response = await axios.post(
-        "https://crm.gomaterial.in/api/queries", payload,
+        "https://api.gomaterial.in/api/queries", payload,
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -114,8 +114,7 @@ const RightForm = () => {
       >
         <div className="flex max-w-2xl flex-col items-center justify-center gap-6 p-2">
           <h1
-            className="text-center lg:mt-32
-            text-xl sm:text-xl font-semibold text-white drop-shadow-md"
+            className="text-center text-xl font-semibold text-white drop-shadow-md"
           >
             Get your cost estimate for free
           </h1>

@@ -56,7 +56,7 @@ export default function Services() {
       </Head>
 
       {/* Navbar */}
-      <Navbar isWhite={true} />
+      <Navbar isWhite={false} />
 
       {/* Banner */}
       <ServiceBanner />

@@ -28,7 +28,7 @@ export const CollabsSection = () => {
           {/* Heading Card */}
           <div className="bg-[#fff7f4] rounded-[34px] p-8 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 mb-10 text-center">
             
-            <SectionHeading className="text-black text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+            <SectionHeading className="text-black text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-4">
               Our Trusted Partners
             </SectionHeading>
 

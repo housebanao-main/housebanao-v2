@@ -36,7 +36,7 @@ export default function Construction() {
               <div className="mt-8 flex justify-start">
                 <BlueButton
                   onClick={openPopup}
-                  className="!bg-[#a46352] hover:!bg-[#8a4f40] !text-white !rounded-xl !px-8 !py-4 !text-lg !font-bold transition-all duration-300 shadow-lg"
+                  className="bg-[#a46352] hover:bg-[#8a4f40] text-white rounded-xl px-8 py-4 text-lg font-bold transition-all duration-300 shadow-lg"
                 >
                   Book Consultation Now
                 </BlueButton>

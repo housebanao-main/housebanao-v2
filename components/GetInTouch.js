@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import Wrapper from "./Wrapper";
 import BlackBtn from "./Buttons/BlackBtn";
@@ -36,9 +37,11 @@ const GetInTouch = () => {
               </div>
             </div>
 
-            <BlackBtn className="!bg-[#a46352] hover:!bg-[#8a4f40] !text-white !rounded-2xl !px-8 !py-4 !text-lg !font-bold transition-all duration-300 shadow-lg text-nowrap">
-              Get In Touch
-            </BlackBtn>
+            <Link href="/contact">
+              <BlackBtn className="!bg-[#a46352] hover:!bg-[#8a4f40] !text-white !rounded-2xl !px-8 !py-4 !text-lg !font-bold transition-all duration-300 shadow-lg text-nowrap">
+                Get In Touch
+              </BlackBtn>
+            </Link>
           </div>
         </div>
       </Wrapper>

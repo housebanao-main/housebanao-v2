@@ -39,25 +39,13 @@ const CustomerReviews = () => {
     <section className="bg-[#fdf4f1] py-24 min-h-screen w-full">
       <Wrapper className="w-full lg:w-[96%] mx-auto">
         
-        {/* Main Heading */}
-        <div className="text-center mb-16">
-          <h1 className="text-black font-extrabold text-[90px] md:text-[160px] lg:text-[220px] leading-none mb-8">
-            Client Testimonials
-          </h1>
-
-          <ParaText className="text-gray-700 font-bold text-2xl md:text-3xl max-w-5xl mx-auto leading-relaxed">
-            Don't just take our word for it. Hear from the homeowners and
-            businesses we've transformed across Gurgaon and Delhi.
-          </ParaText>
-        </div>
-
         {/* Main Parent Card */}
         <div className="bg-[#a46352] rounded-[42px] p-6 md:p-10 shadow-[0_25px_70px_rgba(164,99,82,0.35)]">
           
           {/* Inner Heading Card */}
           <div className="bg-[#fff7f4] rounded-[34px] p-8 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 mb-10 text-center">
             
-            <SectionHeading className="text-black text-4xl md:text-5xl leading-tight mb-4">
+            <SectionHeading className="text-black text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
               Real Stories from Satisfied Customers
             </SectionHeading>
 

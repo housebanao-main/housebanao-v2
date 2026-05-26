@@ -41,11 +41,11 @@ const CustomerReviews = () => {
         
         {/* Main Heading */}
         <div className="text-center mb-16">
-          <SectionHeading  className="text-black font-extrabold text-[80px] md:text-[140px] leading-none mb-8">
+          <SectionHeading className="text-black font-extrabold text-[clamp(2.5rem,8vw,9rem)] leading-none mb-8">
             Client Testimonials
           </SectionHeading>
 
-          <ParaText className="text-gray-700 font-bold text-2xl md:text-3xl max-w-5xl mx-auto leading-relaxed">
+          <ParaText className="text-gray-700 font-bold text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Don't just take our word for it. Hear from the homeowners and
             businesses we've transformed across Gurgaon and Delhi.
           </ParaText>
@@ -56,7 +56,7 @@ const CustomerReviews = () => {
           
           {/* Inner Heading Card */}
           <div className="bg-[#fff7f4] rounded-[34px] p-8 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 mb-10 text-center">
-            <SectionHeading className="text-black font-extrabold text-4xl md:text-5xl leading-tight mb-4">
+            <SectionHeading className="text-black font-extrabold text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
               Real Stories from Satisfied Customers
             </SectionHeading>
 
