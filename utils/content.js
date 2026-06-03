@@ -5,68 +5,68 @@ import img3 from "@/public/dreamHome/3.svg";
 import img4 from "@/public/dreamHome/4.svg";
 import img5 from "@/public/dreamHome/5.svg";
 import { SiTicktick } from "react-icons/si";
-import ProjectImg1 from "@/public/images/home1.png";
-import ProjectImg2 from "@/public/images/home2.png";
-import ProjectImg3 from "@/public/images/home3.png";
-import ProjectImg4 from "@/public/images/home4.png";
+import ProjectImg1 from "@/public/images/project1.jpg";
+import ProjectImg2 from "@/public/images/project2.jpg";
+import ProjectImg3 from "@/public/images/project3.jpg";
+import ProjectImg4 from "@/public/images/project4.jpg";
 
 export const IMG_PLACEHOLDER = "https://placehold.jp/500x500.png";
 
 export const faqData = [
-  {
-    name: "What services do you offer?",
-    answer: `At House Banao, we specialize in comprehensive house construction, residential design, and
-office interior design. Whether you’re building a new home, renovating your space, or designing
-a stylish office, we handle it all with precision and creativity. Our services include architectural
-planning, interior design, space optimization, and project management`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "How much experience does your team have?",
-    answer: `Our team boasts over 10 years of experience in the construction and design industry. We bring
-a wealth of knowledge and a track record of successful projects to ensure your vision is brought
-to life with expertise and care.`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "Can I see examples of your past work?",
-    answer: `Absolutely! We’re proud of our portfolio and would love to show you examples of our completed
-projects. You can explore our gallery on the website or request a personalized showcase during
-a consultation`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "Do you offer consultations?",
-    answer: `Yes, we offer free initial consultations to discuss your ideas and project needs. This helps us
-understand your vision and provide you with expert advice and a tailored plan.`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "What is your process for project development?",
-    answer: `Our process starts with understanding your goals through detailed consultations. We then move
-to architectural and interior designs, providing you with detailed drawings, front evaluation, 2D
-and 3D with comprehensive layouts. After this we proceed to construction and execution.
-Throughout the project, we ensure constant communication and quality control to deliver
-exceptional results.`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "How long does a typical project take?",
-    answer: `The timeline of a typical project depends on its scope and complexity. On average residential
-projects take 10-12 months from start to finish, while larger commercial projects might require
-additional time. Interior designing projects generally take about 2-4 months (Office/Residential
-Interior). We’ll provide a clear timeline after assessing your specific needs.`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
-  {
-    name: "What Makes Your Company Special?",
-    answer: `At House Banao, our entire team is committed to excellence, this enables us to offer end-to-end
-solutions to provide seamless, hassle-free experiences for our clients. We blend innovative
-design with practical solutions which ensures that every project is unique and personalized as per
-your needs. Our dedication to quality and client satisfaction is evident in our thorough approach,
-including over 300 quality checks throughout each project.`,
-    icon: <FaClockRotateLeft color="#9ca3af" />,
-  },
+//   {
+//     name: "What services do you offer?",
+//     answer: `At House Banao, we specialize in comprehensive house construction, residential design, and
+// office interior design. Whether you’re building a new home, renovating your space, or designing
+// a stylish office, we handle it all with precision and creativity. Our services include architectural
+// planning, interior design, space optimization, and project management`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "How much experience does your team have?",
+//     answer: `Our team boasts over 10 years of experience in the construction and design industry. We bring
+// a wealth of knowledge and a track record of successful projects to ensure your vision is brought
+// to life with expertise and care.`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "Can I see examples of your past work?",
+//     answer: `Absolutely! We’re proud of our portfolio and would love to show you examples of our completed
+// projects. You can explore our gallery on the website or request a personalized showcase during
+// a consultation`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "Do you offer consultations?",
+//     answer: `Yes, we offer free initial consultations to discuss your ideas and project needs. This helps us
+// understand your vision and provide you with expert advice and a tailored plan.`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "What is your process for project development?",
+//     answer: `Our process starts with understanding your goals through detailed consultations. We then move
+// to architectural and interior designs, providing you with detailed drawings, front evaluation, 2D
+// and 3D with comprehensive layouts. After this we proceed to construction and execution.
+// Throughout the project, we ensure constant communication and quality control to deliver
+// exceptional results.`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "How long does a typical project take?",
+//     answer: `The timeline of a typical project depends on its scope and complexity. On average residential
+// projects take 10-12 months from start to finish, while larger commercial projects might require
+// additional time. Interior designing projects generally take about 2-4 months (Office/Residential
+// Interior). We’ll provide a clear timeline after assessing your specific needs.`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
+//   {
+//     name: "What Makes Your Company Special?",
+//     answer: `At House Banao, our entire team is committed to excellence, this enables us to offer end-to-end
+// solutions to provide seamless, hassle-free experiences for our clients. We blend innovative
+// design with practical solutions which ensures that every project is unique and personalized as per
+// your needs. Our dedication to quality and client satisfaction is evident in our thorough approach,
+// including over 300 quality checks throughout each project.`,
+//     icon: <FaClockRotateLeft color="#9ca3af" />,
+//   },
 ];
 
 export const steps = [
@@ -103,7 +103,7 @@ export const steps = [
     title: "Track & Transact",
     description:
       "Throughout the construction process, you will be able to track the progress and stay updated on key milestones. Payments can also be made easily through our online system.",
-    additionalInfo: "You’ll receive real-time notifications and reports about the ongoing construction and finances.",
+    additionalInfo: "You'll receive real-time notifications and reports about the ongoing construction and finances.",
   },
   {
     number: 6,
@@ -200,33 +200,45 @@ export const projectData = [
   {
     image: ProjectImg1,
     PropertyId: "HBCON - 015",
-    PropertySize: "500 Sq. Yards",
-    ApartmentType: "Luxury",
-    Specification: "B+S+G+4",
+    PropertySize: "320 Sq. Yards",
+    ApartmentType: "Luxury Villa",
+    Specification: "G+2",
+    address: "Sector 14, Gurgaon",
+    description:
+      "A premium villa with layered terraces, glass balustrades, and warm exterior lighting for elegant family living.",
     link: "#",
   },
   {
     image: ProjectImg2,
     PropertyId: "HBCON - 016",
-    PropertySize: "375 Sq. Yards",
-    ApartmentType: "Luxury",
-    Specification: "G+3",
+    PropertySize: "320 Sq. Yards",
+    ApartmentType: "Modern Mid-rise",
+    Specification: "G+4",
+    address: "DLF Phase 2, Gurgaon",
+    description:
+      "A contemporary mid-rise building with curved balconies, dark steel accents and a refined urban facade.",
     link: "#",
   },
   {
     image: ProjectImg3,
     PropertyId: "HBCON - 017",
-    PropertySize: "125 Sq. Yards",
-    ApartmentType: "Luxury",
-    Specification: "G+2",
+    PropertySize: "520 Sq. Yards",
+    ApartmentType: "Urban Residence",
+    Specification: "G+4",
+    address: "Saket, New Delhi",
+    description:
+      "A sleek narrow facade with wood-tone louvers and planter-integrated balconies for comfortable city living.",
     link: "#",
   },
   {
     image: ProjectImg4,
     PropertyId: "HBCON - 018",
-    PropertySize: "67 Sq. Yards",
-    ApartmentType: "Luxury",
-    Specification: "G+1",
+    PropertySize: "170 Sq. Yards",
+    ApartmentType: "Contemporary Multi-family",
+    Specification: "G+4",
+    address: "South Delhi",
+    description:
+      "A white minimalist building with vertical texture panels and large windows, designed for modern urban homes.",
     link: "#",
   },
   // {

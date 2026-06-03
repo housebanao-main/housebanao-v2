@@ -6,7 +6,6 @@ import HowItStarted from "./components/HowItStarted";
 import DifferentStages from "./components/DifferentStages";
 import CustomerSays from "./components/CustomerSays";
 import ViewProjects from "./components/ViewProjects";
-import Faqs from "@/components/Faqs";
 import GetInTouch from "@/components/GetInTouch";
 import ProjectForm from "@/components/ProjectForm";
 import { CollabsSection } from "@/components/CollabSection";
@@ -54,7 +53,6 @@ export default function Projects() {
         <DifferentStages />
         <CustomerSays />
         <ViewProjects />
-        <Faqs />
         <GetInTouch />
         <ProjectForm />
         <CollabsSection />

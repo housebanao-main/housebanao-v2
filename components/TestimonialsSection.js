@@ -1,82 +1,188 @@
-import ParaText from "@/components/Headings/ParaText";
-import SectionHeading from "@/components/Headings/SectionHeading";
-import SectionSubHeading from "@/components/Headings/SectionSubHeading";
+"use client";
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Wrapper from "@/components/Wrapper";
 
-import React from "react";
-import Image from "next/image";
+const reviews = [
+  {
+    name: "Vishal Baliyan",
+    badge: "Local Guide · 8 reviews",
+    avatar: "V",
+    avatarBg: "#5f4e8a",
+    time: "a year ago",
+    text: "House Banao creative prowess and also excels in client service. They provide excellent services at an affordable price. They understood all I wanted and worked beyond my expectations. I would highly recommend House Banao for interior designing.",
+  },
+  {
+    name: "Suman Lata",
+    badge: "1 review · 3 photos",
+    avatar: "S",
+    avatarBg: "#9c4f9e",
+    time: "a year ago",
+    text: "I am very impressed by the services provided by House Banao! Their team of experts transformed my living space into a stunning oasis that reflects my personal style and exceeds my expectations. The quality of their work is perfect. I would highly recommend House Banao — best interior and construction company.",
+  },
+  {
+    name: "Sonali Gupta",
+    badge: "4 reviews",
+    avatar: "S",
+    avatarBg: "#9c4f9e",
+    time: "a year ago",
+    text: "I recently had the pleasure of working with House Banao on a construction project, and I am happier with the results. From the initial consultation to the final walk-through, their team was professional, communicative, and attentive to our needs. The project was completed on time, within budget, and exceeded expectations in quality.",
+  },
+  {
+    name: "Riyansh Takur",
+    badge: "5 reviews · 6 photos",
+    avatar: "r",
+    avatarBg: "#c0345a",
+    time: "9 months ago",
+    text: "House Banao exceeded my expectations! Their team was professional, efficient, and provided top-notch service. I hired them for construction interior design for the Stilt + 4 Floor — result was amazing. The prices were competitive, and the turnaround time was quick. Highly recommend their services!",
+  },
+  {
+    name: "Hitesh Kushwaha",
+    badge: "5 reviews",
+    avatar: "H",
+    avatarBg: "#3a6ea8",
+    time: "4 months ago",
+    text: "I must recommend this company — having a great experience working with the HouseBanao team. Cost effective work with good service and on time delivery of project. The knowledge of their senior team is excellent in the construction field. Thank you HouseBanao team!",
+  },
+  {
+    name: "Japneet Kaur",
+    badge: "2 reviews",
+    avatar: "J",
+    avatarBg: "#4a7c59",
+    time: "6 months ago",
+    text: "I had an amazing experience with House Banao, the best construction company in Gurgaon. Their team delivered my home on time with top-quality materials and transparent pricing. The design and interior work perfectly matched my vision — modern, elegant, and functional. Highly recommend House Banao for home construction or interior design in Delhi NCR.",
+  },
+];
 
-import Customer1 from "@/public/images/Customer1.jpg";
-import Customer2 from "@/public/images/Customer2.jpg";
-import Customer3 from "@/public/images/Customer3.png";
+const StarRating = () => (
+  <div className="flex gap-0.5">
+    {[...Array(5)].map((_, i) => (
+      <svg key={i} className="w-4 h-4 text-[#fbbc04]" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+);
 
-const CustomerReviews = () => {
-  const data = [
-    {
-      name: "Anil Kapoor",
-      image: Customer2,
-      description:
-        "Building our dream home was something we’d always wanted to do, but we didn’t know where to start. That’s when we found HouseBanao. They took the time to understand our needs and helped us through every stage of the process.",
-      city: "Software Engineer",
-    },
-    {
-      name: "Priya Sharma",
-      image: Customer1,
-      description:
-        "I'm so happy to share my experience with HouseBanao. From the first meeting, the team understood our vision and guided us every step of the way. The final result exceeded our expectations.",
-      city: "HouseWife",
-    },
-    {
-      name: "Rajesh Verma",
-      image: Customer3,
-      description:
-        "HouseBanao was exactly the reliable partner we needed. Their team listened carefully, offered great advice, and delivered exceptional quality throughout the entire process.",
-      city: "Business Man - Shop Owner",
-    },
-  ];
+const GoogleLogo = () => (
+  <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
+    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+  </svg>
+);
+
+const TestimonialsSection = () => {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [fade, setFade] = useState(true);
+  const timerRef = useRef(null);
+
+  const goTo = useCallback((index) => {
+    setFade(false);
+    setTimeout(() => { setCurrent(index); setFade(true); }, 250);
+  }, []);
+
+  const next = useCallback(() => goTo((current + 1) % reviews.length), [current, goTo]);
+
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(next, 3500);
+    return () => clearInterval(timerRef.current);
+  }, [paused, next]);
+
+  const review = reviews[current];
 
   return (
-    <section className="bg-[#fdf4f1] py-24 min-h-screen w-full">
-      <Wrapper className="w-full lg:w-[96%] mx-auto">
-        
-        {/* Main Heading */}
-        <div className="text-center mb-16">
-          <SectionHeading className="text-black font-extrabold text-[clamp(2.5rem,8vw,9rem)] leading-none mb-8">
-            Client Testimonials
-          </SectionHeading>
-
-          <ParaText className="text-gray-700 font-bold text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it. Hear from the homeowners and
-            businesses we've transformed across Gurgaon and Delhi.
-          </ParaText>
+    <section className="bg-[#0f0f0f] py-24 w-full border-b border-white/10">
+      <Wrapper className="w-full lg:w-[90%] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-white/10" data-aos="fade-up">
+          <div>
+            <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">
+              Google Reviews
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Client Testimonials
+            </h2>
+          </div>
+          <p className="text-white/50 text-base max-w-xs leading-relaxed">
+            Real reviews from real homeowners — verified on Google.
+          </p>
         </div>
 
-        {/* Main Parent Card */}
-        <div className="bg-[#a46352] rounded-[42px] p-6 md:p-10 shadow-[0_25px_70px_rgba(164,99,82,0.35)]">
-          
-          {/* Inner Heading Card */}
-          <div className="bg-[#fff7f4] rounded-[34px] p-8 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 mb-10 text-center">
-            <SectionHeading className="text-black font-extrabold text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
-              Real Stories from Satisfied Customers
-            </SectionHeading>
-
-            <ParaText className="text-gray-700 font-semibold max-w-4xl mx-auto text-lg md:text-xl leading-relaxed">
-              Hear from our happy customers who trusted HouseBanao for their
-              dream homes and interiors.
-            </ParaText>
+        {/* Review card */}
+        <div
+          className="border border-white/10 p-8 md:p-12 cursor-pointer transition-all duration-300 hover:border-[#c9a07a]/40"
+          data-aos="fade-up" data-aos-delay="100"
+          style={{ opacity: fade ? 1 : 0, transition: "opacity 0.25s ease" }}
+          onClick={() => setPaused((p) => !p)}
+          title={paused ? "Click to resume" : "Click to pause"}
+        >
+          {/* Top row */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <div
+                className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base shrink-0"
+                style={{ backgroundColor: review.avatarBg }}
+              >
+                {review.avatar}
+              </div>
+              <div>
+                <p className="font-semibold text-white text-sm">{review.name}</p>
+                <p className="text-white/40 text-xs mt-0.5">{review.badge}</p>
+              </div>
+            </div>
+            <GoogleLogo />
           </div>
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {data.map((item, index) => (
-              <Card
-                key={index}
-                name={item.name}
-                image={item.image}
-                description={item.description}
-                city={item.city}
+          {/* Stars + time */}
+          <div className="flex items-center gap-3 mb-6">
+            <StarRating />
+            <span className="text-white/40 text-xs">{review.time}</span>
+          </div>
+
+          {/* Text */}
+          <p className="text-white/70 text-base md:text-lg leading-relaxed min-h-[80px] italic">
+            &ldquo;{review.text}&rdquo;
+          </p>
+
+          <div className="flex justify-end mt-6">
+            <span className="text-xs text-white/30">
+              {paused ? "▶ Click to resume" : "⏸ Click to pause"}
+            </span>
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center gap-2">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setPaused(true); goTo(i); }}
+                className={`rounded-full transition-all duration-300 ${
+                  i === current ? "bg-[#c9a07a] w-6 h-2" : "bg-white/20 hover:bg-white/40 w-2 h-2"
+                }`}
               />
             ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => { setPaused(true); goTo((current - 1 + reviews.length) % reviews.length); }}
+              className="border border-white/20 hover:border-[#c9a07a] text-white hover:text-[#c9a07a] text-lg w-10 h-10 flex items-center justify-center transition-all"
+            >
+              ‹
+            </button>
+            <span className="text-white/30 text-xs tabular-nums">{current + 1} / {reviews.length}</span>
+            <button
+              onClick={() => { setPaused(true); goTo((current + 1) % reviews.length); }}
+              className="border border-white/20 hover:border-[#c9a07a] text-white hover:text-[#c9a07a] text-lg w-10 h-10 flex items-center justify-center transition-all"
+            >
+              ›
+            </button>
           </div>
         </div>
       </Wrapper>
@@ -84,36 +190,4 @@ const CustomerReviews = () => {
   );
 };
 
-const Card = ({ name, image, description, city }) => {
-  return (
-    <div className="bg-[#fff7f4] rounded-[34px] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_65px_rgba(0,0,0,0.22)]">
-      
-      {/* Image */}
-      <div className="h-72 overflow-hidden rounded-[28px] shadow-[0_12px_30px_rgba(0,0,0,0.18)] mb-6">
-        <Image
-          src={image}
-          alt={name}
-          className="object-cover w-full h-full rounded-[28px] transition-transform duration-500 hover:scale-105"
-        />
-      </div>
-
-      {/* Description */}
-      <ParaText className="text-gray-700 leading-relaxed text-justify font-medium text-lg">
-        {description}
-      </ParaText>
-
-      {/* Bottom */}
-      <div className="text-center mt-6 pt-5 border-t border-[#ead4cc]">
-        <SectionSubHeading className="font-bold text-black text-2xl">
-          {name}
-        </SectionSubHeading>
-
-        <SectionSubHeading className="font-bold text-[#a46352] text-xl">
-          {city}
-        </SectionSubHeading>
-      </div>
-    </div>
-  );
-};
-
-export default CustomerReviews;
+export default TestimonialsSection;

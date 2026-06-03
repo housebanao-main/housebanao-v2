@@ -1,13 +1,12 @@
 // "use client";
 
-import Head from "next/head";
+// import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
 import "../styles/globals.css";
 import Home from "./components/Home";
 import GetInTouch from "@/components/GetInTouch";
-import Faqs from "@/components/Faqs";
 import ViewProjects from "./projects/components/ViewProjects";
 import Services from "./components/Services";
 import Inspiration from "./components/Inspiration";
@@ -60,9 +59,9 @@ export default function IndexPage() {
       <Construction />
       <ViewProjects />
       <TestimonialsSection />
-      <Faqs />
+         <CollabsSection />
       <GetInTouch />
-      <CollabsSection />
+   
       <Footer />
     </div>
   );

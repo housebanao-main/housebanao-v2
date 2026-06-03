@@ -3,6 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 import ClientWrapper from "./ClientWrapper";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AOSInit from "@/components/AOSInit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,6 +115,7 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
+        <AOSInit />
         <ClientWrapper>
           {children}
         </ClientWrapper>

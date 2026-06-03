@@ -3,195 +3,117 @@
 import { useEffect, useState } from "react";
 import Form from "./Form";
 import Wrapper from "@/components/Wrapper";
-
 import BlueButton from "@/components/Buttons/BlueButton";
 import ParaText from "@/components/Headings/ParaText";
-
-const BRAND_COLOR = "#faece7";
-
-/* Big Parent Card */
-const MAIN_CARD_COLOR = "#a46352";
-
-/* Inner Cards - Lighter Shade */
-const INNER_CARD_COLOR = "#f8ebe6";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <>
-      <div
-        className="relative min-h-screen w-full"
-        style={{ backgroundColor: BRAND_COLOR }}
+    <div className="w-full">
+      {/* Hero Section */}
+      <section
+        className="bg-cover bg-center text-white relative min-h-screen w-full flex flex-col"
+        style={{
+          backgroundImage: `url(${isMobile ? "/MobileBanner.jpg" : "/Hero.jpg"})`,
+        }}
       >
-        {/* Hero Section */}
-        <section
-          className="bg-cover bg-center text-white relative min-h-screen w-full flex flex-col"
-          style={{
-            backgroundImage: `url(${
-              isMobile ? "/MobileBanner.jpg" : "/Hero.jpg"
-            })`,
-          }}
-        >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-          {/* Hero Content */}
-          <Wrapper className="relative z-10 w-full lg:w-[92%] m-auto flex-1 flex flex-col lg:flex-row justify-between items-center gap-8 !pt-24 !pb-12">
-            {/* Left Content */}
-            <div className="flex flex-col w-full lg:w-1/2 text-left">
-              <div className="max-w-lg mb-8 mt-16 md:mt-0">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-                  <span className="text-4xl sm:text-5xl md:text-6xl">Build</span>
-                  <span className="text-2xl sm:text-3xl md:text-4xl"> Better,</span>
+        {/* Hero Content */}
+        <Wrapper className="relative z-10 w-full lg:w-[90%] m-auto flex-1 flex flex-col lg:flex-row justify-between items-center gap-8 !pt-32 !pb-16">
+          {/* Left Content */}
+          <div className="flex flex-col w-full lg:w-1/2 text-left">
+            {/* Gold line accent */}
+            <div className="w-12 h-[2px] bg-[#c9a07a] mb-6" data-aos="fade-right"></div>
 
-                  <br className="hidden md:block" />
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-4" data-aos="fade-up" data-aos-delay="100">
+              Premium Home Construction
+            </p>
 
-                  <span className="text-2xl sm:text-3xl md:text-4xl">Live </span>
-                  <span className="text-4xl sm:text-5xl md:text-6xl">Beautifully</span>
-                </h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight" data-aos="fade-up" data-aos-delay="200">
+              Build Better,
+              <br />
+              <span className="text-[#c9a07a]">Live Beautifully</span>
+            </h1>
 
-                <p className="text-sm sm:text-lg leading-relaxed text-white/90">
-                  HouseBanao transforms ordinary spaces into
-                  <br />
-                  extraordinary homes with exceptional Home
-                  <br />
-                  construction and personalized cost estimation with
-                  <br />
-                  unmatched expertise.
-                </p>
-              </div>
+            <p className="text-base sm:text-lg leading-relaxed text-white/75 max-w-md mb-10" data-aos="fade-up" data-aos-delay="300">
+              HouseBanao transforms ordinary spaces into extraordinary homes
+              with exceptional construction and personalized cost estimation.
+            </p>
 
-              {/* Buttons */}
-              <div className="sm:flex space-y-4 sm:space-y-0 items-center gap-4">
-                <ParaText className="text-white">
-                  Popular :
-                </ParaText>
-
-                <div className="flex items-center justify-center mx-auto md:mx-0 gap-4">
-                  <BlueButton className="bg-[#a46352] hover:bg-[#8a4f40] rounded-lg cursor-default font-normal min-w-32 transition-all duration-300 border border-white/30">
-                    Interior Designing
-                  </BlueButton>
-
-                  <BlueButton className="bg-transparent border border-white rounded-lg cursor-default font-normal min-w-32 hover:bg-white hover:text-black transition-all duration-300">
-                    End to End Construction
-                  </BlueButton>
-                </div>
-              </div>
+            {/* Buttons */}
+            <div className="flex flex-wrap items-center gap-4" data-aos="fade-up" data-aos-delay="400">
+              <span className="text-white/50 text-sm">Popular:</span>
+              <BlueButton className="bg-[#c9a07a] hover:bg-[#b8906a] text-black rounded-sm font-semibold px-6 py-3 text-sm tracking-wide border-0 transition-all duration-300">
+                Interior Designing
+              </BlueButton>
+              <BlueButton className="bg-transparent border border-white/50 text-white rounded-sm font-semibold px-6 py-3 text-sm tracking-wide hover:border-[#c9a07a] hover:text-[#c9a07a] transition-all duration-300">
+                End to End Construction
+              </BlueButton>
             </div>
-
-            {/* Form */}
-            {!isMobile && (
-              <div>
-                <Form />
-              </div>
-            )}
-          </Wrapper>
-        </section>
-
-        {/* Main Content Section */}
-        <section className="relative z-20 w-full -mt-[10vh] pt-16 pb-20">
-          {/* Bigger Parent Card */}
-          <Wrapper className="w-full lg:w-[96%] m-auto">
-            <div className="bg-[#a46352] shadow-2xl rounded-[40px] p-8 md:p-12">
-              
-              {/* Feature Cards */}
-              <FeatureCards />
-
-              {/* Solution Box */}
-              <div className="mt-10">
-                <SolutionBox />
-              </div>
-
-            </div>
-          </Wrapper>
-        </section>
-      </div>
-    </>
-  );
-}
-
-/* Feature Cards */
-function FeatureCards() {
-  const data = [
-    {
-      title: "Professional Expertise",
-      image:
-        "https://cdn-icons-png.flaticon.com/128/4995/4995049.png",
-      desc: "At House Banao, we offer professional expertise in home construction, home interiors, and office interiors. Our experienced team includes highly qualified architects, interior designers, execution teams, and professional site and civil engineers.",
-    },
-    {
-      title: "Reliable Services",
-      image:
-        "https://cdn-icons-png.flaticon.com/128/12516/12516132.png",
-      desc: "At House Banao, we provide reliable home construction services with transparency, top-brand collaborations (UltraTech, Jindal, Tata Steel), and quality materials. Our commitment guarantees your project will be handled with care.",
-    },
-    {
-      title: "Quality Assurance",
-      image:
-        "https://cdn-icons-png.flaticon.com/128/11125/11125966.png",
-      desc: "House Banao ensures quality assurance through thorough inspections and top-tier materials. We check structural integrity, safety measures, concrete mix quality, wall thickness, plastering, and fitting fixtures.",
-    },
-  ];
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 items-stretch justify-center gap-8 w-full">
-      {data.map((item, index) => (
-        <div
-          key={index}
-          className="bg-[#f8ebe6] shadow-xl p-7 rounded-3xl flex flex-col gap-5 w-full transition-all duration-300 ease-in-out min-h-[320px] hover:scale-[1.02]"
-        >
-          {/* Icon + Title */}
-          <div className="flex items-center gap-4">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-12 h-12 object-contain"
-            />
-
-            <h3 className="font-bold text-black text-2xl leading-tight">
-              {item.title}
-            </h3>
           </div>
 
-          {/* Description */}
-          <ParaText className="text-gray-700 leading-relaxed text-base">
-            {item.desc}
-          </ParaText>
-        </div>
-      ))}
-    </div>
-  );
-}
+          {/* Form */}
+          {!isMobile && (
+            <div className="w-full lg:w-auto">
+              <Form />
+            </div>
+          )}
+        </Wrapper>
+      </section>
 
-/* Solution Box */
-function SolutionBox() {
-  return (
-    <div className="w-full">
-      <div className="bg-[#f8ebe6] shadow-xl rounded-3xl px-6 py-10 md:px-14 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
-          One - Stop Solutions For Home Construction, Home Interior and Office
-          Interior
-        </h2>
+      {/* Feature Strip */}
+      <section className="bg-[#0f0f0f] w-full">
+        <Wrapper className="w-full lg:w-[90%] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10" data-aos="fade-up">
+            {[
+              {
+                number: "10+",
+                title: "Years Experience",
+                desc: "Qualified architects, designers & engineers build your dream.",
+              },
+              {
+                number: "500+",
+                title: "Projects Delivered",
+                desc: "Top-brand materials, full transparency, every project handled carefully.",
+              },
+              {
+                number: "300+",
+                title: "Quality Checks",
+                desc: "Thorough inspections ensure structural integrity and top-tier quality.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col gap-2 px-8 py-10">
+                <span className="text-4xl font-bold text-[#c9a07a]">{item.number}</span>
+                <span className="text-white font-semibold text-lg">{item.title}</span>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Wrapper>
+      </section>
 
-        <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-5xl mx-auto">
-          We provide comprehensive solutions for end-to-end construction,
-          including complete home construction, home interior design and a wide
-          selection of furniture and decor. From start to finish, we make sure
-          your venue is completely covered.
-        </p>
-      </div>
+      {/* Solution Banner */}
+      <section className="bg-white border-b border-[#e8e4df] w-full">
+        <Wrapper className="w-full lg:w-[90%] mx-auto !py-10">
+          <p className="text-center text-[#0f0f0f] text-base md:text-lg font-medium leading-relaxed max-w-4xl mx-auto">
+            One-Stop Solutions for{" "}
+            <span className="text-[#c9a07a] font-semibold">Home Construction</span>,{" "}
+            <span className="text-[#c9a07a] font-semibold">Home Interior</span> and{" "}
+            <span className="text-[#c9a07a] font-semibold">Office Interior</span> —
+            from concept to completion, seamlessly.
+          </p>
+        </Wrapper>
+      </section>
     </div>
   );
 }

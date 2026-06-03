@@ -8,7 +8,6 @@ import ServiceBanner from "./components/Banner";
 import ServiceDropdown from "./components/ServiceDropdown";
 import BookingJourney from "./components/YourJourney";
 import CustomerReviews from "../../components/CustomerReviews";
-import Faqs from "@/components/Faqs";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
@@ -69,9 +68,6 @@ export default function Services() {
 
       {/* Reviews */}
       <CustomerReviews />
-
-      {/* FAQs */}
-      <Faqs />
 
       {/* Contact */}
       <GetInTouch />

@@ -1,50 +1,56 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
-
 import Wrapper from "@/components/Wrapper";
-import SectionHeading from "@/components/Headings/SectionHeading";
-import ParaText from "@/components/Headings/ParaText";
-import LargeHeading from "@/components/Headings/LargeHeading";
-
 import { whyUsData } from "@/utils/content";
+import { IoChevronDownOutline } from "react-icons/io5";
 
-function WhyUs() {
+export default function WhyUs() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="bg-[#fdf4f1] py-20">
-      <Wrapper className="w-full lg:w-[96%] mx-auto">
-        <div className="bg-[#a46352] rounded-[42px] p-6 md:p-10 shadow-[0_25px_70px_rgba(164,99,82,0.35)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Image Card */}
-            <div className="bg-[#fff7f4] rounded-[34px] p-6 md:p-8 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70">
-              <div className="overflow-hidden rounded-[28px]">
-                <Image
-                  height={600}
-                  width={600}
-                  src="/whyUs/whyUs.svg"
-                  alt="Why Us Image"
-                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
-                  priority
-                />
-              </div>
-            </div>
+    <section className="bg-[#f5f4f0] py-24 border-b border-[#e8e4df]">
+      <Wrapper className="w-full lg:w-[90%] mx-auto">
+        {/* Section Header */}
+        <div className="mb-14 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
+          <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">
+            Our Promise
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight">
+            Why Choose Us?
+          </h2>
+        </div>
 
-            {/* Content Card */}
-            <div className="bg-[#fff7f4] rounded-[34px] p-6 md:p-10 shadow-[0_18px_45px_rgba(0,0,0,0.16)] border border-white/70">
-              <LargeHeading className="font-extrabold text-black mb-8">
-                Why Us?
-              </LargeHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+          {/* Left — Image */}
+          <div className="relative" data-aos="fade-right">
+            <Image
+              height={600}
+              width={600}
+              src="/whyUs/whyUs.svg"
+              alt="Why Us"
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
 
-              <div className="space-y-6">
-                {whyUsData.map((item, index) => (
-                  <Content
-                    key={index}
-                    heading={item.heading}
-                    icon={item.icon}
-                    descrption={item.description}
-                  />
-                ))}
-              </div>
-            </div>
+          {/* Right — Accordion */}
+          <div className="flex flex-col divide-y divide-[#e8e4df]" data-aos="fade-left">
+            {whyUsData.map((item, index) => (
+              <AccordionItem
+                key={index}
+                heading={item.heading}
+                icon={item.icon}
+                descrption={item.description}
+                isOpen={openIndex === index}
+                onToggle={() => toggle(index)}
+              />
+            ))}
           </div>
         </div>
       </Wrapper>
@@ -52,22 +58,29 @@ function WhyUs() {
   );
 }
 
-const Content = ({ heading, descrption, icon }) => {
-  return (
-    <div className="bg-white rounded-2xl p-5 shadow-md border border-[#ead4cc] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-      <div className="flex items-center gap-4 text-2xl mb-3">
-        <span className="text-[#a46352] text-3xl">{icon}</span>
-
-        <SectionHeading className="text-black font-bold text-2xl leading-tight">
+const AccordionItem = ({ heading, descrption, icon, isOpen, onToggle }) => (
+  <div className="py-5">
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between gap-4 text-left group"
+    >
+      <div className="flex items-center gap-4">
+        <span className="text-[#c9a07a] text-2xl flex-shrink-0">{icon}</span>
+        <span className={`font-semibold text-lg transition-colors ${isOpen ? "text-[#c9a07a]" : "text-[#0f0f0f] group-hover:text-[#c9a07a]"}`}>
           {heading}
-        </SectionHeading>
+        </span>
       </div>
+      <IoChevronDownOutline
+        className={`text-[#c9a07a] text-lg flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
+      />
+    </button>
 
-      <ParaText className="text-gray-700 font-medium leading-relaxed">
+    <div
+      className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
+    >
+      <p className="text-[#666] text-sm leading-relaxed pl-10">
         {descrption}
-      </ParaText>
+      </p>
     </div>
-  ); 
-};
-
-export default WhyUs;
+  </div>
+);

@@ -32,7 +32,7 @@ const Faqs = () => {
           </div>
         </div>
       </Wrapper>
-    </section>
+     </section>
   );
 };
 

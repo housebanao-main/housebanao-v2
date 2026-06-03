@@ -1,9 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Blogs from './components/Blogs';
-import Faqs from '@/components/Faqs';
 import GetInTouch from '@/components/GetInTouch';
 import ProjectForm from '@/components/ProjectForm';
 import { CollabsSection } from '@/components/CollabSection';
@@ -26,7 +24,6 @@ const Blog1 = () => {
                 <h1 className='relative z-10'>Blog Page</h1>
             </div>
             <Blogs />
-            <Faqs />
             <GetInTouch />
             <ProjectForm />
             <CollabsSection />

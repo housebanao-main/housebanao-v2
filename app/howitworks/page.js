@@ -5,7 +5,6 @@ import Banner from "./components/Banner";
 import DreamHome from "./components/DreamHome";
 import Steps from "./components/Steps";
 import CustomerReviews from "../../components/CustomerReviews";
-import Faqs from "@/components/Faqs";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
@@ -37,7 +36,6 @@ const HowItWorks = () => {
       <DreamHome />
       <Steps />
       <CustomerReviews />
-      <Faqs />
       <GetInTouch />
       <ProjectForm />
       <CollabsSection />

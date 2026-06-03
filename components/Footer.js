@@ -13,92 +13,95 @@ import Wrapper from "./Wrapper";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaMapPin } from "react-icons/fa";
-import SectionHeading from "./Headings/SectionHeading";
-import SectionSubHeading from "./Headings/SectionSubHeading";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#222222]">
-      <Wrapper className="w-full lg:w-[90%] m-auto flex flex-col">
-        {/* About Us */}
-        {/* <div className="font-semibold text-2xl text-white mb-4">About us</div> */}
+    <footer className="w-full bg-[#0a0a0a] border-t border-white/10">
+      <Wrapper className="w-full lg:w-[90%] mx-auto">
+        {/* Top row — logo + tagline */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-12 border-b border-white/10">
+          <Link href="/">
+            <Image src="/logo/1-crop.svg" alt="HouseBanao" width={120} height={36} />
+          </Link>
+          <p className="text-white/40 text-sm max-w-sm">
+            Premium home construction and interior design — transforming spaces across Delhi NCR.
+          </p>
+        </div>
 
-        {/* Footer Links */}
-        <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 mb-8">
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-14 border-b border-white/10" data-aos="fade-up">
           {/* Site Map */}
-          <div className="text-white">
-            <span className="text-lg font-semibold">Site Map</span>
-            <ul className="flex flex-col gap-2 mt-2 text-sm">
+          <div>
+            <span className="text-[#c9a07a] text-xs font-semibold tracking-[3px] uppercase mb-6 block">
+              Site Map
+            </span>
+            <ul className="flex flex-col gap-3">
               {siteMapMenus.map((menu, index) => (
                 <li key={index}>
-                  <Link href={menu.link}>{menu.name}</Link>
+                  <Link
+                    href={menu.link}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {menu.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Information */}
-          <div className="text-white">
-            <span className="text-lg font-semibold">Information</span>
-            <ul className="flex flex-col gap-2 mt-2 text-sm">
+          <div>
+            <span className="text-[#c9a07a] text-xs font-semibold tracking-[3px] uppercase mb-6 block">
+              Information
+            </span>
+            <ul className="flex flex-col gap-3">
               {informationMenus.map((menu, index) => (
                 <li key={index}>
-                  <Link href={menu.link}>{menu.name}</Link>
+                  <Link
+                    href={menu.link}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {menu.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info & Social Icons */}
-          <div className="text-white">
-            <span className="text-lg font-semibold">Our Address</span>
-            <div className="flex items-center gap-2 mt-2">
-              <FaPhone />
-              <a href="mailto:support@housebanao.com" className="block text-sm">
+          {/* Contact */}
+          <div>
+            <span className="text-[#c9a07a] text-xs font-semibold tracking-[3px] uppercase mb-6 block">
+              Contact Us
+            </span>
+            <div className="flex flex-col gap-4">
+              <a href="tel:+919810432124" className="flex items-start gap-3 text-white/60 hover:text-white text-sm transition-colors">
+                <FaPhone className="mt-0.5 shrink-0 text-[#c9a07a]" />
                 +91 981-0432-124
               </a>
-            </div>
-
-            <div className="flex items-center gap-2 mt-2">
-              <MdEmail />
-              <a href="mailto:support@housebanao.com" className="block text-sm">
+              <a href="mailto:support@housebanao.com" className="flex items-start gap-3 text-white/60 hover:text-white text-sm transition-colors">
+                <MdEmail className="mt-0.5 shrink-0 text-[#c9a07a]" />
                 support@housebanao.com
               </a>
+              <div className="flex items-start gap-3 text-white/60 text-sm">
+                <FaMapPin className="mt-0.5 shrink-0 text-[#c9a07a]" />
+                <span>7th Floor, JMD MEGAPOLIS, 746A, Badshahpur Sohna Rd Hwy, Sector 48, Gurugram, Haryana 122018</span>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2 mt-2">
-              <FaMapPin />
-              <p className="text-sm">
-                7th Floor, JMD MEGAPOLIS, 746A, Badshahpur Sohna Rd Hwy, Sector
-                48, Gurugram, Haryana 122018
-              </p>
-            </div>
-
-            {/* <div className="flex items-center gap-2 mt-2">
-              <FaMapPin />
-              <p className="text-sm">
-                212, 2nd floor, D mall, Netaji Subhash Place, Pitampura, New
-                Delhi 110034
-              </p>
-            </div>
-            <div className="flex items-center gap-2 mt-2">
-              <FaMapPin />
-              <p className="text-sm">
-                5th floor,Iconic Chorenthum , Sector 62, Beside Noida Electronic
-                City Metro Station
-              </p>
-            </div> */}
-            <div className="flex gap-4 mt-4">
+            {/* Social */}
+            <div className="flex gap-3 mt-8">
               {socialIcons.map(({ icon, url }, index) => (
                 <a
                   key={index}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="w-8 h-8 border border-white/20 hover:border-[#c9a07a] flex items-center justify-center transition-all duration-300 group"
                 >
                   <FontAwesomeIcon
                     icon={icon}
-                    className="w-5 h-5 text-white bg-[#313131]  rounded-[4px] cursor-pointer"
+                    className="w-3.5 h-3.5 text-white/50 group-hover:text-[#c9a07a] transition-colors"
                   />
                 </a>
               ))}
@@ -106,9 +109,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="text-center text-white text-sm">
-          © 2025 Vive HouseBanao Technologies Pvt. Ltd. All rights reserved.
+        {/* Bottom */}
+        <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-white/30 text-xs">
+          <span>© 2026 Vive HouseBanao Technologies Pvt. Ltd. All rights reserved.</span>
+          <span className="text-white/20">Designed for excellence.</span>
         </div>
       </Wrapper>
     </footer>
@@ -130,10 +134,7 @@ const informationMenus = [
 ];
 
 const socialIcons = [
-  {
-    icon: faFacebookF,
-    url: "https://www.facebook.com/profile.php?id=61556675355596",
-  },
+  { icon: faFacebookF, url: "https://www.facebook.com/profile.php?id=61556675355596" },
   { icon: faInstagram, url: "https://www.instagram.com/house_banao" },
   { icon: faLinkedinIn, url: "https://www.linkedin.com/company/housebanao2/" },
   { icon: faYoutube, url: "https://www.youtube.com/@HouseBanaoo" },
