@@ -4,6 +4,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { usePopup } from "@/context/PopupContext";
 
+function getUtmParams() {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const result = {};
+  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach((k) => { if (p.get(k)) result[k] = p.get(k); });
+  return result;
+}
+function gtagEvent(name, params = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") window.gtag("event", name, params);
+}
+
 export default function Popup() {
   const { isOpen, closePopup } = usePopup();
   const [form, setForm] = useState({
@@ -65,11 +76,14 @@ export default function Popup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setLoading(true);
     setErrorMessage("");
+
+    const utmParams = getUtmParams();
+    gtagEvent("generate_lead", { form_name: "popup_form", ...utmParams });
 
     try {
       const payload = {
@@ -81,15 +95,19 @@ export default function Popup() {
         state: "",
         priority: "WARM",
         status: "NEW",
+        utm_source: utmParams.utm_source || "",
+        utm_medium: utmParams.utm_medium || "",
+        utm_campaign: utmParams.utm_campaign || "",
+        utm_term: utmParams.utm_term || "",
+        utm_content: utmParams.utm_content || "",
       };
-
-      console.log("📤 Popup Form Submitted:", payload);
 
       const response = await axios.post("https://api.gomaterial.in/api/queries", payload, {
         headers: { "Content-Type": "application/json" },
       });
 
       if (response.status === 200 || response.status === 201) {
+        gtagEvent("form_submit_success", { form_name: "popup_form", ...utmParams });
         setSuccessMessage("✅ Thank you! We'll contact you soon.");
         setTimeout(() => {
           setForm({ name: "", phone: "", location: "" });
@@ -98,7 +116,7 @@ export default function Popup() {
         }, 1500);
       }
     } catch (error) {
-      console.error("🔥 API Error:", error.response?.data || error.message);
+      gtagEvent("form_submit_error", { form_name: "popup_form" });
       setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);

@@ -1,8 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import { IoMdContact } from "react-icons/io";
-import { MdLocationOn } from "react-icons/md"; // Location icon
-import axios from "axios"; // Install axios using `npm install axios`
+import { MdLocationOn } from "react-icons/md";
+import axios from "axios";
+
+function getUtmParams() {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const result = {};
+  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach((k) => { if (p.get(k)) result[k] = p.get(k); });
+  return result;
+}
+function gtagEvent(name, params = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") window.gtag("event", name, params);
+}
 
 const RightForm = () => {
   const [formData, setFormData] = useState({
@@ -54,6 +65,9 @@ const RightForm = () => {
     setSuccessMessage("");
     setErrorMessage("");
 
+    const utmParams = getUtmParams();
+    gtagEvent("generate_lead", { form_name: "hero_form", ...utmParams });
+
     try {
       const payload = {
         name: formData.name || "Unknown",
@@ -64,36 +78,28 @@ const RightForm = () => {
         city: formData.plotLocation || "Not provided",
         country: "India",
         state: "",
-        priority: "WARM", // ✅ Change to a valid value (HOT, WARM, or COLD)
-        status: "NEW", // ✅ Change to a valid value (NEW, INACTIVE, CONTACTED, etc.)
+        priority: "WARM",
+        status: "NEW",
+        utm_source: utmParams.utm_source || "",
+        utm_medium: utmParams.utm_medium || "",
+        utm_campaign: utmParams.utm_campaign || "",
+        utm_term: utmParams.utm_term || "",
+        utm_content: utmParams.utm_content || "",
       };
-
-      console.log("📤 Sending Payload:", payload); // Debug before sending
 
       const response = await axios.post(
         "https://api.gomaterial.in/api/queries", payload,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
+        { headers: { "Content-Type": "application/json" } }
       );
 
       if (response.status === 200 || response.status === 201) {
-        setSuccessMessage(
-          "Your estimate request has been submitted successfully!"
-        );
-        setFormData({
-          name: "",
-          phoneNumber: "",
-          plotLocation: "",
-          area: "",
-          budget: "",
-        }); // Reset form
+        gtagEvent("form_submit_success", { form_name: "hero_form", ...utmParams });
+        setSuccessMessage("Your estimate request has been submitted successfully!");
+        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
       }
     } catch (error) {
-      console.error("🔥 API Error:", error.response?.data || error.message); // Log full error
-      setErrorMessage(
-        error.response?.data?.error || "Something went wrong. Please try again."
-      );
+      gtagEvent("form_submit_error", { form_name: "hero_form" });
+      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

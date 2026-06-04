@@ -3,7 +3,25 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import axios from "axios";
+
+const GA_ID = "G-RRHNPC8S6W";
+
+function getUtmParams() {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+  const result = {};
+  keys.forEach((k) => { if (p.get(k)) result[k] = p.get(k); });
+  return result;
+}
+
+function gtagEvent(eventName, params = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+  }
+}
 import { IoMdContact } from "react-icons/io";
 import { MdLocationOn, MdEmail } from "react-icons/md";
 import { FaPhone, FaMapPin, FaCheckCircle } from "react-icons/fa";
@@ -196,6 +214,16 @@ function LeadForm({ dark = false }) {
     if (!validate()) return;
     setLoading(true);
     setSuccess("");
+
+    const utmParams = getUtmParams();
+
+    // GA4 — form submit attempt
+    gtagEvent("generate_lead", {
+      currency: "INR",
+      form_name: "landing_lead_form",
+      ...utmParams,
+    });
+
     try {
       await axios.post(
         "https://api.gomaterial.in/api/queries",
@@ -208,12 +236,26 @@ function LeadForm({ dark = false }) {
           state: "",
           priority: "WARM",
           status: "NEW",
+          // UTM params passed along to CRM
+          utm_source: utmParams.utm_source || "",
+          utm_medium: utmParams.utm_medium || "",
+          utm_campaign: utmParams.utm_campaign || "",
+          utm_term: utmParams.utm_term || "",
+          utm_content: utmParams.utm_content || "",
         },
         { headers: { "Content-Type": "application/json" } }
       );
+
+      // GA4 — successful lead
+      gtagEvent("form_submit_success", {
+        form_name: "landing_lead_form",
+        ...utmParams,
+      });
+
       setSuccess("Your request has been submitted! We'll call you within 24 hours.");
       setFormData({ name: "", phoneNumber: "", plotLocation: "" });
     } catch (err) {
+      gtagEvent("form_submit_error", { form_name: "landing_lead_form" });
       setError(err.response?.data?.error || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -297,6 +339,25 @@ export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const timerRef = useRef(null);
 
+  // Fire GA4 page_view with UTM params once gtag is ready
+  useEffect(() => {
+    const utmParams = getUtmParams();
+    const firePageView = () => {
+      gtagEvent("page_view", {
+        page_title: "Landing Page",
+        page_location: window.location.href,
+        ...utmParams,
+      });
+    };
+    // gtag might not be ready instantly — retry once
+    if (typeof window.gtag === "function") {
+      firePageView();
+    } else {
+      const t = setTimeout(firePageView, 1500);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= 768);
     onResize();
@@ -327,6 +388,23 @@ export default function LandingPage() {
 
   return (
     <div className="bg-white w-full overflow-x-hidden">
+
+      {/* ── GA4 TAG ───────────────────────────────────────────────────────── */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}', {
+            page_title: 'Landing Page',
+            page_location: window.location.href
+          });
+        `}
+      </Script>
 
       {/* ── STICKY HEADER ─────────────────────────────────────────────────── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0f0f0f] shadow-xl" : "bg-[#0f0f0f]/95"} border-b border-white/10`}>

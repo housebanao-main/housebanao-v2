@@ -4,6 +4,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import Wrapper from "./Wrapper";
 
+function getUtmParams() {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const result = {};
+  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach((k) => { if (p.get(k)) result[k] = p.get(k); });
+  return result;
+}
+function gtagEvent(name, params = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") window.gtag("event", name, params);
+}
+
 const ProjectForm = () => {
   const [formData, setFormData] = useState({ name: "", phoneNumber: "", plotLocation: "" });
   const [loading, setLoading] = useState(false);
@@ -36,18 +47,33 @@ const ProjectForm = () => {
     if (!validateForm()) return;
     setLoading(true);
     setSuccessMessage("");
+
+    const utmParams = getUtmParams();
+    gtagEvent("generate_lead", { form_name: "project_form", ...utmParams });
+
     try {
       const res = await axios.post(
         "https://crm.gomaterial.in/api/queries",
-        { name: formData.name, number: formData.phoneNumber, type: "Construction", city: formData.plotLocation, country: "India", state: "", priority: "WARM", status: "NEW" },
+        {
+          name: formData.name, number: formData.phoneNumber, type: "Construction",
+          city: formData.plotLocation, country: "India", state: "",
+          priority: "WARM", status: "NEW",
+          utm_source: utmParams.utm_source || "",
+          utm_medium: utmParams.utm_medium || "",
+          utm_campaign: utmParams.utm_campaign || "",
+          utm_term: utmParams.utm_term || "",
+          utm_content: utmParams.utm_content || "",
+        },
         { headers: { "Content-Type": "application/json" } }
       );
       if (res.status === 200 || res.status === 201) {
+        gtagEvent("form_submit_success", { form_name: "project_form", ...utmParams });
         setSuccessMessage("Your consultation request has been submitted successfully!");
         setFormData({ name: "", phoneNumber: "", plotLocation: "" });
         setErrorMessage("");
       }
     } catch (err) {
+      gtagEvent("form_submit_error", { form_name: "project_form" });
       setErrorMessage(err.response?.data?.error || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
