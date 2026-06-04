@@ -409,9 +409,7 @@ export default function LandingPage() {
       {/* ── STICKY HEADER ─────────────────────────────────────────────────── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0f0f0f] shadow-xl" : "bg-[#0f0f0f]/95"} border-b border-white/10`}>
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-          <Link href="/">
-            <Image src="/logo/1-crop.svg" alt="HouseBanao" width={110} height={32} />
-          </Link>
+          <Image src="/logo/1-crop.svg" alt="HouseBanao" width={110} height={32} />
           <div className="flex items-center gap-4">
             <a
               href="tel:+919810432124"
@@ -683,12 +681,12 @@ export default function LandingPage() {
           </div>
 
           <div className="mt-8 text-center">
-            <Link
-              href="/projects"
+            <a
+              href="#estimate-bottom"
               className="inline-flex items-center gap-2 border border-[#0f0f0f] text-[#0f0f0f] hover:bg-[#0f0f0f] hover:text-white px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-300"
             >
               View All Projects <MdArrowOutward />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -792,17 +790,9 @@ export default function LandingPage() {
                 <br />
                 <span className="text-[#c9a07a]">Dream Home</span> Together
               </h2>
-              <p className="text-white/70 text-lg leading-relaxed max-w-md mb-8">
+              <p className="text-white/70 text-lg leading-relaxed max-w-md">
                 Get a free consultation, a transparent quote, and a dedicated team — all in one place.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a href="tel:+919810432124" className="flex items-center gap-2 bg-white text-[#0f0f0f] px-6 py-3 text-sm font-bold tracking-wide hover:bg-[#c9a07a] transition-all duration-300">
-                  <FaPhone /> Call Now
-                </a>
-                <a href="https://api.whatsapp.com/send?phone=9810432124" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 text-sm font-bold tracking-wide hover:bg-[#20bd5c] transition-all duration-300">
-                  <img src="/service/whatsapp-logo.png" alt="" className="w-4 h-4" /> WhatsApp
-                </a>
-              </div>
             </div>
             <div id="estimate-bottom">
               <LeadForm dark />
@@ -815,9 +805,7 @@ export default function LandingPage() {
       <footer className="bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-10 border-b border-white/10">
-            <Link href="/">
-              <Image src="/logo/1-crop.svg" alt="HouseBanao" width={120} height={36} />
-            </Link>
+            <Image src="/logo/1-crop.svg" alt="HouseBanao" width={120} height={36} />
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm">
               <a href="tel:+919810432124" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
                 <FaPhone className="text-[#c9a07a]" /> +91 981-0432-124
