@@ -66,7 +66,7 @@ const AccordionItem = ({ heading, descrption, icon, isOpen, onToggle }) => (
     >
       <div className="flex items-center gap-4">
         <span className="text-[#c9a07a] text-2xl flex-shrink-0">{icon}</span>
-        <span className={`font-semibold text-lg transition-colors ${isOpen ? "text-[#c9a07a]" : "text-[#0f0f0f] group-hover:text-[#c9a07a]"}`}>
+        <span className={`font-bold text-2xl transition-colors ${isOpen ? "text-[#c9a07a]" : "text-[#0f0f0f] group-hover:text-[#c9a07a]"}`}>
           {heading}
         </span>
       </div>
@@ -78,7 +78,7 @@ const AccordionItem = ({ heading, descrption, icon, isOpen, onToggle }) => (
     <div
       className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
     >
-      <p className="text-[#666] text-sm leading-relaxed pl-10">
+      <p className="text-[#666] text-lg leading-relaxed pl-10">
         {descrption}
       </p>
     </div>

@@ -11,14 +11,14 @@ export default function ViewProjects() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
           <div>
-            <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
               Portfolio
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight">
               Our Projects
             </h2>
           </div>
-          <p className="text-[#666] text-base max-w-sm leading-relaxed">
+          <p className="text-[#666] text-lg max-w-sm leading-relaxed">
             From a couple to a large Indian family, we have houses built with emotions for everyone.
           </p>
         </div>
@@ -64,7 +64,7 @@ const ProjectRow = ({ PropertyId, PropertySize, ApartmentType, Specification, im
 
     {/* Content */}
     <div className={`md:[direction:ltr] flex flex-col justify-center px-0 md:px-12 py-8 md:py-0`}>
-      <span className="text-[#c9a07a] text-xs font-bold tracking-[4px] uppercase mb-4">
+      <span className="text-[#c9a07a] text-sm font-bold tracking-[4px] uppercase mb-4">
         Property Details
       </span>
 
@@ -79,15 +79,15 @@ const ProjectRow = ({ PropertyId, PropertySize, ApartmentType, Specification, im
           ["Apartment Type", ApartmentType],
         ].map(([label, value]) => (
           <div key={label} className="flex justify-between items-center border-b border-[#e8e4df] pb-4">
-            <span className="text-[#666] text-sm">{label}</span>
-            <span className="text-[#0f0f0f] font-semibold text-sm">{value}</span>
+            <span className="text-[#666] text-base">{label}</span>
+            <span className="text-[#0f0f0f] font-semibold text-base">{value}</span>
           </div>
         ))}
       </div>
 
       <Link
         href={link || "#"}
-        className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-[#0f0f0f] border border-[#0f0f0f] px-6 py-3 hover:bg-[#0f0f0f] hover:text-white transition-all duration-300 w-fit"
+        className="inline-flex items-center gap-2 text-base font-semibold tracking-widest uppercase text-[#0f0f0f] border border-[#0f0f0f] px-6 py-3 hover:bg-[#0f0f0f] hover:text-white transition-all duration-300 w-fit"
       >
         View Project →
       </Link>

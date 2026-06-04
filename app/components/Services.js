@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "@/components/Wrapper";
 import ServicesCard1 from "@/public/images/Follow Us (5).png";
-import ServicesCard3 from "@/public/images/CommercialConstruction.jpg";
+import ServicesCard3 from "@/public/images/college-building.jpg";
 import ServicesCard2 from "@/public/images/ServicesImg3.png";
 import Image from "next/image";
 
@@ -36,14 +36,14 @@ export default function Services() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
           <div>
-            <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
               What We Do
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight">
               Our Services
             </h2>
           </div>
-          <p className="text-[#666] text-base max-w-sm leading-relaxed">
+          <p className="text-[#666] text-lg max-w-sm leading-relaxed">
             Premium construction and interior design services tailored to your vision and budget.
           </p>
         </div>
@@ -68,17 +68,17 @@ export default function Services() {
 
               {/* Content */}
               <div className="p-7 flex flex-col gap-3 flex-1">
-                <span className="text-[#c9a07a] text-sm font-bold tracking-widest">
+                <span className="text-[#c9a07a] text-base font-bold tracking-widest">
                   {item.number}
                 </span>
-                <h3 className="text-[#0f0f0f] font-bold text-xl leading-snug">
+                <h3 className="text-[#0f0f0f] font-bold text-2xl leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-[#666] text-sm leading-relaxed flex-1">
+                <p className="text-[#666] text-base leading-relaxed flex-1">
                   {item.description}
                 </p>
                 <div className="pt-3 border-t border-[#e8e4df]">
-                  <span className="text-[#0f0f0f] text-xs font-semibold tracking-widest uppercase group-hover:text-[#c9a07a] transition-colors">
+                  <span className="text-[#0f0f0f] text-sm font-semibold tracking-widest uppercase group-hover:text-[#c9a07a] transition-colors">
                     Learn More →
                   </span>
                 </div>

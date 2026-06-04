@@ -35,7 +35,7 @@ export default function Home() {
             {/* Gold line accent */}
             <div className="w-12 h-[2px] bg-[#c9a07a] mb-6" data-aos="fade-right"></div>
 
-            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-4" data-aos="fade-up" data-aos-delay="100">
+            <p className="text-[#c9a07a] text-base font-semibold tracking-[4px] uppercase mb-4" data-aos="fade-up" data-aos-delay="100">
               Premium Home Construction
             </p>
 
@@ -45,14 +45,14 @@ export default function Home() {
               <span className="text-[#c9a07a]">Live Beautifully</span>
             </h1>
 
-            <p className="text-base sm:text-lg leading-relaxed text-white/75 max-w-md mb-10" data-aos="fade-up" data-aos-delay="300">
+            <p className="text-lg sm:text-xl leading-relaxed text-white/75 max-w-md mb-10" data-aos="fade-up" data-aos-delay="300">
               HouseBanao transforms ordinary spaces into extraordinary homes
               with exceptional construction and personalized cost estimation.
             </p>
 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4" data-aos="fade-up" data-aos-delay="400">
-              <span className="text-white/50 text-sm">Popular:</span>
+              <span className="text-white/50 text-base">Popular:</span>
               <BlueButton className="bg-[#c9a07a] hover:bg-[#b8906a] text-black rounded-sm font-semibold px-6 py-3 text-sm tracking-wide border-0 transition-all duration-300">
                 Interior Designing
               </BlueButton>
@@ -94,8 +94,8 @@ export default function Home() {
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-2 px-8 py-10">
                 <span className="text-4xl font-bold text-[#c9a07a]">{item.number}</span>
-                <span className="text-white font-semibold text-lg">{item.title}</span>
-                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                <span className="text-white font-semibold text-xl">{item.title}</span>
+                <p className="text-white/50 text-base leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
       {/* Solution Banner */}
       <section className="bg-white border-b border-[#e8e4df] w-full">
         <Wrapper className="w-full lg:w-[90%] mx-auto !py-10">
-          <p className="text-center text-[#0f0f0f] text-base md:text-lg font-medium leading-relaxed max-w-4xl mx-auto">
+          <p className="text-center text-[#0f0f0f] text-lg md:text-xl font-medium leading-relaxed max-w-4xl mx-auto">
             One-Stop Solutions for{" "}
             <span className="text-[#c9a07a] font-semibold">Home Construction</span>,{" "}
             <span className="text-[#c9a07a] font-semibold">Home Interior</span> and{" "}

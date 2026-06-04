@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
 
 const roomImages = {
@@ -21,11 +22,10 @@ const roomImages = {
       "/inspiration/bedroom/3.png",
     ],
     bottom: [
-      "/inspiration/bedroom/2.png",
-      "/inspiration/Bathroom/2.png",
-      "/inspiration/Kitchen/2.png",
-      "/inspiration/living-room/2.png",
-      "/inspiration/Bathroom/3.png",
+      "/images/project1.jpg",
+      "/images/project2.jpg",
+      "/images/project3.jpg",
+      "/images/project4.jpg",
     ],
   },
   Bedroom: {
@@ -95,7 +95,7 @@ export default function Inspiration() {
         </div>
 
         {/* Slider */}
-        <div className="relative mb-8" data-aos="fade-up" data-aos-delay="150">
+        <div className="relative mb-10" data-aos="fade-up" data-aos-delay="150">
           <Slider
             infinite
             slidesToShow={3}
@@ -114,8 +114,8 @@ export default function Inspiration() {
                   <Image
                     src={image}
                     width={500}
-                    height={340}
-                    className="object-cover w-full h-[340px] transition-transform duration-500 hover:scale-105"
+                    height={380}
+                    className="object-cover w-full h-[380px] transition-transform duration-500 hover:scale-105"
                     alt={`Slide ${index + 1}`}
                   />
                 </div>
@@ -124,20 +124,62 @@ export default function Inspiration() {
           </Slider>
         </div>
 
-        {/* Bottom Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 border-t border-[#e8e4df] pt-8">
-          {roomImages[selectedRoom].bottom.map((image, index) => (
-            <div key={index} className="overflow-hidden">
-              <Image
-                src={image}
-                width={220}
-                height={150}
-                className="w-full h-[140px] object-cover transition-transform duration-500 hover:scale-105"
-                alt={`Gallery ${index + 1}`}
-              />
+        {/* Bottom — Building Elevations (All tab) */}
+        {selectedRoom === "All" && (
+          <div className="border-t border-[#e8e4df] pt-8" data-aos="fade-up" data-aos-delay="200">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-[#c9a07a] inline-block" />
+                <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase">
+                  Building Front Elevations
+                </p>
+              </div>
+              <Link
+                href="/projects"
+                className="text-xs font-semibold tracking-widest uppercase text-[#0f0f0f] hover:text-[#c9a07a] transition-colors"
+              >
+                View All Projects →
+              </Link>
             </div>
-          ))}
-        </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {roomImages["All"].bottom.map((image, index) => (
+                <div key={index} className="overflow-hidden relative group">
+                  <Image
+                    src={image}
+                    width={400}
+                    height={280}
+                    className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt={`Building ${index + 1}`}
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-end p-4 opacity-0 group-hover:opacity-100">
+                    <span className="text-white text-xs font-semibold tracking-widest uppercase">
+                      View Project →
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Bottom Grid — other tabs */}
+        {selectedRoom !== "All" && (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 border-t border-[#e8e4df] pt-8">
+            {roomImages[selectedRoom].bottom.map((image, index) => (
+              <div key={index} className="overflow-hidden relative group">
+                <Image
+                  src={image}
+                  width={220}
+                  height={180}
+                  className="w-full h-[170px] object-cover transition-transform duration-500 hover:scale-105"
+                  alt={`Gallery ${index + 1}`}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+              </div>
+            ))}
+          </div>
+        )}
 
       </Wrapper>
     </section>

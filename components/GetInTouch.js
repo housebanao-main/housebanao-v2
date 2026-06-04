@@ -25,7 +25,7 @@ const GetInTouch = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 Still have questions?
               </h3>
-              <p className="text-white/50 text-sm leading-relaxed max-w-md">
+              <p className="text-white/50 text-base leading-relaxed max-w-md">
                 Cannot find the answer you are looking for? Please connect with our friendly team.
               </p>
             </div>
@@ -33,7 +33,7 @@ const GetInTouch = () => {
 
           {/* CTA */}
           <Link href="/contact">
-            <button className="border border-[#c9a07a] text-[#c9a07a] hover:bg-[#c9a07a] hover:text-black px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-300 whitespace-nowrap">
+            <button className="border border-[#c9a07a] text-[#c9a07a] hover:bg-[#c9a07a] hover:text-black px-8 py-4 text-base font-semibold tracking-widest uppercase transition-all duration-300 whitespace-nowrap">
               Get In Touch
             </button>
           </Link>

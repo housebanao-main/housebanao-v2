@@ -36,7 +36,7 @@ export default function Construction() {
 
             <div className="w-12 h-[2px] bg-[#c9a07a] mb-6"></div>
 
-            <p className="text-[#666] text-base leading-relaxed mb-10 max-w-md">
+            <p className="text-[#666] text-lg leading-relaxed mb-10 max-w-md">
               Seamless Home Interior & Home Construction: Start to Finish,
               Hassle-Free. From Concept to Completion with unmatched expertise.
             </p>
@@ -50,15 +50,15 @@ export default function Construction() {
                 { val: "100%", label: "Transparent Pricing" },
               ].map((s, i) => (
                 <div key={i} className="border-l-2 border-[#c9a07a] pl-4">
-                  <div className="text-2xl font-bold text-[#0f0f0f]">{s.val}</div>
-                  <div className="text-xs text-[#666] tracking-wide">{s.label}</div>
+                  <div className="text-3xl font-bold text-[#0f0f0f]">{s.val}</div>
+                  <div className="text-sm text-[#666] tracking-wide">{s.label}</div>
                 </div>
               ))}
             </div>
 
             <button
               onClick={openPopup}
-              className="bg-[#0f0f0f] hover:bg-[#c9a07a] text-white hover:text-black px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-300"
+              className="bg-[#0f0f0f] hover:bg-[#c9a07a] text-white hover:text-black px-8 py-4 text-base font-semibold tracking-widest uppercase transition-all duration-300"
             >
               Book Consultation Now
             </button>

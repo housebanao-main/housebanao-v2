@@ -20,14 +20,14 @@ export const CollabsSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
           <div>
-            <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-2">
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-2">
               Partners
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f0f0f]">
               Our Trusted Partners
             </h2>
           </div>
-          <p className="text-[#666] text-sm max-w-xs leading-relaxed">
+          <p className="text-[#666] text-base max-w-xs leading-relaxed">
             Great collaborations that produce great designs and lasting results.
           </p>
         </div>

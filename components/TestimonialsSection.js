@@ -100,14 +100,14 @@ const TestimonialsSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-white/10" data-aos="fade-up">
           <div>
-            <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
               Google Reviews
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Client Testimonials
             </h2>
           </div>
-          <p className="text-white/50 text-base max-w-xs leading-relaxed">
+          <p className="text-white/50 text-lg max-w-xs leading-relaxed">
             Real reviews from real homeowners — verified on Google.
           </p>
         </div>
@@ -130,8 +130,8 @@ const TestimonialsSection = () => {
                 {review.avatar}
               </div>
               <div>
-                <p className="font-semibold text-white text-sm">{review.name}</p>
-                <p className="text-white/40 text-xs mt-0.5">{review.badge}</p>
+                <p className="font-semibold text-white text-base">{review.name}</p>
+                <p className="text-white/40 text-sm mt-0.5">{review.badge}</p>
               </div>
             </div>
             <GoogleLogo />
@@ -140,7 +140,7 @@ const TestimonialsSection = () => {
           {/* Stars + time */}
           <div className="flex items-center gap-3 mb-6">
             <StarRating />
-            <span className="text-white/40 text-xs">{review.time}</span>
+            <span className="text-white/40 text-sm">{review.time}</span>
           </div>
 
           {/* Text */}
@@ -149,7 +149,7 @@ const TestimonialsSection = () => {
           </p>
 
           <div className="flex justify-end mt-6">
-            <span className="text-xs text-white/30">
+            <span className="text-sm text-white/30">
               {paused ? "▶ Click to resume" : "⏸ Click to pause"}
             </span>
           </div>
@@ -176,7 +176,7 @@ const TestimonialsSection = () => {
             >
               ‹
             </button>
-            <span className="text-white/30 text-xs tabular-nums">{current + 1} / {reviews.length}</span>
+            <span className="text-white/30 text-sm tabular-nums">{current + 1} / {reviews.length}</span>
             <button
               onClick={() => { setPaused(true); goTo((current + 1) % reviews.length); }}
               className="border border-white/20 hover:border-[#c9a07a] text-white hover:text-[#c9a07a] text-lg w-10 h-10 flex items-center justify-center transition-all"
