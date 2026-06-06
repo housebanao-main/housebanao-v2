@@ -34,7 +34,13 @@ export default function Navbar({ isWhite }) {
           {/* LOGO */}
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="/">
-              <Image src="/logo/1-crop.svg" alt="Logo" width={110} height={32} />
+              <Image
+                id="hb-navbar-logo"
+                src="/logo/1-crop.svg"
+                alt="Logo"
+                width={110}
+                height={32}
+              />
             </Link>
             <button
               className="md:hidden text-white text-2xl"

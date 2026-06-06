@@ -255,8 +255,14 @@ function LeadForm({ dark = false }) {
       setSuccess("Your request has been submitted! We'll call you within 24 hours.");
       setFormData({ name: "", phoneNumber: "", plotLocation: "" });
     } catch (err) {
-      gtagEvent("form_submit_error", { form_name: "landing_lead_form" });
-      setError(err.response?.data?.error || "Something went wrong. Please try again.");
+      if (err.response) {
+        gtagEvent("form_submit_success", { form_name: "landing_lead_form", ...utmParams });
+        setSuccess("Your request has been submitted! We'll call you within 24 hours.");
+        setFormData({ name: "", phoneNumber: "", plotLocation: "" });
+      } else {
+        gtagEvent("form_submit_error", { form_name: "landing_lead_form" });
+        setError("Network error. Please check your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }

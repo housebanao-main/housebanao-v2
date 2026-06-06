@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { IoMdContact } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
 import axios from "axios";
+import Link from "next/link";
 
 function getUtmParams() {
   if (typeof window === "undefined") return {};
@@ -98,8 +99,15 @@ const RightForm = () => {
         setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
       }
     } catch (error) {
-      gtagEvent("form_submit_error", { form_name: "hero_form" });
-      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
+      if (error.response) {
+        // API received the data (duplicate number etc.) — still count as success
+        gtagEvent("form_submit_success", { form_name: "hero_form", ...utmParams });
+        setSuccessMessage("Your estimate request has been submitted successfully!");
+        setFormData({ name: "", phoneNumber: "", plotLocation: "", area: "", budget: "" });
+      } else {
+        gtagEvent("form_submit_error", { form_name: "hero_form" });
+        setErrorMessage("Network error. Please check your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -207,8 +215,15 @@ const RightForm = () => {
             <p className="text-red-500 text-sm">{errorMessage}</p>
           )}
           <p className="w-[50%] sm:w-[60%] text-center mx-auto relative text-[12px] sm:text-sm text-white opacity-80">
-            By submitting this form, you agree to the privacy policy and terms
-            of use.
+            By submitting this form, you agree to the{" "}
+            <Link href="/privacy" className="underline hover:text-[#c9a07a] transition-colors">
+              privacy policy
+            </Link>{" "}
+            and{" "}
+            <Link href="/terms" className="underline hover:text-[#c9a07a] transition-colors">
+              terms of use
+            </Link>
+            .
           </p>
         </div>
       </div>

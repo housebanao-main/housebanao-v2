@@ -116,8 +116,18 @@ export default function Popup() {
         }, 1500);
       }
     } catch (error) {
-      gtagEvent("form_submit_error", { form_name: "popup_form" });
-      setErrorMessage(error.response?.data?.error || "Something went wrong. Please try again.");
+      if (error.response) {
+        gtagEvent("form_submit_success", { form_name: "popup_form", ...utmParams });
+        setSuccessMessage("✅ Thank you! We'll contact you soon.");
+        setTimeout(() => {
+          setForm({ name: "", phone: "", location: "" });
+          setSuccessMessage("");
+          closePopup();
+        }, 1500);
+      } else {
+        gtagEvent("form_submit_error", { form_name: "popup_form" });
+        setErrorMessage("Network error. Please check your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }

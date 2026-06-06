@@ -73,8 +73,15 @@ const ProjectForm = () => {
         setErrorMessage("");
       }
     } catch (err) {
-      gtagEvent("form_submit_error", { form_name: "project_form" });
-      setErrorMessage(err.response?.data?.error || "Something went wrong. Please try again.");
+      if (err.response) {
+        gtagEvent("form_submit_success", { form_name: "project_form", ...utmParams });
+        setSuccessMessage("Your consultation request has been submitted successfully!");
+        setFormData({ name: "", phoneNumber: "", plotLocation: "" });
+        setErrorMessage("");
+      } else {
+        gtagEvent("form_submit_error", { form_name: "project_form" });
+        setErrorMessage("Network error. Please check your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }

@@ -4,6 +4,7 @@ import Script from "next/script";
 import ClientWrapper from "./ClientWrapper";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AOSInit from "@/components/AOSInit";
+import LogoIntro from "@/components/LogoIntro";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,6 +133,7 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
+        <LogoIntro />
         <AOSInit />
         <ClientWrapper>
           {children}
