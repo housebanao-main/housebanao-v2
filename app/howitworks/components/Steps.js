@@ -29,7 +29,7 @@ const Steps = () => {
             <div className="relative w-full">
               <Image
                 src={"/images/house.jpeg"}
-                alt=""
+                alt="House Banao step-by-step home construction process"
                 width={500}
                 height={500}
                 className="mx-auto md:ml-auto"

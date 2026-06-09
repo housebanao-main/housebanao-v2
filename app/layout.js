@@ -42,11 +42,30 @@ const schemaData = {
 };
 
 export const metadata = {
-  title: "Craft Your Dream Home with House Banao",
+  title: {
+    default: "Craft Your Dream Home with House Banao",
+  },
   description:
     "Change your space with House Banao! We are the best construction & interior design experts in Gurgaon.",
   verification: {
     google: "a_sHu10jdaVL1HqORQDjBMjlJMg8k2hD5WVEyF2IQsM",
+  },
+  openGraph: {
+    siteName: "House Banao",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.housebanao.com/assets/preview-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "House Banao - Construction & Interior Design Experts in Gurgaon",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.housebanao.com/assets/preview-image.jpg"],
   },
 };
 

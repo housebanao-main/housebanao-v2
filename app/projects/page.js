@@ -25,6 +25,9 @@ export const metadata = {
     url: "https://www.housebanao.com/projects",
     images: ["https://www.housebanao.com/assets/projects-preview.jpg"],
   },
+  alternates: {
+    canonical: "https://www.housebanao.com/projects",
+  },
 };
 
 export default function Projects() {

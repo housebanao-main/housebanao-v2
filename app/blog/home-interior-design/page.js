@@ -4,9 +4,22 @@ import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
 import Image from 'next/image';
 
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Ultimate Guide to Home Interior Design: Why House Banao Is Your Go-To Company",
+    "description": "Everything you need to know about home interior design — styles, tips, and why House Banao is the right partner for your home transformation.",
+    "image": "https://www.housebanao.com/blog/blog1/home.png",
+    "datePublished": "2024-06-03",
+    "author": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "publisher": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "url": "https://www.housebanao.com/blog/home-interior-design",
+};
+
 const HomeInteriorDesign = () => {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
             {/* Navbar with background for readability */}
             <Navbar className="bg-white shadow-md fixed top-0 left-0 w-full z-10" />
 

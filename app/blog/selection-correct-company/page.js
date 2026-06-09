@@ -24,10 +24,22 @@ export const metadata = {
     },
 };
 
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Selection of the Correct Construction Company in Delhi NCR",
+    "description": "A practical guide to choosing a reliable, transparent, and timely construction company in the crowded Delhi NCR market.",
+    "image": "https://www.housebanao.com/blog/blog1/construction.png",
+    "datePublished": "2024-06-04",
+    "author": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "publisher": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "url": "https://www.housebanao.com/blog/selection-correct-company",
+};
+
 const SelectionCorrectCompany = () => {
     return (
-
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
             {/* Navbar with background for readability */}
             <Navbar className="bg-white shadow-md fixed top-0 left-0 w-full z-10" />
 

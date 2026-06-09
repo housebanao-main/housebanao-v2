@@ -4,9 +4,22 @@ import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
 import Image from 'next/image';
 
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Finding the Best Construction Company in Gurgaon: A Complete Guide",
+    "description": "A complete guide to finding the best construction company in Gurgaon — quality, transparency, timelines, and what to look for.",
+    "image": "https://www.housebanao.com/blog/blog1/building.png",
+    "datePublished": "2024-06-02",
+    "author": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "publisher": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "url": "https://www.housebanao.com/blog/best-construction-company-gurgaon",
+};
+
 const BestConstructionCompanyGurgaon = () => {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
             {/* Navbar with background for readability */}
             <Navbar className="bg-white shadow-md fixed top-0 left-0 w-full z-10" />
 

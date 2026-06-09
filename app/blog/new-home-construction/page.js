@@ -24,9 +24,22 @@ export const metadata = {
     },
 };
 
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "New Home Construction: Cost, Financing & Trends",
+    "description": "Discover the costs, financing options, and latest trends in new home construction. House Banao ensures quality craftsmanship starting at Rs. 999/sq ft.",
+    "image": "https://www.housebanao.com/blog/blog1/blog1.png",
+    "datePublished": "2024-06-01",
+    "author": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "publisher": { "@type": "Organization", "name": "House Banao", "url": "https://www.housebanao.com" },
+    "url": "https://www.housebanao.com/blog/new-home-construction",
+};
+
 const NewHomeConstruction = () => {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
             {/* Navbar with background for readability */}
             <Navbar className="bg-white shadow-md fixed top-0 left-0 w-full z-10" />
 
