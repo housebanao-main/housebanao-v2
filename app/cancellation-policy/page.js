@@ -1,5 +1,14 @@
 import React from "react";
 
+export const metadata = {
+  title: "Cancellation Policy | House Banao",
+  description:
+    "Read House Banao's cancellation and refund policy — eligibility windows, terms, and conditions for booking and token amount refunds.",
+  alternates: {
+    canonical: "https://www.housebanao.com/cancellation-policy",
+  },
+};
+
 const CancellationPolicy = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">

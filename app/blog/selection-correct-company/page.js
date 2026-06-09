@@ -1,9 +1,28 @@
 import React from 'react';
-import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
 import Image from 'next/image';
+
+export const metadata = {
+    title: 'How To Select The Right Construction Company In Delhi NCR | House Banao',
+    description:
+        'Picking the right construction company in Delhi NCR can be overwhelming. Here is what to look for to find a builder that delivers quality, transparency, and on-time results.',
+    keywords:
+        'construction company Delhi NCR, how to choose a builder, construction company selection, House Banao, home construction',
+    authors: [{ name: 'House Banao' }],
+    openGraph: {
+        title: 'How To Select The Right Construction Company In Delhi NCR | House Banao',
+        description:
+            'A practical guide to choosing a reliable, transparent, and timely construction company in the crowded Delhi NCR market.',
+        images: ['/blog/blog1/construction.png'],
+        type: 'article',
+        url: 'https://www.housebanao.com/blog/selection-correct-company',
+    },
+    alternates: {
+        canonical: 'https://www.housebanao.com/blog/selection-correct-company',
+    },
+};
 
 const SelectionCorrectCompany = () => {
     return (
@@ -17,9 +36,8 @@ const SelectionCorrectCompany = () => {
                 <Image
                     src="/blog/blog1/construction.png"
                     alt="Selection of the correct construction company"
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute top-0 left-0"
+                    fill
+                    className="object-cover absolute top-0 left-0"
                 />
             </div>
 

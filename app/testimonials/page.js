@@ -6,6 +6,25 @@ import CustomerReviews from "@/components/CustomerReviews";
 import GetInTouch from "@/components/GetInTouch";
 import { CollabsSection } from "@/components/CollabSection";
 
+export const metadata = {
+  title: "Customer Testimonials | House Banao",
+  description:
+    "Read what House Banao's customers say about their construction & interior design experience — real stories from real homeowners across Gurgaon & Delhi NCR.",
+  keywords:
+    "House Banao testimonials, customer reviews, construction reviews, interior design reviews, Gurgaon, Delhi NCR",
+  authors: [{ name: "House Banao" }],
+  openGraph: {
+    title: "Customer Testimonials | House Banao",
+    description:
+      "Real stories from real homeowners about their House Banao construction & design experience.",
+    type: "website",
+    url: "https://www.housebanao.com/testimonials",
+  },
+  alternates: {
+    canonical: "https://www.housebanao.com/testimonials",
+  },
+};
+
 const stats = [
   { value: "500+", label: "Projects Completed" },
   { value: "4.8/5", label: "Average Rating" },

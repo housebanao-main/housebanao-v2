@@ -1,38 +1,42 @@
 import React from 'react';
-import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Wrapper from '@/components/Wrapper';
 import Image from 'next/image';
 
+export const metadata = {
+    title: 'New Home Construction: Cost, Financing & Trends | House Banao',
+    description:
+        'Discover the costs, financing options, and latest trends in new home construction. House Banao ensures quality craftsmanship starting at Rs. 999/sq ft.',
+    keywords:
+        'new home construction, home building cost, house construction, financing new home, home design trends',
+    authors: [{ name: 'House Banao' }],
+    openGraph: {
+        title: 'New Home Construction: Cost, Financing & Trends | House Banao',
+        description:
+            'Learn about home construction costs, financing options, and the latest design trends. House Banao offers expert guidance for building your dream home.',
+        images: ['/blog/blog1/blog1.png'],
+        type: 'article',
+        url: 'https://www.housebanao.com/blog/new-home-construction',
+    },
+    alternates: {
+        canonical: 'https://www.housebanao.com/blog/new-home-construction',
+    },
+};
+
 const NewHomeConstruction = () => {
     return (
         <>
-            <Head>
-                <title>New Home Construction: Cost, Financing & Trends | House Banao</title>
-                <meta name="description" content="Discover the costs, financing options, and latest trends in new home construction. House Banao ensures quality craftsmanship starting at Rs. 999/sq ft." />
-                <meta name="keywords" content="new home construction, home building cost, house construction, financing new home, home design trends" />
-                <meta name="author" content="House Banao" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta property="og:title" content="New Home Construction: Cost, Financing & Trends | House Banao" />
-                <meta property="og:description" content="Learn about home construction costs, financing options, and the latest design trends. House Banao offers expert guidance for building your dream home." />
-                <meta property="og:image" content="/blog/blog1/blog1.png" />
-                <meta property="og:type" content="article" />
-                <meta property="og:url" content="https://www.housebanao.com/blog/new-home-construction" />
-                <link rel="canonical" href="https://www.housebanao.com/blog/new-home-construction" />
-            </Head>
-
             {/* Navbar with background for readability */}
             <Navbar className="bg-white shadow-md fixed top-0 left-0 w-full z-10" />
 
             {/* Banner Image Behind Navbar */}
             <div className="relative w-full h-[400px]">
                 <Image 
-                    src="/blog/blog1/blog1.png" 
-                    alt="New Home Construction" 
-                    layout="fill" 
-                    objectFit="cover" 
-                    className="absolute top-0 left-0"
+                    src="/blog/blog1/blog1.png"
+                    alt="New Home Construction"
+                    fill
+                    className="object-cover absolute top-0 left-0"
                 />
             </div>
 

@@ -24,8 +24,6 @@ export default function HomepagePopup({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Lead Submitted:", form);
-
     alert("Thanks! We will contact you soon.");
     onClose();
   };

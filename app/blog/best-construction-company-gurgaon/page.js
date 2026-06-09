@@ -13,11 +13,10 @@ const BestConstructionCompanyGurgaon = () => {
             {/* Banner Image Behind Navbar */}
             <div className="relative w-full h-[400px]">
                 <Image 
-                    src="/blog/blog1/building.png" 
-                    alt="Best Construction Company in Gurgaon" 
-                    layout="fill" 
-                    objectFit="cover" 
-                    className="absolute top-0 left-0"
+                    src="/blog/blog1/building.png"
+                    alt="Best Construction Company in Gurgaon"
+                    fill
+                    className="object-cover absolute top-0 left-0"
                 />
             </div>
 

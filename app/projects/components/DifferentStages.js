@@ -1,6 +1,5 @@
 "use client";
 
-import SectionHeading from "@/components/Headings/SectionHeading";
 import Wrapper from "@/components/Wrapper";
 import React from "react";
 import Slider from "react-slick";
@@ -10,14 +9,19 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function DifferentStages() {
   return (
-    <div className="bg-[#F5F5F7] w-full lg:w-[90%] mx-auto">
-      <Wrapper>
-        <SectionHeading className={"font-bold mb-8"}>
-          The different stages of journey
-        </SectionHeading>
+    <section className="bg-white py-20 border-b border-[#e8e4df]">
+      <Wrapper className="w-full lg:w-[90%] mx-auto">
+        <div className="mb-14 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
+          <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
+            Behind The Scenes
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight">
+            The Different Stages of the Journey
+          </h2>
+        </div>
         <Carasouel />
       </Wrapper>
-    </div>
+    </section>
   );
 }
 
@@ -57,15 +61,15 @@ const Carasouel = () => {
   return (
     <Slider {...settings} className="relative w-[90%] mx-auto">
       {imageList.map((image, idx) => (
-        <div key={idx} className="overflow-hidden px-2 h-72 relative">
+        <div key={idx} className="group overflow-hidden px-2 h-72 relative">
           <img
             src={image.src}
             alt={image.step}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white px-4 py-2 rounded">
+          <span className="absolute bottom-4 left-4 bg-[#0f0f0f]/85 text-white text-xs font-semibold tracking-[3px] uppercase px-3 py-1.5">
             {image.step}
-          </div>
+          </span>
         </div>
       ))}
     </Slider>
@@ -76,7 +80,7 @@ const SampleNextArrow = (props) => {
   const { onClick } = props;
   return (
     <div
-      className={`border border-black text-black absolute -right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white`}
+      className="border border-[#e8e4df] text-[#0f0f0f] absolute -right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white hover:border-[#c9a07a] hover:text-[#c9a07a] transition-colors duration-300 cursor-pointer"
       onClick={onClick}
     >
       <IoIosArrowForward />
@@ -88,9 +92,7 @@ const SamplePrevArrow = (props) => {
   const { onClick } = props;
   return (
     <div
-      className={
-        "border border-black text-black absolute -left-4 z-10 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white rotate-180"
-      }
+      className="border border-[#e8e4df] text-[#0f0f0f] absolute -left-4 z-10 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white rotate-180 hover:border-[#c9a07a] hover:text-[#c9a07a] transition-colors duration-300 cursor-pointer"
       onClick={onClick}
     >
       <IoIosArrowForward />

@@ -18,7 +18,6 @@ const BlogContent = () => {
         const data = searchParams.get('data');
         if (data) {
             setBlogData(JSON.parse(data));
-            console.log(JSON.parse(data));
         }
     }, [searchParams]);
 
@@ -27,7 +26,7 @@ const BlogContent = () => {
             <Navbar />
             <div className='pt-16 relative flex-grow' style={{ height: '80vh' }}>
                 <div className='absolute inset-0 bg-black opacity-95'></div>
-                <Image src={BlogIMG1} alt='blog1' layout='fill' objectFit='cover' style={{ opacity: 0.5 }} />
+                <Image src={BlogIMG1} alt='blog1' fill className='object-cover' style={{ opacity: 0.5 }} />
                <Banner/>
             </div>
            <InfoSection/>

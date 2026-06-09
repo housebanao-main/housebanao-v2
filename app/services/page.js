@@ -1,7 +1,4 @@
-"use client";
-
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import Navbar from "@/components/Navbar";
 import ServiceBanner from "./components/Banner";
@@ -11,49 +8,30 @@ import CustomerReviews from "../../components/CustomerReviews";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 import { CollabsSection } from "@/components/CollabSection";
-import HomepagePopup from "./components/HomepagePopup";
+import ServicesPopup from "./components/ServicesPopup";
+
+export const metadata = {
+  title: "Home Construction | Home Interior & Office Interior | House Banao",
+  description:
+    "Explore professional home construction, interior design, and office interior services with House Banao.",
+  keywords:
+    "home construction, interior design, office interiors, turnkey construction, House Banao",
+  authors: [{ name: "House Banao" }],
+  openGraph: {
+    title: "Home Construction | Home Interior & Office Interior | House Banao",
+    description:
+      "Explore professional home construction, interior design, and office interior services with House Banao.",
+    type: "website",
+    url: "https://www.housebanao.com/services",
+  },
+  alternates: {
+    canonical: "https://www.housebanao.com/services",
+  },
+};
 
 export default function Services() {
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    const seenPopup = sessionStorage.getItem("seenPopup");
-
-    if (!seenPopup) {
-      const timer = setTimeout(() => {
-        setShowPopup(true);
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleClosePopup = () => {
-    setShowPopup(false);
-    sessionStorage.setItem("seenPopup", "true");
-  };
-
   return (
     <>
-      {/* SEO */}
-      <Head>
-        <title>
-          Home Construction | Home Interior & Office Interior | House Banao
-        </title>
-
-        <meta
-          name="description"
-          content="Explore professional home construction, interior design, and office interior services with House Banao."
-        />
-
-        <meta
-          name="keywords"
-          content="home construction, interior design, office interiors, turnkey construction, House Banao"
-        />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-
       {/* Navbar */}
       <Navbar isWhite={false} />
 
@@ -79,10 +57,7 @@ export default function Services() {
       <Footer />
 
       {/* Popup */}
-      <HomepagePopup
-        isOpen={showPopup}
-        onClose={handleClosePopup}
-      />
+      <ServicesPopup />
     </>
   );
 }

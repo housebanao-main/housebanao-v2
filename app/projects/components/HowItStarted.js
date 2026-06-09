@@ -1,68 +1,82 @@
-import ParaText from '@/components/Headings/ParaText';
-import SectionHeading from '@/components/Headings/SectionHeading';
 import Wrapper from '@/components/Wrapper';
 import React from 'react';
 
+const homeTypes = [
+  {
+    title: 'Modern Urban Living Spaces',
+    desc: 'Sharp design and practical living for the city — open floor plans, big windows, and high-quality finishes that optimize every inch.',
+  },
+  {
+    title: 'Luxurious Suburban Homes',
+    desc: 'Roomy interiors, private gardens, gourmet kitchens, and luxurious master suites — built with families in mind.',
+  },
+  {
+    title: 'Classic Traditional Homes',
+    desc: 'Timeless architecture and detailed craftsmanship — from grand colonial houses to charming cottages, built to last.',
+  },
+  {
+    title: 'Sustainable & Eco-Friendly Homes',
+    desc: 'Solar panels, rainwater systems, and sustainable materials that cut your carbon footprint and create a healthier home.',
+  },
+  {
+    title: 'Innovative Mixed-Use Developments',
+    desc: 'Residential spaces combined with commercial and recreational areas — building lively, connected communities.',
+  },
+];
+
 export default function HowItStarted() {
   return (
-    <Wrapper className={"w-full lg:w-[90%] mx-auto"}>
-      <SectionHeading className={"font-bold mb-8"}>How It All Started</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-      Rajesh Verma is a business man who planned to build a house. House Banao Home Construction Company informed them about the stages of building a house in a reasonable budget and started them planning a house with a 3D design in which House Banao Home Construction Company provided the complete house right from the design, material, foundation and finishing. Got this house ready and completed it step by step. Site preparation
-Laying the foundation, Framing the walls and roof, Roofing,exterior finishing, Adding doors and windows,
-Interior finishing, etc.
-      </ParaText>
+    <section className="bg-[#f5f4f0] py-20 border-b border-[#e8e4df]">
+      <Wrapper className="w-full lg:w-[90%] mx-auto">
+        {/* Story */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20" data-aos="fade-up">
+          <div>
+            <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
+              Our Story
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight">
+              How It All Started
+            </h2>
+          </div>
+          <p className="text-[#666] text-base md:text-lg leading-relaxed">
+            Rajesh Verma, a businessman, planned to build a house — and House Banao guided him through every stage,
+            on a reasonable budget, starting with a 3D design. From site preparation and foundation to framing,
+            roofing, exterior finishing, doors and windows, and interior finishing — we delivered the complete
+            home, step by step.
+          </p>
+        </div>
 
-      <SectionHeading className={"font-bold mt-12 mb-6"}>View Our Projects:- A Step Towards Ultimate Home Design and Construction With House Banao</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        At House Banao, we help turn your dreams into real homes with our diverse range of home design and construction projects. 
-        Our portfolio is a blend of many styles and ideas that fit what each client likes. From sleek urban apartments to cozy traditional homes, 
-        our work shows our commitment to quality, fresh ideas, and happy clients. See how our expertly crafted homes can improve how you live.
-      </ParaText>
+        {/* What we build */}
+        <div className="mb-14 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
+          <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
+            What We Build
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight mb-4">
+            A Style For Every Vision
+          </h2>
+          <p className="text-[#666] text-lg max-w-2xl leading-relaxed">
+            Our portfolio blends many styles and ideas to fit what each client likes — from sleek urban apartments
+            to cozy traditional homes, every project reflects our commitment to quality, fresh ideas, and happy clients.
+          </p>
+        </div>
 
-      <SectionHeading className={"font-semibold mt-8"}>1. Modern Urban Living Spaces</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        In the bustling city, our modern urban homes focus on sharp design and practical living. 
-        We create spaces that are both stylish and comfortable, with features like open floor plans, big windows, and high-quality finishes. 
-        Every inch of space is optimized! We use the most up-to-date materials and technology to enhance your city living experience.
-      </ParaText>
-
-      <SectionHeading className={"font-semibold mt-8"}>2. Luxurious Suburban Homes</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        If you want beauty and comfort in the suburbs, our elegant homes are perfect for you! 
-        Designed with families in mind, these houses have roomy interiors, private gardens, and high-quality features. 
-        You will find gourmet kitchens, large living rooms, and luxurious master suites—all crafted to give you a great place to live in a friendly atmosphere.
-      </ParaText>
-
-      <SectionHeading className={"font-semibold mt-8"}>3. Classic Traditional Homes</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        Celebrate classic traditional home designs! These projects highlight timeless architecture and detailed craftsmanship, blending historical charm with modern functionality. 
-        From grand colonial houses to charming cottages, our traditional homes are built to last while offering modern comforts. 
-        We focus on beautiful wood details, custom fixtures, and high-quality materials so each home shines with elegance.
-      </ParaText>
-
-      <SectionHeading className={"font-semibold mt-8"}>4. Sustainable and Eco-Friendly Homes</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        At House Banao, we are dedicated to creating eco-friendly and stylish homes. 
-        Our green projects aim to save energy and resources with solar panels, rainwater systems, and sustainable materials. 
-        These houses not only help cut down your carbon footprint but also create a healthier place to live.
-      </ParaText>
-
-      <SectionHeading className={"font-semibold mt-8"}>5. Innovative Mixed-Use Developments</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        Our mixed-use developments help build lively communities by combining residential spaces with commercial and recreational areas. 
-        These projects are excellent for boosting community connections and convenience! Residents can easily reach shops, cafes, and parks. 
-        Our approach to mixed-use development ensures every project adds vibrancy to the neighborhood while providing a rich living experience.
-      </ParaText>
-
-      <SectionHeading className={"font-bold mt-12"}>Why Choose House Banao?</SectionHeading>
-      <ParaText className={"text-[#575757]"}>
-        At House Banao, we are all about delivering amazing results on every project! 
-        Our promise of high-quality design, creative ideas, and customer satisfaction makes us stand out in home construction. 
-        Explore our collection and see how we can make your dream home come true! 
-        Whether it is modern styles, classic charm, or eco-friendly designs—House Banao has what it takes to make your vision real. 
-        Reach out today to begin your journey toward the perfect home.
-      </ParaText>
-    </Wrapper>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {homeTypes.map((type, i) => (
+            <div
+              key={type.title}
+              className="group bg-white border border-[#e8e4df] hover:border-[#c9a07a] p-8 flex flex-col gap-3 transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
+            >
+              <span className="text-[#c9a07a] text-base font-bold tracking-widest">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="font-bold text-xl text-[#0f0f0f]">{type.title}</h3>
+              <p className="text-[#666] text-base leading-relaxed">{type.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Wrapper>
+    </section>
   );
 }

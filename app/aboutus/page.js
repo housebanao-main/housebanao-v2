@@ -7,6 +7,25 @@ import OurPartners from './components/OurPartners';
 import Footer from '@/components/Footer';
 import { CollabsSection } from '@/components/CollabSection';
 
+export const metadata = {
+    title: 'About Us | House Banao - Construction & Interior Design Experts',
+    description:
+        "Get to know House Banao - Gurgaon's trusted construction & interior design company. Learn about our story, our offerings, and what makes us different.",
+    keywords:
+        'House Banao, about us, construction company Gurgaon, interior design company, our story, our offerings',
+    authors: [{ name: 'House Banao' }],
+    openGraph: {
+        title: 'About Us | House Banao - Construction & Interior Design Experts',
+        description:
+            "Get to know House Banao - Gurgaon's trusted construction & interior design company.",
+        type: 'website',
+        url: 'https://www.housebanao.com/aboutus',
+    },
+    alternates: {
+        canonical: 'https://www.housebanao.com/aboutus',
+    },
+};
+
 const AboutUs = () => {
     return (
         <div className='relative'>

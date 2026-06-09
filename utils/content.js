@@ -5,10 +5,10 @@ import img3 from "@/public/dreamHome/3.svg";
 import img4 from "@/public/dreamHome/4.svg";
 import img5 from "@/public/dreamHome/5.svg";
 import { SiTicktick } from "react-icons/si";
-import ProjectImg1 from "@/public/images/project1.jpg";
-import ProjectImg2 from "@/public/images/project2.jpg";
-import ProjectImg3 from "@/public/images/project3.jpg";
-import ProjectImg4 from "@/public/images/project4.jpg";
+import ProjectImg1 from "@/public/images/Projects1.png";
+import ProjectImg2 from "@/public/images/Projects2.png";
+import ProjectImg3 from "@/public/images/Projects3.png";
+import ProjectImg4 from "@/public/images/Projects4.png";
 
 export const IMG_PLACEHOLDER = "https://placehold.jp/500x500.png";
 

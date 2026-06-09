@@ -13,11 +13,10 @@ const HomeInteriorDesign = () => {
             {/* Banner Image Behind Navbar */}
             <div className="relative w-full h-[400px]">
                 <Image 
-                    src="/blog/blog1/home.png" 
-                    alt="Home Interior Design" 
-                    layout="fill" 
-                    objectFit="cover" 
-                    className="absolute top-0 left-0"
+                    src="/blog/blog1/home.png"
+                    alt="Home Interior Design"
+                    fill
+                    className="object-cover absolute top-0 left-0"
                 />
             </div>
 
