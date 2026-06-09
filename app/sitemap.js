@@ -2,12 +2,15 @@ const BASE_URL = "https://www.housebanao.com";
 
 export default function sitemap() {
   return [
+    // Homepage
     {
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
     },
+
+    // Main Pages
     {
       url: `${BASE_URL}/services`,
       lastModified: new Date(),
@@ -17,7 +20,7 @@ export default function sitemap() {
     {
       url: `${BASE_URL}/projects`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
@@ -30,26 +33,34 @@ export default function sitemap() {
       url: `${BASE_URL}/aboutus`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/testimonials`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
     },
     {
       url: `${BASE_URL}/blog`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/construction-company-in-delhi-ncr`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+
+    // Blog Posts
     {
       url: `${BASE_URL}/blog/new-home-construction`,
       lastModified: new Date(),
@@ -74,17 +85,25 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+
+    // Legal / Policy Pages
     {
-      url: `${BASE_URL}/construction-company-in-delhi-ncr`,
+      url: `${BASE_URL}/privacy`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
     {
       url: `${BASE_URL}/cancellation-policy`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.2,
     },
   ];
 }
