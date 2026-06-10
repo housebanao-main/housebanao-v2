@@ -654,7 +654,10 @@ export default function LandingPage() {
             <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">Simple Process</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">How It Works</h2>
           </div>
+ 
 
+
+ 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {steps.map((s, i) => (
               <div key={i} className="px-8 py-10 flex flex-col gap-4 group hover:bg-white/5 transition-colors">
