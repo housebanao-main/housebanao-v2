@@ -4,6 +4,7 @@ import ServicesCard1 from "@/public/images/Follow Us (5).png";
 import ServicesCard3 from "@/public/images/college-building.jpg";
 import ServicesCard2 from "@/public/images/ServicesImg3.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
@@ -12,6 +13,7 @@ const services = [
     description:
       "Discover the latest in Home Construction Solutions: innovative designs and smart technology for a modern lifestyle.",
     image: ServicesCard1,
+    link: "/services/turnkey-construction",
   },
   {
     number: "02",
@@ -19,6 +21,7 @@ const services = [
     description:
       "Elevate your living space with the latest home interior solutions. Blending modern aesthetics with innovative functionality.",
     image: ServicesCard2,
+    link: "/services/interior-design",
   },
   {
     number: "03",
@@ -26,6 +29,7 @@ const services = [
     description:
       "Complete commercial construction solutions from foundation to finishing, delivered on time and within budget.",
     image: ServicesCard3,
+    link: "/services/commercial",
   },
 ];
 
@@ -78,9 +82,12 @@ export default function Services() {
                   {item.description}
                 </p>
                 <div className="pt-3 border-t border-[#e8e4df]">
-                  <span className="text-[#0f0f0f] text-sm font-semibold tracking-widest uppercase group-hover:text-[#c9a07a] transition-colors">
+                  <Link
+                    href={item.link}
+                    className="text-[#0f0f0f] text-sm font-semibold tracking-widest uppercase group-hover:text-[#c9a07a] transition-colors"
+                  >
                     Learn More →
-                  </span>
+                  </Link>
                 </div>
               </div>
             </div>

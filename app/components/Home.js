@@ -107,9 +107,8 @@ export default function Home() {
         <Wrapper className="w-full lg:w-[90%] mx-auto !py-10">
           <p className="text-center text-[#0f0f0f] text-lg md:text-xl font-medium leading-relaxed max-w-4xl mx-auto">
             One-Stop Solutions for{" "}
-            <span className="text-[#c9a07a] font-semibold">Home Construction</span>,{" "}
-            <span className="text-[#c9a07a] font-semibold">Home Interior</span> and{" "}
-            <span className="text-[#c9a07a] font-semibold">Office Interior</span> —
+            <span className="text-[#c9a07a] font-semibold">Home Construction</span> and{" "}
+            <span className="text-[#c9a07a] font-semibold">Home Interior</span> —
             from concept to completion, seamlessly.
           </p>
         </Wrapper>

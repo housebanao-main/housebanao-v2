@@ -25,13 +25,14 @@ export default function ViewProjects() {
 
         {/* Project List */}
         <div className="flex flex-col gap-0 divide-y divide-[#e8e4df]">
-          {projectData.map(({ PropertyId, PropertySize, ApartmentType, Specification, image, link }, index) => (
+          {projectData.map(({ PropertyId, PropertySize, ApartmentType, Specification, address, image, link }, index) => (
             <ProjectRow
               key={index}
               PropertyId={PropertyId}
               PropertySize={PropertySize}
               ApartmentType={ApartmentType}
               Specification={Specification}
+              address={address}
               image={image}
               link={link}
               index={index}
@@ -43,7 +44,7 @@ export default function ViewProjects() {
   );
 }
 
-const ProjectRow = ({ PropertyId, PropertySize, ApartmentType, Specification, image, link, index }) => (
+const ProjectRow = ({ PropertyId, PropertySize, ApartmentType, Specification, address, image, link, index }) => (
   <div
     className={`group grid grid-cols-1 md:grid-cols-2 gap-0 items-center py-12 ${
       index % 2 !== 0 ? "md:[direction:rtl]" : ""
@@ -74,6 +75,7 @@ const ProjectRow = ({ PropertyId, PropertySize, ApartmentType, Specification, im
 
       <div className="flex flex-col gap-4 mb-10">
         {[
+          ["Address", address],
           ["Property Size", PropertySize],
           ["Specification", Specification],
           ["Apartment Type", ApartmentType],

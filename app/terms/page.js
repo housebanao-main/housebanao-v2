@@ -162,13 +162,18 @@ const sections = [
   {
     title: "10. Cancellation & Refund",
     content: (
-      <p>
-        Cancellations and refunds are governed by our separate{" "}
-        <a href="/cancellation-policy" className="text-[#c9a07a] underline">
-          Cancellation & Refund Policy
-        </a>
-        . Please review it before entering into a service agreement.
-      </p>
+      <>
+        <p className="mb-3 font-semibold">
+          All payments made to House Banao are non-refundable.
+        </p>
+        <p>
+          Cancellations and refunds are governed by our separate{" "}
+          <a href="/cancellation-policy" className="text-[#c9a07a] underline">
+            Cancellation & Refund Policy
+          </a>
+          . Please review it before entering into a service agreement.
+        </p>
+      </>
     ),
   },
   {

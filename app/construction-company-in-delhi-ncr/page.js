@@ -518,9 +518,8 @@ export default function LandingPage() {
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 py-10">
           <p className="text-center text-[#0f0f0f] text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
             One-Stop Solutions for{" "}
-            <span className="text-[#c9a07a] font-semibold">Home Construction</span>,{" "}
-            <span className="text-[#c9a07a] font-semibold">Home Interior</span> &amp;{" "}
-            <span className="text-[#c9a07a] font-semibold">Office Interior</span> —
+            <span className="text-[#c9a07a] font-semibold">Home Construction</span> &amp;{" "}
+            <span className="text-[#c9a07a] font-semibold">Home Interior</span> —
             from concept to completion, seamlessly.
           </p>
         </div>

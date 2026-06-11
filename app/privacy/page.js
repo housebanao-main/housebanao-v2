@@ -159,7 +159,20 @@ const sections = [
     ),
   },
   {
-    title: "10. Changes to This Policy",
+    title: "10. Payments and Refunds",
+    content: (
+      <p>
+        All payments made to House Banao through our website or for our services are
+        non-refundable. For details on cancellations, please refer to our{" "}
+        <a href="/cancellation-policy" className="text-[#c9a07a] underline">
+          Cancellation & Refund Policy
+        </a>
+        .
+      </p>
+    ),
+  },
+  {
+    title: "11. Changes to This Policy",
     content: (
       <p>
         We may update this Privacy Policy from time to time to reflect changes in our practices or
@@ -170,7 +183,7 @@ const sections = [
     ),
   },
   {
-    title: "11. Contact Us",
+    title: "12. Contact Us",
     content: (
       <div className="space-y-1">
         <p>For any questions or requests regarding this Privacy Policy, reach us at:</p>
