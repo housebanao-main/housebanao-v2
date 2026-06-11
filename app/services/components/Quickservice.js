@@ -20,7 +20,7 @@ const QuickService = () => {
           </SectionHeading>
         </div>
         {/* Services and View All Button in Same Line */}
-        <div className="flex justify-between sm:justify-center sm:items-center  gap-4 md:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20 flex-wrap">
+        <div className="flex justify-center items-center gap-x-4 gap-y-6 sm:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20 flex-wrap">
           {/* Service 1 */}
 
           <div className="flex flex-col items-center">

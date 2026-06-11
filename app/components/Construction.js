@@ -11,7 +11,7 @@ export default function Construction() {
   const { openPopup } = usePopup();
 
   return (
-    <section className="bg-white py-24 border-b border-[#e8e4df]">
+    <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left — Content */}
@@ -19,8 +19,8 @@ export default function Construction() {
    <p
   className="text-[#c9a07a] font-semibold uppercase mb-4"
   style={{
-    fontSize: "48px",
-    letterSpacing: "8px",
+    fontSize: "clamp(24px, 6vw, 48px)",
+    letterSpacing: "clamp(3px, 1.5vw, 8px)",
     lineHeight: "1.2",
   }}
 >

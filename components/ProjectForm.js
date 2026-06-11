@@ -95,7 +95,7 @@ const ProjectForm = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f5f4f0] py-24 border-b border-[#e8e4df]">
+    <section className="w-full bg-[#f5f4f0] py-12 md:py-24 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
 
         {/* Header */}

@@ -95,7 +95,7 @@ const TestimonialsSection = () => {
   const review = reviews[current];
 
   return (
-    <section className="bg-[#0f0f0f] py-24 w-full border-b border-white/10">
+    <section className="bg-[#0f0f0f] py-12 md:py-24 w-full border-b border-white/10">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-white/10" data-aos="fade-up">

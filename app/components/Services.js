@@ -31,7 +31,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-white py-24 border-b border-[#e8e4df]">
+    <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">

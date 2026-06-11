@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function CustomerSays() {
   return (
-    <section className="bg-[#f5f4f0] py-20 border-b border-[#e8e4df]">
+    <section className="bg-[#f5f4f0] py-10 md:py-20 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         <div className="mb-14 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
           <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">
@@ -21,7 +21,7 @@ export default function CustomerSays() {
               src="/images/customer-1.jpg"
               alt="Mrs. Priya Sharma"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
           <div className="flex flex-col justify-center p-8 md:p-12">

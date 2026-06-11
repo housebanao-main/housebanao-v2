@@ -18,13 +18,13 @@ export default function ProjectBanner() {
       </Wrapper>
 
       <div className="py-4 md:py-0 border-y-2 border-black">
-        <Wrapper className={"flex justify-around py-0 pt-0 pb-0 "}>
+        <Wrapper className={"flex flex-col sm:flex-row sm:justify-around items-center gap-3 sm:gap-0 py-0 pt-0 pb-0 "}>
           <div className="flex flex-col gap-0 items-center ">
             <ParaText className={"font-bold"}>CNR11011</ParaText>
             <ParaText className={""}>2, 2nd Cross, Gurgoan, Delhi</ParaText>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="flex items-center gap-2">
               <FaRulerCombined />
               <ParaText>3964 sq.ft</ParaText>
@@ -51,7 +51,7 @@ const ImageCard = ({ imageSrc, subHeading }) => (
       alt="project"
       width={400}
       height={400}
-      className="max-h-72 object-cover"
+      className="w-full max-h-72 object-cover"
     />
     <div className="absolute top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-lg px-10 py-2 text-white">
       <SectionSubHeading>{subHeading}</SectionSubHeading>

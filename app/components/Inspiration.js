@@ -58,7 +58,7 @@ export default function Inspiration() {
   const [selectedRoom, setSelectedRoom] = useState("All");
 
   return (
-    <section className="bg-white py-24 border-b border-[#e8e4df]">
+    <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
 
         {/* Section Header */}

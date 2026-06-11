@@ -528,7 +528,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── SERVICES ──────────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 border-b border-[#e8e4df]">
+      <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#e8e4df]">
@@ -574,7 +574,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────────────── */}
-      <section className="bg-[#f5f4f0] py-24 border-b border-[#e8e4df]">
+      <section className="bg-[#f5f4f0] py-12 md:py-24 border-b border-[#e8e4df]">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="mb-14 pb-8 border-b border-[#e8e4df]">
             <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">Our Promise</p>
@@ -599,12 +599,12 @@ export default function LandingPage() {
       </section>
 
       {/* ── PRICING CALLOUT ───────────────────────────────────────────────── */}
-      <section className="bg-white py-24 border-b border-[#e8e4df]">
+      <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             {/* Left */}
             <div>
-              <p className="text-[#c9a07a] text-4xl font-bold tracking-[6px] uppercase mb-2 leading-tight">
+              <p className="text-[#c9a07a] text-2xl sm:text-3xl md:text-4xl font-bold tracking-[2px] sm:tracking-[4px] md:tracking-[6px] uppercase mb-2 leading-tight">
                 Start Building
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] leading-tight mb-2">
@@ -648,7 +648,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
-      <section className="bg-[#0f0f0f] py-24 border-b border-white/10">
+      <section className="bg-[#0f0f0f] py-12 md:py-24 border-b border-white/10">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="mb-14 pb-8 border-b border-white/10">
             <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">Simple Process</p>
@@ -671,7 +671,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── GALLERY STRIP ─────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 border-b border-[#e8e4df]">
+      <section className="bg-white py-12 md:py-24 border-b border-[#e8e4df]">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="mb-14 pb-8 border-b border-[#e8e4df]">
             <p className="text-[#c9a07a] text-xs font-semibold tracking-[4px] uppercase mb-3">Our Work</p>
@@ -702,7 +702,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
-      <section className="bg-[#0f0f0f] py-24 border-b border-white/10">
+      <section className="bg-[#0f0f0f] py-12 md:py-24 border-b border-white/10">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-white/10">
             <div>
@@ -786,7 +786,7 @@ export default function LandingPage() {
 
       {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
       <section
-        className="bg-cover bg-center relative py-32"
+        className="bg-cover bg-center relative py-16 md:py-32"
         style={{ backgroundImage: "url(/Hero.jpg)" }}
       >
         <div className="absolute inset-0 bg-black/75" />

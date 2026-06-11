@@ -26,7 +26,7 @@ const homeTypes = [
 
 export default function HowItStarted() {
   return (
-    <section className="bg-[#f5f4f0] py-20 border-b border-[#e8e4df]">
+    <section className="bg-[#f5f4f0] py-10 md:py-20 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         {/* Story */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20" data-aos="fade-up">

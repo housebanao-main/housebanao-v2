@@ -654,7 +654,7 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* MAIN SECTION */}
-      <section className="bg-[#f8f8f8] py-20 px-4">
+      <section className="bg-[#f8f8f8] py-10 md:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-[30px] shadow-sm border border-gray-100 p-10 md:p-16">
             {content ? (
@@ -700,7 +700,7 @@ export default function ServiceDetailPage() {
                 </div>
               </>
             ) : (
-              <div className="text-center py-20">
+              <div className="text-center py-10 md:py-20">
                 <h1 className="text-3xl font-bold text-black mb-4">
                   {serviceName}
                 </h1>

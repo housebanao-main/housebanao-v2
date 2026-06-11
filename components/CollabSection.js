@@ -15,7 +15,7 @@ export const CollabsSection = () => {
   ];
 
   return (
-    <section className="bg-white py-20 border-b border-[#e8e4df]">
+    <section className="bg-white py-10 md:py-20 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">

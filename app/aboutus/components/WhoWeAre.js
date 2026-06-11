@@ -20,7 +20,7 @@ const WhoWeAre = () => {
                     <SectionHeading className='text-[#5D5D5D] text-center font-bold mb-4'>
                         Who We Are
                     </SectionHeading>
-                    <ParaText className='text-[#575757] text-2xl leading-relaxed text-center'>
+                    <ParaText className='text-[#575757] sm:text-lg leading-relaxed text-center'>
                      House Banao was founded on one belief that everyone deserves a beautiful and well-maintained home. With many years of experience, our passionate team of designers, architects, and builders work tirelessly to provide the best services beyond our client's expectations. We believe that every house tells a story, so here we are committed to assisting our clients in creating their own. One of the main things that sets us apart from others is that we take pride in working one-on-one with our clients to bring their unique vision to life.
                     </ParaText>
                 </div>

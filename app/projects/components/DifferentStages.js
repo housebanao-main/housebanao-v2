@@ -9,7 +9,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function DifferentStages() {
   return (
-    <section className="bg-white py-20 border-b border-[#e8e4df]">
+    <section className="bg-white py-10 md:py-20 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         <div className="mb-14 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">
           <p className="text-[#c9a07a] text-sm font-semibold tracking-[4px] uppercase mb-3">

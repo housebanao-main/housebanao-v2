@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function ViewProjects() {
   return (
-    <section className="bg-[#f5f4f0] py-24 border-b border-[#e8e4df]">
+    <section className="bg-[#f5f4f0] py-12 md:py-24 border-b border-[#e8e4df]">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#e8e4df]" data-aos="fade-up">

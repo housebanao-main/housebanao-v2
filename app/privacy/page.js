@@ -218,7 +218,7 @@ export default function PrivacyPolicy() {
       </section>
 
       {/* Content */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
           <div className="max-w-3xl">
 

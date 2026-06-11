@@ -6,7 +6,7 @@ import FaqQuestions from "./FaqQuestions";
 
 const Faqs = () => {
   return (
-    <section className="bg-[#fdf4f1] py-20">
+    <section className="bg-[#fdf4f1] py-10 md:py-20">
       <Wrapper className="w-full lg:w-[96%] mx-auto">
         
         {/* Main Parent Card */}

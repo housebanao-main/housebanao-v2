@@ -24,7 +24,7 @@ export default function FloatingButtons() {
           style={{ backgroundColor: "#a46352" }}
           aria-label="Call HouseBanao"
         >
-          <FaPhone className="text-white text-xl" />
+          <FaPhone className="text-white text-xl -scale-x-100" />
         </a>
       </div>
 

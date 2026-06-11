@@ -7,7 +7,7 @@ import Wrapper from "./Wrapper";
 
 const GetInTouch = () => {
   return (
-    <section className="bg-[#0f0f0f] py-20 border-b border-white/10">
+    <section className="bg-[#0f0f0f] py-10 md:py-20 border-b border-white/10">
       <Wrapper className="w-full lg:w-[90%] mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-10" data-aos="fade-up">
           {/* Left */}
