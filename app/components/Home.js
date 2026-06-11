@@ -51,12 +51,12 @@ export default function Home() {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap items-center gap-4" data-aos="fade-up" data-aos-delay="400">
-              <span className="text-white/50 text-base">Popular:</span>
-              <BlueButton className="bg-[#c9a07a] hover:bg-[#b8906a] text-black rounded-sm font-semibold px-6 py-3 text-sm tracking-wide border-0 transition-all duration-300">
+            <div className="flex flex-row flex-nowrap items-center gap-2 overflow-x-auto" data-aos="fade-up" data-aos-delay="400">
+              <span className="text-white/50 text-[18px] whitespace-nowrap">Popular:</span>
+              <BlueButton className="bg-[#c9a07a] hover:bg-[#b8906a] text-black rounded-sm font-semibold !px-4 !py-2 !text-[15px] whitespace-nowrap tracking-wide border-0 transition-all duration-300">
                 Interior Designing
               </BlueButton>
-              <BlueButton className="bg-transparent border border-white/50 text-white rounded-sm font-semibold px-6 py-3 text-sm tracking-wide hover:border-[#c9a07a] hover:text-[#c9a07a] transition-all duration-300">
+              <BlueButton className="bg-transparent border border-white/50 text-white rounded-sm font-semibold !px-4 !py-2 !text-[15px] whitespace-nowrap tracking-wide hover:border-[#c9a07a] hover:text-[#c9a07a] transition-all duration-300">
                 End to End Construction
               </BlueButton>
             </div>

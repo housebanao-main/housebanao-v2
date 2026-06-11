@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { IoHeadsetOutline } from "react-icons/io5";
 import Wrapper from "./Wrapper";
 
 const GetInTouch = () => {
@@ -13,13 +13,7 @@ const GetInTouch = () => {
           {/* Left */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
             <div className="w-16 h-16 border border-[#c9a07a]/40 flex items-center justify-center flex-shrink-0">
-              <Image
-                src="/icons/support-icon.png"
-                alt="Support"
-                width={40}
-                height={40}
-                className="w-9 h-9 object-contain"
-              />
+              <IoHeadsetOutline className="text-3xl text-[#c9a07a]" />
             </div>
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">

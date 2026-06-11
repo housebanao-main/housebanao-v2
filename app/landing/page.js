@@ -657,7 +657,7 @@ export default function LandingPage() {
  
 
 
- 
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {steps.map((s, i) => (
               <div key={i} className="px-8 py-10 flex flex-col gap-4 group hover:bg-white/5 transition-colors">
@@ -818,7 +818,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+          
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <footer className="bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-screen-2xl mx-auto w-full lg:w-[90%] px-4 md:px-8">
